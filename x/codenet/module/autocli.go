@@ -24,6 +24,13 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 					PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "encodedDataId"}},
 				},
 
+				{
+					RpcMethod:      "GetProofById",
+					Use:            "get-proof-by-id [encoded-data-id]",
+					Short:          "Query getProofById",
+					PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "encodedDataId"}},
+				},
+
 				// this line is used by ignite scaffolding # autocli/query
 			},
 		},

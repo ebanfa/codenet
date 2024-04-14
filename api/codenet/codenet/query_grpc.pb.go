@@ -22,6 +22,7 @@ const _ = grpc.SupportPackageIsVersion7
 const (
 	Query_Params_FullMethodName             = "/codenet.codenet.Query/Params"
 	Query_GetEncodedDataById_FullMethodName = "/codenet.codenet.Query/GetEncodedDataById"
+	Query_GetProofById_FullMethodName       = "/codenet.codenet.Query/GetProofById"
 )
 
 // QueryClient is the client API for Query service.
@@ -32,6 +33,8 @@ type QueryClient interface {
 	Params(ctx context.Context, in *QueryParamsRequest, opts ...grpc.CallOption) (*QueryParamsResponse, error)
 	// Queries a list of GetEncodedDataById items.
 	GetEncodedDataById(ctx context.Context, in *QueryGetEncodedDataByIdRequest, opts ...grpc.CallOption) (*QueryGetEncodedDataByIdResponse, error)
+	// Queries a list of GetProofById items.
+	GetProofById(ctx context.Context, in *QueryGetProofByIdRequest, opts ...grpc.CallOption) (*QueryGetProofByIdResponse, error)
 }
 
 type queryClient struct {
@@ -60,6 +63,15 @@ func (c *queryClient) GetEncodedDataById(ctx context.Context, in *QueryGetEncode
 	return out, nil
 }
 
+func (c *queryClient) GetProofById(ctx context.Context, in *QueryGetProofByIdRequest, opts ...grpc.CallOption) (*QueryGetProofByIdResponse, error) {
+	out := new(QueryGetProofByIdResponse)
+	err := c.cc.Invoke(ctx, Query_GetProofById_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // QueryServer is the server API for Query service.
 // All implementations must embed UnimplementedQueryServer
 // for forward compatibility
@@ -68,6 +80,8 @@ type QueryServer interface {
 	Params(context.Context, *QueryParamsRequest) (*QueryParamsResponse, error)
 	// Queries a list of GetEncodedDataById items.
 	GetEncodedDataById(context.Context, *QueryGetEncodedDataByIdRequest) (*QueryGetEncodedDataByIdResponse, error)
+	// Queries a list of GetProofById items.
+	GetProofById(context.Context, *QueryGetProofByIdRequest) (*QueryGetProofByIdResponse, error)
 	mustEmbedUnimplementedQueryServer()
 }
 
@@ -80,6 +94,9 @@ func (UnimplementedQueryServer) Params(context.Context, *QueryParamsRequest) (*Q
 }
 func (UnimplementedQueryServer) GetEncodedDataById(context.Context, *QueryGetEncodedDataByIdRequest) (*QueryGetEncodedDataByIdResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetEncodedDataById not implemented")
+}
+func (UnimplementedQueryServer) GetProofById(context.Context, *QueryGetProofByIdRequest) (*QueryGetProofByIdResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetProofById not implemented")
 }
 func (UnimplementedQueryServer) mustEmbedUnimplementedQueryServer() {}
 
@@ -130,6 +147,24 @@ func _Query_GetEncodedDataById_Handler(srv interface{}, ctx context.Context, dec
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Query_GetProofById_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryGetProofByIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).GetProofById(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Query_GetProofById_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).GetProofById(ctx, req.(*QueryGetProofByIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Query_ServiceDesc is the grpc.ServiceDesc for Query service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -144,6 +179,10 @@ var Query_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetEncodedDataById",
 			Handler:    _Query_GetEncodedDataById_Handler,
+		},
+		{
+			MethodName: "GetProofById",
+			Handler:    _Query_GetProofById_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

@@ -25,6 +25,12 @@ service Query {
     option (google.api.http).get = "/codenet/codenet/get_encoded_data_by_id/{encodedDataId}";
   
   }
+  
+  // Queries a list of GetProofById items.
+  rpc GetProofById (QueryGetProofByIdRequest) returns (QueryGetProofByIdResponse) {
+    option (google.api.http).get = "/codenet/codenet/get_proof_by_id/{encodedDataId}";
+  
+  }
 }
 // QueryParamsRequest is request type for the Query/Params RPC method.
 message QueryParamsRequest {}
@@ -42,5 +48,13 @@ message QueryGetEncodedDataByIdRequest {
 
 message QueryGetEncodedDataByIdResponse {
   EncodedData encodedData = 1;
+}
+
+message QueryGetProofByIdRequest {
+  uint64 encodedDataId = 1;
+}
+
+message QueryGetProofByIdResponse {
+  repeated uint64 proof = 1;
 }
 

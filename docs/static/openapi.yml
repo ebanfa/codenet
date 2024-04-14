@@ -72,6 +72,47 @@ paths:
           format: uint64
       tags:
         - Query
+  /codenet/codenet/get_proof_by_id/{encodedDataId}:
+    get:
+      summary: Queries a list of GetProofById items.
+      operationId: CodenetCodenetQuery_GetProofById
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties:
+              proof:
+                type: array
+                items:
+                  type: string
+                  format: uint64
+        default:
+          description: An unexpected error response.
+          schema:
+            type: object
+            properties:
+              code:
+                type: integer
+                format: int32
+              message:
+                type: string
+              details:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    '@type':
+                      type: string
+                  additionalProperties: {}
+      parameters:
+        - name: encodedDataId
+          in: path
+          required: true
+          type: string
+          format: uint64
+      tags:
+        - Query
   /codenet/codenet/params:
     get:
       summary: Parameters queries the parameters of the module.
@@ -16916,6 +16957,14 @@ definitions:
           version:
             type: string
             format: uint64
+  codenet.codenet.QueryGetProofByIdResponse:
+    type: object
+    properties:
+      proof:
+        type: array
+        items:
+          type: string
+          format: uint64
   codenet.codenet.QueryParamsResponse:
     type: object
     properties:
