@@ -29,6 +29,7 @@ const (
 	Query_GetEncodedDataByTimestamp_FullMethodName   = "/codenet.codenet.Query/GetEncodedDataByTimestamp"
 	Query_GetEncodedDataByChecksum_FullMethodName    = "/codenet.codenet.Query/GetEncodedDataByChecksum"
 	Query_GetEncodedDataByBlockNumber_FullMethodName = "/codenet.codenet.Query/GetEncodedDataByBlockNumber"
+	Query_GetEncodedDataCount_FullMethodName         = "/codenet.codenet.Query/GetEncodedDataCount"
 )
 
 // QueryClient is the client API for Query service.
@@ -53,6 +54,8 @@ type QueryClient interface {
 	GetEncodedDataByChecksum(ctx context.Context, in *QueryGetEncodedDataByChecksumRequest, opts ...grpc.CallOption) (*QueryGetEncodedDataByChecksumResponse, error)
 	// Queries a list of GetEncodedDataByBlockNumber items.
 	GetEncodedDataByBlockNumber(ctx context.Context, in *QueryGetEncodedDataByBlockNumberRequest, opts ...grpc.CallOption) (*QueryGetEncodedDataByBlockNumberResponse, error)
+	// Queries a list of GetEncodedDataCount items.
+	GetEncodedDataCount(ctx context.Context, in *QueryGetEncodedDataCountRequest, opts ...grpc.CallOption) (*QueryGetEncodedDataCountResponse, error)
 }
 
 type queryClient struct {
@@ -144,6 +147,15 @@ func (c *queryClient) GetEncodedDataByBlockNumber(ctx context.Context, in *Query
 	return out, nil
 }
 
+func (c *queryClient) GetEncodedDataCount(ctx context.Context, in *QueryGetEncodedDataCountRequest, opts ...grpc.CallOption) (*QueryGetEncodedDataCountResponse, error) {
+	out := new(QueryGetEncodedDataCountResponse)
+	err := c.cc.Invoke(ctx, Query_GetEncodedDataCount_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // QueryServer is the server API for Query service.
 // All implementations must embed UnimplementedQueryServer
 // for forward compatibility
@@ -166,6 +178,8 @@ type QueryServer interface {
 	GetEncodedDataByChecksum(context.Context, *QueryGetEncodedDataByChecksumRequest) (*QueryGetEncodedDataByChecksumResponse, error)
 	// Queries a list of GetEncodedDataByBlockNumber items.
 	GetEncodedDataByBlockNumber(context.Context, *QueryGetEncodedDataByBlockNumberRequest) (*QueryGetEncodedDataByBlockNumberResponse, error)
+	// Queries a list of GetEncodedDataCount items.
+	GetEncodedDataCount(context.Context, *QueryGetEncodedDataCountRequest) (*QueryGetEncodedDataCountResponse, error)
 	mustEmbedUnimplementedQueryServer()
 }
 
@@ -199,6 +213,9 @@ func (UnimplementedQueryServer) GetEncodedDataByChecksum(context.Context, *Query
 }
 func (UnimplementedQueryServer) GetEncodedDataByBlockNumber(context.Context, *QueryGetEncodedDataByBlockNumberRequest) (*QueryGetEncodedDataByBlockNumberResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetEncodedDataByBlockNumber not implemented")
+}
+func (UnimplementedQueryServer) GetEncodedDataCount(context.Context, *QueryGetEncodedDataCountRequest) (*QueryGetEncodedDataCountResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetEncodedDataCount not implemented")
 }
 func (UnimplementedQueryServer) mustEmbedUnimplementedQueryServer() {}
 
@@ -375,6 +392,24 @@ func _Query_GetEncodedDataByBlockNumber_Handler(srv interface{}, ctx context.Con
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Query_GetEncodedDataCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryGetEncodedDataCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).GetEncodedDataCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Query_GetEncodedDataCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).GetEncodedDataCount(ctx, req.(*QueryGetEncodedDataCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Query_ServiceDesc is the grpc.ServiceDesc for Query service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -417,6 +452,10 @@ var Query_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetEncodedDataByBlockNumber",
 			Handler:    _Query_GetEncodedDataByBlockNumber_Handler,
+		},
+		{
+			MethodName: "GetEncodedDataCount",
+			Handler:    _Query_GetEncodedDataCount_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

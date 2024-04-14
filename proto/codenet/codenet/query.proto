@@ -67,6 +67,12 @@ service Query {
     option (google.api.http).get = "/codenet/codenet/get_encoded_data_by_block_number/{blockNumber}";
   
   }
+  
+  // Queries a list of GetEncodedDataCount items.
+  rpc GetEncodedDataCount (QueryGetEncodedDataCountRequest) returns (QueryGetEncodedDataCountResponse) {
+    option (google.api.http).get = "/codenet/codenet/get_encoded_data_count";
+  
+  }
 }
 // QueryParamsRequest is request type for the Query/Params RPC method.
 message QueryParamsRequest {}
@@ -148,5 +154,11 @@ message QueryGetEncodedDataByBlockNumberRequest {
 message QueryGetEncodedDataByBlockNumberResponse {
   EncodedData                            encodedDataList = 1;
   cosmos.base.query.v1beta1.PageResponse pagination      = 2;
+}
+
+message QueryGetEncodedDataCountRequest {}
+
+message QueryGetEncodedDataCountResponse {
+  uint64 count = 1;
 }
 

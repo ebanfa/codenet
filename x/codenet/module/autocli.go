@@ -73,6 +73,13 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 					PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "blockNumber"}},
 				},
 
+				{
+					RpcMethod:      "GetEncodedDataCount",
+					Use:            "get-encoded-data-count",
+					Short:          "Query getEncodedDataCount",
+					PositionalArgs: []*autocliv1.PositionalArgDescriptor{},
+				},
+
 				// this line is used by ignite scaffolding # autocli/query
 			},
 		},

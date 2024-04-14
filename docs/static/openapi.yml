@@ -716,6 +716,39 @@ paths:
           type: boolean
       tags:
         - Query
+  /codenet/codenet/get_encoded_data_count:
+    get:
+      summary: Queries a list of GetEncodedDataCount items.
+      operationId: CodenetCodenetQuery_GetEncodedDataCount
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties:
+              count:
+                type: string
+                format: uint64
+        default:
+          description: An unexpected error response.
+          schema:
+            type: object
+            properties:
+              code:
+                type: integer
+                format: int32
+              message:
+                type: string
+              details:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    '@type':
+                      type: string
+                  additionalProperties: {}
+      tags:
+        - Query
   /codenet/codenet/get_proof_by_id/{encodedDataId}:
     get:
       summary: Queries a list of GetProofById items.
@@ -17888,6 +17921,12 @@ definitions:
                    repeated Bar results = 1;
                    PageResponse page = 2;
            }
+  codenet.codenet.QueryGetEncodedDataCountResponse:
+    type: object
+    properties:
+      count:
+        type: string
+        format: uint64
   codenet.codenet.QueryGetProofByIdResponse:
     type: object
     properties:
