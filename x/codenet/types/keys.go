@@ -26,6 +26,11 @@ var (
 	PortKey = KeyPrefix("codenet-port-")
 )
 
+const (
+	EncodedDataKey      = "EncodedData/value/"
+	EncodedDataCountKey = "EncodedData/count/"
+)
+
 func KeyPrefix(p string) []byte {
 	return []byte(p)
 }
