@@ -27,6 +27,7 @@ type CodenetPacketData struct {
 	// Types that are valid to be assigned to Packet:
 	//
 	//	*CodenetPacketData_NoData
+	//	*CodenetPacketData_IbcEncodedDataPacket
 	Packet isCodenetPacketData_Packet `protobuf_oneof:"packet"`
 }
 
@@ -72,8 +73,12 @@ type isCodenetPacketData_Packet interface {
 type CodenetPacketData_NoData struct {
 	NoData *NoData `protobuf:"bytes,1,opt,name=noData,proto3,oneof" json:"noData,omitempty"`
 }
+type CodenetPacketData_IbcEncodedDataPacket struct {
+	IbcEncodedDataPacket *IbcEncodedDataPacketData `protobuf:"bytes,2,opt,name=ibcEncodedDataPacket,proto3,oneof" json:"ibcEncodedDataPacket,omitempty"`
+}
 
-func (*CodenetPacketData_NoData) isCodenetPacketData_Packet() {}
+func (*CodenetPacketData_NoData) isCodenetPacketData_Packet()               {}
+func (*CodenetPacketData_IbcEncodedDataPacket) isCodenetPacketData_Packet() {}
 
 func (m *CodenetPacketData) GetPacket() isCodenetPacketData_Packet {
 	if m != nil {
@@ -89,10 +94,18 @@ func (m *CodenetPacketData) GetNoData() *NoData {
 	return nil
 }
 
+func (m *CodenetPacketData) GetIbcEncodedDataPacket() *IbcEncodedDataPacketData {
+	if x, ok := m.GetPacket().(*CodenetPacketData_IbcEncodedDataPacket); ok {
+		return x.IbcEncodedDataPacket
+	}
+	return nil
+}
+
 // XXX_OneofWrappers is for the internal use of the proto package.
 func (*CodenetPacketData) XXX_OneofWrappers() []interface{} {
 	return []interface{}{
 		(*CodenetPacketData_NoData)(nil),
+		(*CodenetPacketData_IbcEncodedDataPacket)(nil),
 	}
 }
 
@@ -132,25 +145,185 @@ func (m *NoData) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_NoData proto.InternalMessageInfo
 
+// IbcEncodedDataPacketData defines a struct for the packet payload
+type IbcEncodedDataPacketData struct {
+	Data              []uint64 `protobuf:"varint,1,rep,packed,name=data,proto3" json:"data,omitempty"`
+	EncodedDataId     uint64   `protobuf:"varint,2,opt,name=encodedDataId,proto3" json:"encodedDataId,omitempty"`
+	EncodingProof     []uint64 `protobuf:"varint,3,rep,packed,name=encodingProof,proto3" json:"encodingProof,omitempty"`
+	BlockNumber       uint64   `protobuf:"varint,4,opt,name=blockNumber,proto3" json:"blockNumber,omitempty"`
+	EncodingAlgorithm string   `protobuf:"bytes,5,opt,name=encodingAlgorithm,proto3" json:"encodingAlgorithm,omitempty"`
+	DataSize          uint64   `protobuf:"varint,6,opt,name=dataSize,proto3" json:"dataSize,omitempty"`
+	Checksum          string   `protobuf:"bytes,7,opt,name=checksum,proto3" json:"checksum,omitempty"`
+	Version           uint64   `protobuf:"varint,8,opt,name=version,proto3" json:"version,omitempty"`
+}
+
+func (m *IbcEncodedDataPacketData) Reset()         { *m = IbcEncodedDataPacketData{} }
+func (m *IbcEncodedDataPacketData) String() string { return proto.CompactTextString(m) }
+func (*IbcEncodedDataPacketData) ProtoMessage()    {}
+func (*IbcEncodedDataPacketData) Descriptor() ([]byte, []int) {
+	return fileDescriptor_0f5a112513556865, []int{2}
+}
+func (m *IbcEncodedDataPacketData) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *IbcEncodedDataPacketData) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_IbcEncodedDataPacketData.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *IbcEncodedDataPacketData) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_IbcEncodedDataPacketData.Merge(m, src)
+}
+func (m *IbcEncodedDataPacketData) XXX_Size() int {
+	return m.Size()
+}
+func (m *IbcEncodedDataPacketData) XXX_DiscardUnknown() {
+	xxx_messageInfo_IbcEncodedDataPacketData.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_IbcEncodedDataPacketData proto.InternalMessageInfo
+
+func (m *IbcEncodedDataPacketData) GetData() []uint64 {
+	if m != nil {
+		return m.Data
+	}
+	return nil
+}
+
+func (m *IbcEncodedDataPacketData) GetEncodedDataId() uint64 {
+	if m != nil {
+		return m.EncodedDataId
+	}
+	return 0
+}
+
+func (m *IbcEncodedDataPacketData) GetEncodingProof() []uint64 {
+	if m != nil {
+		return m.EncodingProof
+	}
+	return nil
+}
+
+func (m *IbcEncodedDataPacketData) GetBlockNumber() uint64 {
+	if m != nil {
+		return m.BlockNumber
+	}
+	return 0
+}
+
+func (m *IbcEncodedDataPacketData) GetEncodingAlgorithm() string {
+	if m != nil {
+		return m.EncodingAlgorithm
+	}
+	return ""
+}
+
+func (m *IbcEncodedDataPacketData) GetDataSize() uint64 {
+	if m != nil {
+		return m.DataSize
+	}
+	return 0
+}
+
+func (m *IbcEncodedDataPacketData) GetChecksum() string {
+	if m != nil {
+		return m.Checksum
+	}
+	return ""
+}
+
+func (m *IbcEncodedDataPacketData) GetVersion() uint64 {
+	if m != nil {
+		return m.Version
+	}
+	return 0
+}
+
+// IbcEncodedDataPacketAck defines a struct for the packet acknowledgment
+type IbcEncodedDataPacketAck struct {
+	EncodedDataId string `protobuf:"bytes,1,opt,name=encodedDataId,proto3" json:"encodedDataId,omitempty"`
+}
+
+func (m *IbcEncodedDataPacketAck) Reset()         { *m = IbcEncodedDataPacketAck{} }
+func (m *IbcEncodedDataPacketAck) String() string { return proto.CompactTextString(m) }
+func (*IbcEncodedDataPacketAck) ProtoMessage()    {}
+func (*IbcEncodedDataPacketAck) Descriptor() ([]byte, []int) {
+	return fileDescriptor_0f5a112513556865, []int{3}
+}
+func (m *IbcEncodedDataPacketAck) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *IbcEncodedDataPacketAck) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_IbcEncodedDataPacketAck.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *IbcEncodedDataPacketAck) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_IbcEncodedDataPacketAck.Merge(m, src)
+}
+func (m *IbcEncodedDataPacketAck) XXX_Size() int {
+	return m.Size()
+}
+func (m *IbcEncodedDataPacketAck) XXX_DiscardUnknown() {
+	xxx_messageInfo_IbcEncodedDataPacketAck.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_IbcEncodedDataPacketAck proto.InternalMessageInfo
+
+func (m *IbcEncodedDataPacketAck) GetEncodedDataId() string {
+	if m != nil {
+		return m.EncodedDataId
+	}
+	return ""
+}
+
 func init() {
 	proto.RegisterType((*CodenetPacketData)(nil), "codenet.codenet.CodenetPacketData")
 	proto.RegisterType((*NoData)(nil), "codenet.codenet.NoData")
+	proto.RegisterType((*IbcEncodedDataPacketData)(nil), "codenet.codenet.IbcEncodedDataPacketData")
+	proto.RegisterType((*IbcEncodedDataPacketAck)(nil), "codenet.codenet.IbcEncodedDataPacketAck")
 }
 
 func init() { proto.RegisterFile("codenet/codenet/packet.proto", fileDescriptor_0f5a112513556865) }
 
 var fileDescriptor_0f5a112513556865 = []byte{
-	// 153 bytes of a gzipped FileDescriptorProto
+	// 349 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x92, 0x49, 0xce, 0x4f, 0x49,
 	0xcd, 0x4b, 0x2d, 0xd1, 0x87, 0xd1, 0x05, 0x89, 0xc9, 0xd9, 0xa9, 0x25, 0x7a, 0x05, 0x45, 0xf9,
-	0x25, 0xf9, 0x42, 0xfc, 0x50, 0x51, 0x3d, 0x28, 0xad, 0x14, 0xc0, 0x25, 0xe8, 0x0c, 0x61, 0x06,
-	0x80, 0xd5, 0xb9, 0x24, 0x96, 0x24, 0x0a, 0x19, 0x72, 0xb1, 0xe5, 0xe5, 0x83, 0x58, 0x12, 0x8c,
-	0x0a, 0x8c, 0x1a, 0xdc, 0x46, 0xe2, 0x7a, 0x68, 0xda, 0xf4, 0xfc, 0xc0, 0xd2, 0x1e, 0x0c, 0x41,
-	0x50, 0x85, 0x4e, 0x1c, 0x5c, 0x6c, 0x10, 0x8b, 0x94, 0x38, 0xb8, 0xd8, 0x20, 0xb2, 0x4e, 0x86,
-	0x27, 0x1e, 0xc9, 0x31, 0x5e, 0x78, 0x24, 0xc7, 0xf8, 0xe0, 0x91, 0x1c, 0xe3, 0x84, 0xc7, 0x72,
-	0x0c, 0x17, 0x1e, 0xcb, 0x31, 0xdc, 0x78, 0x2c, 0xc7, 0x10, 0x25, 0x0e, 0x73, 0x5c, 0x05, 0xdc,
-	0x99, 0x25, 0x95, 0x05, 0xa9, 0xc5, 0x49, 0x6c, 0x60, 0x67, 0x1a, 0x03, 0x02, 0x00, 0x00, 0xff,
-	0xff, 0x4e, 0x72, 0x4b, 0x14, 0xc6, 0x00, 0x00, 0x00,
+	0x25, 0xf9, 0x42, 0xfc, 0x50, 0x51, 0x3d, 0x28, 0xad, 0xb4, 0x91, 0x91, 0x4b, 0xd0, 0x19, 0xc2,
+	0x0e, 0x00, 0x2b, 0x74, 0x49, 0x2c, 0x49, 0x14, 0x32, 0xe4, 0x62, 0xcb, 0xcb, 0x07, 0xb1, 0x24,
+	0x18, 0x15, 0x18, 0x35, 0xb8, 0x8d, 0xc4, 0xf5, 0xd0, 0xf4, 0xe9, 0xf9, 0x81, 0xa5, 0x3d, 0x18,
+	0x82, 0xa0, 0x0a, 0x85, 0xe2, 0xb9, 0x44, 0x32, 0x93, 0x92, 0x5d, 0xf3, 0x40, 0x0a, 0x52, 0x40,
+	0x22, 0x10, 0xe3, 0x24, 0x98, 0xc0, 0x06, 0x68, 0x62, 0x18, 0xe0, 0x89, 0x45, 0x31, 0xd4, 0x48,
+	0xac, 0x06, 0x39, 0x71, 0x70, 0xb1, 0x41, 0xbc, 0xa2, 0xc4, 0xc1, 0xc5, 0x06, 0xb1, 0x5e, 0x69,
+	0x0e, 0x13, 0x97, 0x04, 0x2e, 0x83, 0x84, 0x84, 0xb8, 0x58, 0x52, 0x20, 0x5e, 0x60, 0xd6, 0x60,
+	0x09, 0x02, 0xb3, 0x85, 0x54, 0xb8, 0x78, 0x53, 0x11, 0x8a, 0x3d, 0x53, 0xc0, 0xce, 0x63, 0x09,
+	0x42, 0x15, 0x84, 0xab, 0xca, 0xcc, 0x4b, 0x0f, 0x28, 0xca, 0xcf, 0x4f, 0x93, 0x60, 0x06, 0x1b,
+	0x81, 0x2a, 0x28, 0xa4, 0xc0, 0xc5, 0x9d, 0x94, 0x93, 0x9f, 0x9c, 0xed, 0x57, 0x9a, 0x9b, 0x94,
+	0x5a, 0x24, 0xc1, 0x02, 0x36, 0x09, 0x59, 0x48, 0x48, 0x87, 0x4b, 0x10, 0xa6, 0xc5, 0x31, 0x27,
+	0x3d, 0xbf, 0x28, 0xb3, 0x24, 0x23, 0x57, 0x82, 0x55, 0x81, 0x51, 0x83, 0x33, 0x08, 0x53, 0x42,
+	0x48, 0x8a, 0x8b, 0x03, 0xe4, 0xc6, 0xe0, 0xcc, 0xaa, 0x54, 0x09, 0x36, 0xb0, 0x61, 0x70, 0x3e,
+	0x48, 0x2e, 0x39, 0x23, 0x35, 0x39, 0xbb, 0xb8, 0x34, 0x57, 0x82, 0x1d, 0x6c, 0x00, 0x9c, 0x2f,
+	0x24, 0xc1, 0xc5, 0x5e, 0x96, 0x5a, 0x54, 0x9c, 0x99, 0x9f, 0x27, 0xc1, 0x01, 0xd6, 0x06, 0xe3,
+	0x2a, 0xd9, 0x73, 0x89, 0x63, 0x0b, 0x1d, 0xc7, 0xe4, 0x6c, 0xcc, 0x80, 0x60, 0x04, 0x9b, 0x8a,
+	0x2a, 0xe8, 0x64, 0x78, 0xe2, 0x91, 0x1c, 0xe3, 0x85, 0x47, 0x72, 0x8c, 0x0f, 0x1e, 0xc9, 0x31,
+	0x4e, 0x78, 0x2c, 0xc7, 0x70, 0xe1, 0xb1, 0x1c, 0xc3, 0x8d, 0xc7, 0x72, 0x0c, 0x51, 0xe2, 0xb0,
+	0xe4, 0x55, 0x01, 0x4f, 0x68, 0x25, 0x95, 0x05, 0xa9, 0xc5, 0x49, 0x6c, 0xe0, 0x84, 0x66, 0x0c,
+	0x08, 0x00, 0x00, 0xff, 0xff, 0xfb, 0xd5, 0x22, 0xb5, 0x88, 0x02, 0x00, 0x00,
 }
 
 func (m *CodenetPacketData) Marshal() (dAtA []byte, err error) {
@@ -206,6 +379,27 @@ func (m *CodenetPacketData_NoData) MarshalToSizedBuffer(dAtA []byte) (int, error
 	}
 	return len(dAtA) - i, nil
 }
+func (m *CodenetPacketData_IbcEncodedDataPacket) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *CodenetPacketData_IbcEncodedDataPacket) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	if m.IbcEncodedDataPacket != nil {
+		{
+			size, err := m.IbcEncodedDataPacket.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintPacket(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0x12
+	}
+	return len(dAtA) - i, nil
+}
 func (m *NoData) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
@@ -226,6 +420,129 @@ func (m *NoData) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
+	return len(dAtA) - i, nil
+}
+
+func (m *IbcEncodedDataPacketData) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *IbcEncodedDataPacketData) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *IbcEncodedDataPacketData) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Version != 0 {
+		i = encodeVarintPacket(dAtA, i, uint64(m.Version))
+		i--
+		dAtA[i] = 0x40
+	}
+	if len(m.Checksum) > 0 {
+		i -= len(m.Checksum)
+		copy(dAtA[i:], m.Checksum)
+		i = encodeVarintPacket(dAtA, i, uint64(len(m.Checksum)))
+		i--
+		dAtA[i] = 0x3a
+	}
+	if m.DataSize != 0 {
+		i = encodeVarintPacket(dAtA, i, uint64(m.DataSize))
+		i--
+		dAtA[i] = 0x30
+	}
+	if len(m.EncodingAlgorithm) > 0 {
+		i -= len(m.EncodingAlgorithm)
+		copy(dAtA[i:], m.EncodingAlgorithm)
+		i = encodeVarintPacket(dAtA, i, uint64(len(m.EncodingAlgorithm)))
+		i--
+		dAtA[i] = 0x2a
+	}
+	if m.BlockNumber != 0 {
+		i = encodeVarintPacket(dAtA, i, uint64(m.BlockNumber))
+		i--
+		dAtA[i] = 0x20
+	}
+	if len(m.EncodingProof) > 0 {
+		dAtA4 := make([]byte, len(m.EncodingProof)*10)
+		var j3 int
+		for _, num := range m.EncodingProof {
+			for num >= 1<<7 {
+				dAtA4[j3] = uint8(uint64(num)&0x7f | 0x80)
+				num >>= 7
+				j3++
+			}
+			dAtA4[j3] = uint8(num)
+			j3++
+		}
+		i -= j3
+		copy(dAtA[i:], dAtA4[:j3])
+		i = encodeVarintPacket(dAtA, i, uint64(j3))
+		i--
+		dAtA[i] = 0x1a
+	}
+	if m.EncodedDataId != 0 {
+		i = encodeVarintPacket(dAtA, i, uint64(m.EncodedDataId))
+		i--
+		dAtA[i] = 0x10
+	}
+	if len(m.Data) > 0 {
+		dAtA6 := make([]byte, len(m.Data)*10)
+		var j5 int
+		for _, num := range m.Data {
+			for num >= 1<<7 {
+				dAtA6[j5] = uint8(uint64(num)&0x7f | 0x80)
+				num >>= 7
+				j5++
+			}
+			dAtA6[j5] = uint8(num)
+			j5++
+		}
+		i -= j5
+		copy(dAtA[i:], dAtA6[:j5])
+		i = encodeVarintPacket(dAtA, i, uint64(j5))
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *IbcEncodedDataPacketAck) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *IbcEncodedDataPacketAck) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *IbcEncodedDataPacketAck) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if len(m.EncodedDataId) > 0 {
+		i -= len(m.EncodedDataId)
+		copy(dAtA[i:], m.EncodedDataId)
+		i = encodeVarintPacket(dAtA, i, uint64(len(m.EncodedDataId)))
+		i--
+		dAtA[i] = 0xa
+	}
 	return len(dAtA) - i, nil
 }
 
@@ -264,12 +581,80 @@ func (m *CodenetPacketData_NoData) Size() (n int) {
 	}
 	return n
 }
+func (m *CodenetPacketData_IbcEncodedDataPacket) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.IbcEncodedDataPacket != nil {
+		l = m.IbcEncodedDataPacket.Size()
+		n += 1 + l + sovPacket(uint64(l))
+	}
+	return n
+}
 func (m *NoData) Size() (n int) {
 	if m == nil {
 		return 0
 	}
 	var l int
 	_ = l
+	return n
+}
+
+func (m *IbcEncodedDataPacketData) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if len(m.Data) > 0 {
+		l = 0
+		for _, e := range m.Data {
+			l += sovPacket(uint64(e))
+		}
+		n += 1 + sovPacket(uint64(l)) + l
+	}
+	if m.EncodedDataId != 0 {
+		n += 1 + sovPacket(uint64(m.EncodedDataId))
+	}
+	if len(m.EncodingProof) > 0 {
+		l = 0
+		for _, e := range m.EncodingProof {
+			l += sovPacket(uint64(e))
+		}
+		n += 1 + sovPacket(uint64(l)) + l
+	}
+	if m.BlockNumber != 0 {
+		n += 1 + sovPacket(uint64(m.BlockNumber))
+	}
+	l = len(m.EncodingAlgorithm)
+	if l > 0 {
+		n += 1 + l + sovPacket(uint64(l))
+	}
+	if m.DataSize != 0 {
+		n += 1 + sovPacket(uint64(m.DataSize))
+	}
+	l = len(m.Checksum)
+	if l > 0 {
+		n += 1 + l + sovPacket(uint64(l))
+	}
+	if m.Version != 0 {
+		n += 1 + sovPacket(uint64(m.Version))
+	}
+	return n
+}
+
+func (m *IbcEncodedDataPacketAck) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = len(m.EncodedDataId)
+	if l > 0 {
+		n += 1 + l + sovPacket(uint64(l))
+	}
 	return n
 }
 
@@ -343,6 +728,41 @@ func (m *CodenetPacketData) Unmarshal(dAtA []byte) error {
 			}
 			m.Packet = &CodenetPacketData_NoData{v}
 			iNdEx = postIndex
+		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field IbcEncodedDataPacket", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowPacket
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthPacket
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthPacket
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			v := &IbcEncodedDataPacketData{}
+			if err := v.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			m.Packet = &CodenetPacketData_IbcEncodedDataPacket{v}
+			iNdEx = postIndex
 		default:
 			iNdEx = preIndex
 			skippy, err := skipPacket(dAtA[iNdEx:])
@@ -393,6 +813,430 @@ func (m *NoData) Unmarshal(dAtA []byte) error {
 			return fmt.Errorf("proto: NoData: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
+		default:
+			iNdEx = preIndex
+			skippy, err := skipPacket(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthPacket
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *IbcEncodedDataPacketData) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowPacket
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: IbcEncodedDataPacketData: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: IbcEncodedDataPacketData: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType == 0 {
+				var v uint64
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return ErrIntOverflowPacket
+					}
+					if iNdEx >= l {
+						return io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					v |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				m.Data = append(m.Data, v)
+			} else if wireType == 2 {
+				var packedLen int
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return ErrIntOverflowPacket
+					}
+					if iNdEx >= l {
+						return io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					packedLen |= int(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				if packedLen < 0 {
+					return ErrInvalidLengthPacket
+				}
+				postIndex := iNdEx + packedLen
+				if postIndex < 0 {
+					return ErrInvalidLengthPacket
+				}
+				if postIndex > l {
+					return io.ErrUnexpectedEOF
+				}
+				var elementCount int
+				var count int
+				for _, integer := range dAtA[iNdEx:postIndex] {
+					if integer < 128 {
+						count++
+					}
+				}
+				elementCount = count
+				if elementCount != 0 && len(m.Data) == 0 {
+					m.Data = make([]uint64, 0, elementCount)
+				}
+				for iNdEx < postIndex {
+					var v uint64
+					for shift := uint(0); ; shift += 7 {
+						if shift >= 64 {
+							return ErrIntOverflowPacket
+						}
+						if iNdEx >= l {
+							return io.ErrUnexpectedEOF
+						}
+						b := dAtA[iNdEx]
+						iNdEx++
+						v |= uint64(b&0x7F) << shift
+						if b < 0x80 {
+							break
+						}
+					}
+					m.Data = append(m.Data, v)
+				}
+			} else {
+				return fmt.Errorf("proto: wrong wireType = %d for field Data", wireType)
+			}
+		case 2:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field EncodedDataId", wireType)
+			}
+			m.EncodedDataId = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowPacket
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.EncodedDataId |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 3:
+			if wireType == 0 {
+				var v uint64
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return ErrIntOverflowPacket
+					}
+					if iNdEx >= l {
+						return io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					v |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				m.EncodingProof = append(m.EncodingProof, v)
+			} else if wireType == 2 {
+				var packedLen int
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return ErrIntOverflowPacket
+					}
+					if iNdEx >= l {
+						return io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					packedLen |= int(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				if packedLen < 0 {
+					return ErrInvalidLengthPacket
+				}
+				postIndex := iNdEx + packedLen
+				if postIndex < 0 {
+					return ErrInvalidLengthPacket
+				}
+				if postIndex > l {
+					return io.ErrUnexpectedEOF
+				}
+				var elementCount int
+				var count int
+				for _, integer := range dAtA[iNdEx:postIndex] {
+					if integer < 128 {
+						count++
+					}
+				}
+				elementCount = count
+				if elementCount != 0 && len(m.EncodingProof) == 0 {
+					m.EncodingProof = make([]uint64, 0, elementCount)
+				}
+				for iNdEx < postIndex {
+					var v uint64
+					for shift := uint(0); ; shift += 7 {
+						if shift >= 64 {
+							return ErrIntOverflowPacket
+						}
+						if iNdEx >= l {
+							return io.ErrUnexpectedEOF
+						}
+						b := dAtA[iNdEx]
+						iNdEx++
+						v |= uint64(b&0x7F) << shift
+						if b < 0x80 {
+							break
+						}
+					}
+					m.EncodingProof = append(m.EncodingProof, v)
+				}
+			} else {
+				return fmt.Errorf("proto: wrong wireType = %d for field EncodingProof", wireType)
+			}
+		case 4:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field BlockNumber", wireType)
+			}
+			m.BlockNumber = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowPacket
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.BlockNumber |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 5:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field EncodingAlgorithm", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowPacket
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthPacket
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthPacket
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.EncodingAlgorithm = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 6:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field DataSize", wireType)
+			}
+			m.DataSize = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowPacket
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.DataSize |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 7:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Checksum", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowPacket
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthPacket
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthPacket
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Checksum = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 8:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Version", wireType)
+			}
+			m.Version = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowPacket
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Version |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		default:
+			iNdEx = preIndex
+			skippy, err := skipPacket(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthPacket
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *IbcEncodedDataPacketAck) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowPacket
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: IbcEncodedDataPacketAck: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: IbcEncodedDataPacketAck: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field EncodedDataId", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowPacket
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthPacket
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthPacket
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.EncodedDataId = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
 		default:
 			iNdEx = preIndex
 			skippy, err := skipPacket(dAtA[iNdEx:])

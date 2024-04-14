@@ -2328,6 +2328,1638 @@ func (x *fastReflection_MsgEncodeDataResponse) ProtoMethods() *protoiface.Method
 	}
 }
 
+var _ protoreflect.List = (*_MsgSendIbcEncodedData_5_list)(nil)
+
+type _MsgSendIbcEncodedData_5_list struct {
+	list *[]uint64
+}
+
+func (x *_MsgSendIbcEncodedData_5_list) Len() int {
+	if x.list == nil {
+		return 0
+	}
+	return len(*x.list)
+}
+
+func (x *_MsgSendIbcEncodedData_5_list) Get(i int) protoreflect.Value {
+	return protoreflect.ValueOfUint64((*x.list)[i])
+}
+
+func (x *_MsgSendIbcEncodedData_5_list) Set(i int, value protoreflect.Value) {
+	valueUnwrapped := value.Uint()
+	concreteValue := valueUnwrapped
+	(*x.list)[i] = concreteValue
+}
+
+func (x *_MsgSendIbcEncodedData_5_list) Append(value protoreflect.Value) {
+	valueUnwrapped := value.Uint()
+	concreteValue := valueUnwrapped
+	*x.list = append(*x.list, concreteValue)
+}
+
+func (x *_MsgSendIbcEncodedData_5_list) AppendMutable() protoreflect.Value {
+	panic(fmt.Errorf("AppendMutable can not be called on message MsgSendIbcEncodedData at list field Data as it is not of Message kind"))
+}
+
+func (x *_MsgSendIbcEncodedData_5_list) Truncate(n int) {
+	*x.list = (*x.list)[:n]
+}
+
+func (x *_MsgSendIbcEncodedData_5_list) NewElement() protoreflect.Value {
+	v := uint64(0)
+	return protoreflect.ValueOfUint64(v)
+}
+
+func (x *_MsgSendIbcEncodedData_5_list) IsValid() bool {
+	return x.list != nil
+}
+
+var _ protoreflect.List = (*_MsgSendIbcEncodedData_7_list)(nil)
+
+type _MsgSendIbcEncodedData_7_list struct {
+	list *[]uint64
+}
+
+func (x *_MsgSendIbcEncodedData_7_list) Len() int {
+	if x.list == nil {
+		return 0
+	}
+	return len(*x.list)
+}
+
+func (x *_MsgSendIbcEncodedData_7_list) Get(i int) protoreflect.Value {
+	return protoreflect.ValueOfUint64((*x.list)[i])
+}
+
+func (x *_MsgSendIbcEncodedData_7_list) Set(i int, value protoreflect.Value) {
+	valueUnwrapped := value.Uint()
+	concreteValue := valueUnwrapped
+	(*x.list)[i] = concreteValue
+}
+
+func (x *_MsgSendIbcEncodedData_7_list) Append(value protoreflect.Value) {
+	valueUnwrapped := value.Uint()
+	concreteValue := valueUnwrapped
+	*x.list = append(*x.list, concreteValue)
+}
+
+func (x *_MsgSendIbcEncodedData_7_list) AppendMutable() protoreflect.Value {
+	panic(fmt.Errorf("AppendMutable can not be called on message MsgSendIbcEncodedData at list field EncodingProof as it is not of Message kind"))
+}
+
+func (x *_MsgSendIbcEncodedData_7_list) Truncate(n int) {
+	*x.list = (*x.list)[:n]
+}
+
+func (x *_MsgSendIbcEncodedData_7_list) NewElement() protoreflect.Value {
+	v := uint64(0)
+	return protoreflect.ValueOfUint64(v)
+}
+
+func (x *_MsgSendIbcEncodedData_7_list) IsValid() bool {
+	return x.list != nil
+}
+
+var (
+	md_MsgSendIbcEncodedData                   protoreflect.MessageDescriptor
+	fd_MsgSendIbcEncodedData_data              protoreflect.FieldDescriptor
+	fd_MsgSendIbcEncodedData_encodedDataId     protoreflect.FieldDescriptor
+	fd_MsgSendIbcEncodedData_encodingProof     protoreflect.FieldDescriptor
+	fd_MsgSendIbcEncodedData_blockNumber       protoreflect.FieldDescriptor
+	fd_MsgSendIbcEncodedData_encodingAlgorithm protoreflect.FieldDescriptor
+	fd_MsgSendIbcEncodedData_dataSize          protoreflect.FieldDescriptor
+	fd_MsgSendIbcEncodedData_checksum          protoreflect.FieldDescriptor
+	fd_MsgSendIbcEncodedData_version           protoreflect.FieldDescriptor
+	fd_MsgSendIbcEncodedData_creator           protoreflect.FieldDescriptor
+	fd_MsgSendIbcEncodedData_port              protoreflect.FieldDescriptor
+	fd_MsgSendIbcEncodedData_channelID         protoreflect.FieldDescriptor
+	fd_MsgSendIbcEncodedData_timeoutTimestamp  protoreflect.FieldDescriptor
+)
+
+func init() {
+	file_codenet_codenet_tx_proto_init()
+	md_MsgSendIbcEncodedData = File_codenet_codenet_tx_proto.Messages().ByName("MsgSendIbcEncodedData")
+	fd_MsgSendIbcEncodedData_data = md_MsgSendIbcEncodedData.Fields().ByName("data")
+	fd_MsgSendIbcEncodedData_encodedDataId = md_MsgSendIbcEncodedData.Fields().ByName("encodedDataId")
+	fd_MsgSendIbcEncodedData_encodingProof = md_MsgSendIbcEncodedData.Fields().ByName("encodingProof")
+	fd_MsgSendIbcEncodedData_blockNumber = md_MsgSendIbcEncodedData.Fields().ByName("blockNumber")
+	fd_MsgSendIbcEncodedData_encodingAlgorithm = md_MsgSendIbcEncodedData.Fields().ByName("encodingAlgorithm")
+	fd_MsgSendIbcEncodedData_dataSize = md_MsgSendIbcEncodedData.Fields().ByName("dataSize")
+	fd_MsgSendIbcEncodedData_checksum = md_MsgSendIbcEncodedData.Fields().ByName("checksum")
+	fd_MsgSendIbcEncodedData_version = md_MsgSendIbcEncodedData.Fields().ByName("version")
+	fd_MsgSendIbcEncodedData_creator = md_MsgSendIbcEncodedData.Fields().ByName("creator")
+	fd_MsgSendIbcEncodedData_port = md_MsgSendIbcEncodedData.Fields().ByName("port")
+	fd_MsgSendIbcEncodedData_channelID = md_MsgSendIbcEncodedData.Fields().ByName("channelID")
+	fd_MsgSendIbcEncodedData_timeoutTimestamp = md_MsgSendIbcEncodedData.Fields().ByName("timeoutTimestamp")
+}
+
+var _ protoreflect.Message = (*fastReflection_MsgSendIbcEncodedData)(nil)
+
+type fastReflection_MsgSendIbcEncodedData MsgSendIbcEncodedData
+
+func (x *MsgSendIbcEncodedData) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_MsgSendIbcEncodedData)(x)
+}
+
+func (x *MsgSendIbcEncodedData) slowProtoReflect() protoreflect.Message {
+	mi := &file_codenet_codenet_tx_proto_msgTypes[4]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+var _fastReflection_MsgSendIbcEncodedData_messageType fastReflection_MsgSendIbcEncodedData_messageType
+var _ protoreflect.MessageType = fastReflection_MsgSendIbcEncodedData_messageType{}
+
+type fastReflection_MsgSendIbcEncodedData_messageType struct{}
+
+func (x fastReflection_MsgSendIbcEncodedData_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_MsgSendIbcEncodedData)(nil)
+}
+func (x fastReflection_MsgSendIbcEncodedData_messageType) New() protoreflect.Message {
+	return new(fastReflection_MsgSendIbcEncodedData)
+}
+func (x fastReflection_MsgSendIbcEncodedData_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_MsgSendIbcEncodedData
+}
+
+// Descriptor returns message descriptor, which contains only the protobuf
+// type information for the message.
+func (x *fastReflection_MsgSendIbcEncodedData) Descriptor() protoreflect.MessageDescriptor {
+	return md_MsgSendIbcEncodedData
+}
+
+// Type returns the message type, which encapsulates both Go and protobuf
+// type information. If the Go type information is not needed,
+// it is recommended that the message descriptor be used instead.
+func (x *fastReflection_MsgSendIbcEncodedData) Type() protoreflect.MessageType {
+	return _fastReflection_MsgSendIbcEncodedData_messageType
+}
+
+// New returns a newly allocated and mutable empty message.
+func (x *fastReflection_MsgSendIbcEncodedData) New() protoreflect.Message {
+	return new(fastReflection_MsgSendIbcEncodedData)
+}
+
+// Interface unwraps the message reflection interface and
+// returns the underlying ProtoMessage interface.
+func (x *fastReflection_MsgSendIbcEncodedData) Interface() protoreflect.ProtoMessage {
+	return (*MsgSendIbcEncodedData)(x)
+}
+
+// Range iterates over every populated field in an undefined order,
+// calling f for each field descriptor and value encountered.
+// Range returns immediately if f returns false.
+// While iterating, mutating operations may only be performed
+// on the current field descriptor.
+func (x *fastReflection_MsgSendIbcEncodedData) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+	if len(x.Data) != 0 {
+		value := protoreflect.ValueOfList(&_MsgSendIbcEncodedData_5_list{list: &x.Data})
+		if !f(fd_MsgSendIbcEncodedData_data, value) {
+			return
+		}
+	}
+	if x.EncodedDataId != uint64(0) {
+		value := protoreflect.ValueOfUint64(x.EncodedDataId)
+		if !f(fd_MsgSendIbcEncodedData_encodedDataId, value) {
+			return
+		}
+	}
+	if len(x.EncodingProof) != 0 {
+		value := protoreflect.ValueOfList(&_MsgSendIbcEncodedData_7_list{list: &x.EncodingProof})
+		if !f(fd_MsgSendIbcEncodedData_encodingProof, value) {
+			return
+		}
+	}
+	if x.BlockNumber != uint64(0) {
+		value := protoreflect.ValueOfUint64(x.BlockNumber)
+		if !f(fd_MsgSendIbcEncodedData_blockNumber, value) {
+			return
+		}
+	}
+	if x.EncodingAlgorithm != "" {
+		value := protoreflect.ValueOfString(x.EncodingAlgorithm)
+		if !f(fd_MsgSendIbcEncodedData_encodingAlgorithm, value) {
+			return
+		}
+	}
+	if x.DataSize != uint64(0) {
+		value := protoreflect.ValueOfUint64(x.DataSize)
+		if !f(fd_MsgSendIbcEncodedData_dataSize, value) {
+			return
+		}
+	}
+	if x.Checksum != "" {
+		value := protoreflect.ValueOfString(x.Checksum)
+		if !f(fd_MsgSendIbcEncodedData_checksum, value) {
+			return
+		}
+	}
+	if x.Version != uint64(0) {
+		value := protoreflect.ValueOfUint64(x.Version)
+		if !f(fd_MsgSendIbcEncodedData_version, value) {
+			return
+		}
+	}
+	if x.Creator != "" {
+		value := protoreflect.ValueOfString(x.Creator)
+		if !f(fd_MsgSendIbcEncodedData_creator, value) {
+			return
+		}
+	}
+	if x.Port != "" {
+		value := protoreflect.ValueOfString(x.Port)
+		if !f(fd_MsgSendIbcEncodedData_port, value) {
+			return
+		}
+	}
+	if x.ChannelID != "" {
+		value := protoreflect.ValueOfString(x.ChannelID)
+		if !f(fd_MsgSendIbcEncodedData_channelID, value) {
+			return
+		}
+	}
+	if x.TimeoutTimestamp != uint64(0) {
+		value := protoreflect.ValueOfUint64(x.TimeoutTimestamp)
+		if !f(fd_MsgSendIbcEncodedData_timeoutTimestamp, value) {
+			return
+		}
+	}
+}
+
+// Has reports whether a field is populated.
+//
+// Some fields have the property of nullability where it is possible to
+// distinguish between the default value of a field and whether the field
+// was explicitly populated with the default value. Singular message fields,
+// member fields of a oneof, and proto2 scalar fields are nullable. Such
+// fields are populated only if explicitly set.
+//
+// In other cases (aside from the nullable cases above),
+// a proto3 scalar field is populated if it contains a non-zero value, and
+// a repeated field is populated if it is non-empty.
+func (x *fastReflection_MsgSendIbcEncodedData) Has(fd protoreflect.FieldDescriptor) bool {
+	switch fd.FullName() {
+	case "codenet.codenet.MsgSendIbcEncodedData.data":
+		return len(x.Data) != 0
+	case "codenet.codenet.MsgSendIbcEncodedData.encodedDataId":
+		return x.EncodedDataId != uint64(0)
+	case "codenet.codenet.MsgSendIbcEncodedData.encodingProof":
+		return len(x.EncodingProof) != 0
+	case "codenet.codenet.MsgSendIbcEncodedData.blockNumber":
+		return x.BlockNumber != uint64(0)
+	case "codenet.codenet.MsgSendIbcEncodedData.encodingAlgorithm":
+		return x.EncodingAlgorithm != ""
+	case "codenet.codenet.MsgSendIbcEncodedData.dataSize":
+		return x.DataSize != uint64(0)
+	case "codenet.codenet.MsgSendIbcEncodedData.checksum":
+		return x.Checksum != ""
+	case "codenet.codenet.MsgSendIbcEncodedData.version":
+		return x.Version != uint64(0)
+	case "codenet.codenet.MsgSendIbcEncodedData.creator":
+		return x.Creator != ""
+	case "codenet.codenet.MsgSendIbcEncodedData.port":
+		return x.Port != ""
+	case "codenet.codenet.MsgSendIbcEncodedData.channelID":
+		return x.ChannelID != ""
+	case "codenet.codenet.MsgSendIbcEncodedData.timeoutTimestamp":
+		return x.TimeoutTimestamp != uint64(0)
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: codenet.codenet.MsgSendIbcEncodedData"))
+		}
+		panic(fmt.Errorf("message codenet.codenet.MsgSendIbcEncodedData does not contain field %s", fd.FullName()))
+	}
+}
+
+// Clear clears the field such that a subsequent Has call reports false.
+//
+// Clearing an extension field clears both the extension type and value
+// associated with the given field number.
+//
+// Clear is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_MsgSendIbcEncodedData) Clear(fd protoreflect.FieldDescriptor) {
+	switch fd.FullName() {
+	case "codenet.codenet.MsgSendIbcEncodedData.data":
+		x.Data = nil
+	case "codenet.codenet.MsgSendIbcEncodedData.encodedDataId":
+		x.EncodedDataId = uint64(0)
+	case "codenet.codenet.MsgSendIbcEncodedData.encodingProof":
+		x.EncodingProof = nil
+	case "codenet.codenet.MsgSendIbcEncodedData.blockNumber":
+		x.BlockNumber = uint64(0)
+	case "codenet.codenet.MsgSendIbcEncodedData.encodingAlgorithm":
+		x.EncodingAlgorithm = ""
+	case "codenet.codenet.MsgSendIbcEncodedData.dataSize":
+		x.DataSize = uint64(0)
+	case "codenet.codenet.MsgSendIbcEncodedData.checksum":
+		x.Checksum = ""
+	case "codenet.codenet.MsgSendIbcEncodedData.version":
+		x.Version = uint64(0)
+	case "codenet.codenet.MsgSendIbcEncodedData.creator":
+		x.Creator = ""
+	case "codenet.codenet.MsgSendIbcEncodedData.port":
+		x.Port = ""
+	case "codenet.codenet.MsgSendIbcEncodedData.channelID":
+		x.ChannelID = ""
+	case "codenet.codenet.MsgSendIbcEncodedData.timeoutTimestamp":
+		x.TimeoutTimestamp = uint64(0)
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: codenet.codenet.MsgSendIbcEncodedData"))
+		}
+		panic(fmt.Errorf("message codenet.codenet.MsgSendIbcEncodedData does not contain field %s", fd.FullName()))
+	}
+}
+
+// Get retrieves the value for a field.
+//
+// For unpopulated scalars, it returns the default value, where
+// the default value of a bytes scalar is guaranteed to be a copy.
+// For unpopulated composite types, it returns an empty, read-only view
+// of the value; to obtain a mutable reference, use Mutable.
+func (x *fastReflection_MsgSendIbcEncodedData) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+	switch descriptor.FullName() {
+	case "codenet.codenet.MsgSendIbcEncodedData.data":
+		if len(x.Data) == 0 {
+			return protoreflect.ValueOfList(&_MsgSendIbcEncodedData_5_list{})
+		}
+		listValue := &_MsgSendIbcEncodedData_5_list{list: &x.Data}
+		return protoreflect.ValueOfList(listValue)
+	case "codenet.codenet.MsgSendIbcEncodedData.encodedDataId":
+		value := x.EncodedDataId
+		return protoreflect.ValueOfUint64(value)
+	case "codenet.codenet.MsgSendIbcEncodedData.encodingProof":
+		if len(x.EncodingProof) == 0 {
+			return protoreflect.ValueOfList(&_MsgSendIbcEncodedData_7_list{})
+		}
+		listValue := &_MsgSendIbcEncodedData_7_list{list: &x.EncodingProof}
+		return protoreflect.ValueOfList(listValue)
+	case "codenet.codenet.MsgSendIbcEncodedData.blockNumber":
+		value := x.BlockNumber
+		return protoreflect.ValueOfUint64(value)
+	case "codenet.codenet.MsgSendIbcEncodedData.encodingAlgorithm":
+		value := x.EncodingAlgorithm
+		return protoreflect.ValueOfString(value)
+	case "codenet.codenet.MsgSendIbcEncodedData.dataSize":
+		value := x.DataSize
+		return protoreflect.ValueOfUint64(value)
+	case "codenet.codenet.MsgSendIbcEncodedData.checksum":
+		value := x.Checksum
+		return protoreflect.ValueOfString(value)
+	case "codenet.codenet.MsgSendIbcEncodedData.version":
+		value := x.Version
+		return protoreflect.ValueOfUint64(value)
+	case "codenet.codenet.MsgSendIbcEncodedData.creator":
+		value := x.Creator
+		return protoreflect.ValueOfString(value)
+	case "codenet.codenet.MsgSendIbcEncodedData.port":
+		value := x.Port
+		return protoreflect.ValueOfString(value)
+	case "codenet.codenet.MsgSendIbcEncodedData.channelID":
+		value := x.ChannelID
+		return protoreflect.ValueOfString(value)
+	case "codenet.codenet.MsgSendIbcEncodedData.timeoutTimestamp":
+		value := x.TimeoutTimestamp
+		return protoreflect.ValueOfUint64(value)
+	default:
+		if descriptor.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: codenet.codenet.MsgSendIbcEncodedData"))
+		}
+		panic(fmt.Errorf("message codenet.codenet.MsgSendIbcEncodedData does not contain field %s", descriptor.FullName()))
+	}
+}
+
+// Set stores the value for a field.
+//
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType.
+// When setting a composite type, it is unspecified whether the stored value
+// aliases the source's memory in any way. If the composite value is an
+// empty, read-only value, then it panics.
+//
+// Set is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_MsgSendIbcEncodedData) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+	switch fd.FullName() {
+	case "codenet.codenet.MsgSendIbcEncodedData.data":
+		lv := value.List()
+		clv := lv.(*_MsgSendIbcEncodedData_5_list)
+		x.Data = *clv.list
+	case "codenet.codenet.MsgSendIbcEncodedData.encodedDataId":
+		x.EncodedDataId = value.Uint()
+	case "codenet.codenet.MsgSendIbcEncodedData.encodingProof":
+		lv := value.List()
+		clv := lv.(*_MsgSendIbcEncodedData_7_list)
+		x.EncodingProof = *clv.list
+	case "codenet.codenet.MsgSendIbcEncodedData.blockNumber":
+		x.BlockNumber = value.Uint()
+	case "codenet.codenet.MsgSendIbcEncodedData.encodingAlgorithm":
+		x.EncodingAlgorithm = value.Interface().(string)
+	case "codenet.codenet.MsgSendIbcEncodedData.dataSize":
+		x.DataSize = value.Uint()
+	case "codenet.codenet.MsgSendIbcEncodedData.checksum":
+		x.Checksum = value.Interface().(string)
+	case "codenet.codenet.MsgSendIbcEncodedData.version":
+		x.Version = value.Uint()
+	case "codenet.codenet.MsgSendIbcEncodedData.creator":
+		x.Creator = value.Interface().(string)
+	case "codenet.codenet.MsgSendIbcEncodedData.port":
+		x.Port = value.Interface().(string)
+	case "codenet.codenet.MsgSendIbcEncodedData.channelID":
+		x.ChannelID = value.Interface().(string)
+	case "codenet.codenet.MsgSendIbcEncodedData.timeoutTimestamp":
+		x.TimeoutTimestamp = value.Uint()
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: codenet.codenet.MsgSendIbcEncodedData"))
+		}
+		panic(fmt.Errorf("message codenet.codenet.MsgSendIbcEncodedData does not contain field %s", fd.FullName()))
+	}
+}
+
+// Mutable returns a mutable reference to a composite type.
+//
+// If the field is unpopulated, it may allocate a composite value.
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType
+// if not already stored.
+// It panics if the field does not contain a composite type.
+//
+// Mutable is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_MsgSendIbcEncodedData) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "codenet.codenet.MsgSendIbcEncodedData.data":
+		if x.Data == nil {
+			x.Data = []uint64{}
+		}
+		value := &_MsgSendIbcEncodedData_5_list{list: &x.Data}
+		return protoreflect.ValueOfList(value)
+	case "codenet.codenet.MsgSendIbcEncodedData.encodingProof":
+		if x.EncodingProof == nil {
+			x.EncodingProof = []uint64{}
+		}
+		value := &_MsgSendIbcEncodedData_7_list{list: &x.EncodingProof}
+		return protoreflect.ValueOfList(value)
+	case "codenet.codenet.MsgSendIbcEncodedData.encodedDataId":
+		panic(fmt.Errorf("field encodedDataId of message codenet.codenet.MsgSendIbcEncodedData is not mutable"))
+	case "codenet.codenet.MsgSendIbcEncodedData.blockNumber":
+		panic(fmt.Errorf("field blockNumber of message codenet.codenet.MsgSendIbcEncodedData is not mutable"))
+	case "codenet.codenet.MsgSendIbcEncodedData.encodingAlgorithm":
+		panic(fmt.Errorf("field encodingAlgorithm of message codenet.codenet.MsgSendIbcEncodedData is not mutable"))
+	case "codenet.codenet.MsgSendIbcEncodedData.dataSize":
+		panic(fmt.Errorf("field dataSize of message codenet.codenet.MsgSendIbcEncodedData is not mutable"))
+	case "codenet.codenet.MsgSendIbcEncodedData.checksum":
+		panic(fmt.Errorf("field checksum of message codenet.codenet.MsgSendIbcEncodedData is not mutable"))
+	case "codenet.codenet.MsgSendIbcEncodedData.version":
+		panic(fmt.Errorf("field version of message codenet.codenet.MsgSendIbcEncodedData is not mutable"))
+	case "codenet.codenet.MsgSendIbcEncodedData.creator":
+		panic(fmt.Errorf("field creator of message codenet.codenet.MsgSendIbcEncodedData is not mutable"))
+	case "codenet.codenet.MsgSendIbcEncodedData.port":
+		panic(fmt.Errorf("field port of message codenet.codenet.MsgSendIbcEncodedData is not mutable"))
+	case "codenet.codenet.MsgSendIbcEncodedData.channelID":
+		panic(fmt.Errorf("field channelID of message codenet.codenet.MsgSendIbcEncodedData is not mutable"))
+	case "codenet.codenet.MsgSendIbcEncodedData.timeoutTimestamp":
+		panic(fmt.Errorf("field timeoutTimestamp of message codenet.codenet.MsgSendIbcEncodedData is not mutable"))
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: codenet.codenet.MsgSendIbcEncodedData"))
+		}
+		panic(fmt.Errorf("message codenet.codenet.MsgSendIbcEncodedData does not contain field %s", fd.FullName()))
+	}
+}
+
+// NewField returns a new value that is assignable to the field
+// for the given descriptor. For scalars, this returns the default value.
+// For lists, maps, and messages, this returns a new, empty, mutable value.
+func (x *fastReflection_MsgSendIbcEncodedData) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "codenet.codenet.MsgSendIbcEncodedData.data":
+		list := []uint64{}
+		return protoreflect.ValueOfList(&_MsgSendIbcEncodedData_5_list{list: &list})
+	case "codenet.codenet.MsgSendIbcEncodedData.encodedDataId":
+		return protoreflect.ValueOfUint64(uint64(0))
+	case "codenet.codenet.MsgSendIbcEncodedData.encodingProof":
+		list := []uint64{}
+		return protoreflect.ValueOfList(&_MsgSendIbcEncodedData_7_list{list: &list})
+	case "codenet.codenet.MsgSendIbcEncodedData.blockNumber":
+		return protoreflect.ValueOfUint64(uint64(0))
+	case "codenet.codenet.MsgSendIbcEncodedData.encodingAlgorithm":
+		return protoreflect.ValueOfString("")
+	case "codenet.codenet.MsgSendIbcEncodedData.dataSize":
+		return protoreflect.ValueOfUint64(uint64(0))
+	case "codenet.codenet.MsgSendIbcEncodedData.checksum":
+		return protoreflect.ValueOfString("")
+	case "codenet.codenet.MsgSendIbcEncodedData.version":
+		return protoreflect.ValueOfUint64(uint64(0))
+	case "codenet.codenet.MsgSendIbcEncodedData.creator":
+		return protoreflect.ValueOfString("")
+	case "codenet.codenet.MsgSendIbcEncodedData.port":
+		return protoreflect.ValueOfString("")
+	case "codenet.codenet.MsgSendIbcEncodedData.channelID":
+		return protoreflect.ValueOfString("")
+	case "codenet.codenet.MsgSendIbcEncodedData.timeoutTimestamp":
+		return protoreflect.ValueOfUint64(uint64(0))
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: codenet.codenet.MsgSendIbcEncodedData"))
+		}
+		panic(fmt.Errorf("message codenet.codenet.MsgSendIbcEncodedData does not contain field %s", fd.FullName()))
+	}
+}
+
+// WhichOneof reports which field within the oneof is populated,
+// returning nil if none are populated.
+// It panics if the oneof descriptor does not belong to this message.
+func (x *fastReflection_MsgSendIbcEncodedData) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+	switch d.FullName() {
+	default:
+		panic(fmt.Errorf("%s is not a oneof field in codenet.codenet.MsgSendIbcEncodedData", d.FullName()))
+	}
+	panic("unreachable")
+}
+
+// GetUnknown retrieves the entire list of unknown fields.
+// The caller may only mutate the contents of the RawFields
+// if the mutated bytes are stored back into the message with SetUnknown.
+func (x *fastReflection_MsgSendIbcEncodedData) GetUnknown() protoreflect.RawFields {
+	return x.unknownFields
+}
+
+// SetUnknown stores an entire list of unknown fields.
+// The raw fields must be syntactically valid according to the wire format.
+// An implementation may panic if this is not the case.
+// Once stored, the caller must not mutate the content of the RawFields.
+// An empty RawFields may be passed to clear the fields.
+//
+// SetUnknown is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_MsgSendIbcEncodedData) SetUnknown(fields protoreflect.RawFields) {
+	x.unknownFields = fields
+}
+
+// IsValid reports whether the message is valid.
+//
+// An invalid message is an empty, read-only value.
+//
+// An invalid message often corresponds to a nil pointer of the concrete
+// message type, but the details are implementation dependent.
+// Validity is not part of the protobuf data model, and may not
+// be preserved in marshaling or other operations.
+func (x *fastReflection_MsgSendIbcEncodedData) IsValid() bool {
+	return x != nil
+}
+
+// ProtoMethods returns optional fastReflectionFeature-path implementations of various operations.
+// This method may return nil.
+//
+// The returned methods type is identical to
+// "google.golang.org/protobuf/runtime/protoiface".Methods.
+// Consult the protoiface package documentation for details.
+func (x *fastReflection_MsgSendIbcEncodedData) ProtoMethods() *protoiface.Methods {
+	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
+		x := input.Message.Interface().(*MsgSendIbcEncodedData)
+		if x == nil {
+			return protoiface.SizeOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Size:              0,
+			}
+		}
+		options := runtime.SizeInputToOptions(input)
+		_ = options
+		var n int
+		var l int
+		_ = l
+		if len(x.Data) > 0 {
+			l = 0
+			for _, e := range x.Data {
+				l += runtime.Sov(uint64(e))
+			}
+			n += 1 + runtime.Sov(uint64(l)) + l
+		}
+		if x.EncodedDataId != 0 {
+			n += 1 + runtime.Sov(uint64(x.EncodedDataId))
+		}
+		if len(x.EncodingProof) > 0 {
+			l = 0
+			for _, e := range x.EncodingProof {
+				l += runtime.Sov(uint64(e))
+			}
+			n += 1 + runtime.Sov(uint64(l)) + l
+		}
+		if x.BlockNumber != 0 {
+			n += 1 + runtime.Sov(uint64(x.BlockNumber))
+		}
+		l = len(x.EncodingAlgorithm)
+		if l > 0 {
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		if x.DataSize != 0 {
+			n += 1 + runtime.Sov(uint64(x.DataSize))
+		}
+		l = len(x.Checksum)
+		if l > 0 {
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		if x.Version != 0 {
+			n += 1 + runtime.Sov(uint64(x.Version))
+		}
+		l = len(x.Creator)
+		if l > 0 {
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		l = len(x.Port)
+		if l > 0 {
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		l = len(x.ChannelID)
+		if l > 0 {
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		if x.TimeoutTimestamp != 0 {
+			n += 1 + runtime.Sov(uint64(x.TimeoutTimestamp))
+		}
+		if x.unknownFields != nil {
+			n += len(x.unknownFields)
+		}
+		return protoiface.SizeOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Size:              n,
+		}
+	}
+
+	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
+		x := input.Message.Interface().(*MsgSendIbcEncodedData)
+		if x == nil {
+			return protoiface.MarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Buf:               input.Buf,
+			}, nil
+		}
+		options := runtime.MarshalInputToOptions(input)
+		_ = options
+		size := options.Size(x)
+		dAtA := make([]byte, size)
+		i := len(dAtA)
+		_ = i
+		var l int
+		_ = l
+		if x.unknownFields != nil {
+			i -= len(x.unknownFields)
+			copy(dAtA[i:], x.unknownFields)
+		}
+		if x.Version != 0 {
+			i = runtime.EncodeVarint(dAtA, i, uint64(x.Version))
+			i--
+			dAtA[i] = 0x60
+		}
+		if len(x.Checksum) > 0 {
+			i -= len(x.Checksum)
+			copy(dAtA[i:], x.Checksum)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.Checksum)))
+			i--
+			dAtA[i] = 0x5a
+		}
+		if x.DataSize != 0 {
+			i = runtime.EncodeVarint(dAtA, i, uint64(x.DataSize))
+			i--
+			dAtA[i] = 0x50
+		}
+		if len(x.EncodingAlgorithm) > 0 {
+			i -= len(x.EncodingAlgorithm)
+			copy(dAtA[i:], x.EncodingAlgorithm)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.EncodingAlgorithm)))
+			i--
+			dAtA[i] = 0x4a
+		}
+		if x.BlockNumber != 0 {
+			i = runtime.EncodeVarint(dAtA, i, uint64(x.BlockNumber))
+			i--
+			dAtA[i] = 0x40
+		}
+		if len(x.EncodingProof) > 0 {
+			var pksize2 int
+			for _, num := range x.EncodingProof {
+				pksize2 += runtime.Sov(uint64(num))
+			}
+			i -= pksize2
+			j1 := i
+			for _, num := range x.EncodingProof {
+				for num >= 1<<7 {
+					dAtA[j1] = uint8(uint64(num)&0x7f | 0x80)
+					num >>= 7
+					j1++
+				}
+				dAtA[j1] = uint8(num)
+				j1++
+			}
+			i = runtime.EncodeVarint(dAtA, i, uint64(pksize2))
+			i--
+			dAtA[i] = 0x3a
+		}
+		if x.EncodedDataId != 0 {
+			i = runtime.EncodeVarint(dAtA, i, uint64(x.EncodedDataId))
+			i--
+			dAtA[i] = 0x30
+		}
+		if len(x.Data) > 0 {
+			var pksize4 int
+			for _, num := range x.Data {
+				pksize4 += runtime.Sov(uint64(num))
+			}
+			i -= pksize4
+			j3 := i
+			for _, num := range x.Data {
+				for num >= 1<<7 {
+					dAtA[j3] = uint8(uint64(num)&0x7f | 0x80)
+					num >>= 7
+					j3++
+				}
+				dAtA[j3] = uint8(num)
+				j3++
+			}
+			i = runtime.EncodeVarint(dAtA, i, uint64(pksize4))
+			i--
+			dAtA[i] = 0x2a
+		}
+		if x.TimeoutTimestamp != 0 {
+			i = runtime.EncodeVarint(dAtA, i, uint64(x.TimeoutTimestamp))
+			i--
+			dAtA[i] = 0x20
+		}
+		if len(x.ChannelID) > 0 {
+			i -= len(x.ChannelID)
+			copy(dAtA[i:], x.ChannelID)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.ChannelID)))
+			i--
+			dAtA[i] = 0x1a
+		}
+		if len(x.Port) > 0 {
+			i -= len(x.Port)
+			copy(dAtA[i:], x.Port)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.Port)))
+			i--
+			dAtA[i] = 0x12
+		}
+		if len(x.Creator) > 0 {
+			i -= len(x.Creator)
+			copy(dAtA[i:], x.Creator)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.Creator)))
+			i--
+			dAtA[i] = 0xa
+		}
+		if input.Buf != nil {
+			input.Buf = append(input.Buf, dAtA...)
+		} else {
+			input.Buf = dAtA
+		}
+		return protoiface.MarshalOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Buf:               input.Buf,
+		}, nil
+	}
+	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
+		x := input.Message.Interface().(*MsgSendIbcEncodedData)
+		if x == nil {
+			return protoiface.UnmarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Flags:             input.Flags,
+			}, nil
+		}
+		options := runtime.UnmarshalInputToOptions(input)
+		_ = options
+		dAtA := input.Buf
+		l := len(dAtA)
+		iNdEx := 0
+		for iNdEx < l {
+			preIndex := iNdEx
+			var wire uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				wire |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			fieldNum := int32(wire >> 3)
+			wireType := int(wire & 0x7)
+			if wireType == 4 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgSendIbcEncodedData: wiretype end group for non-group")
+			}
+			if fieldNum <= 0 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgSendIbcEncodedData: illegal tag %d (wire type %d)", fieldNum, wire)
+			}
+			switch fieldNum {
+			case 5:
+				if wireType == 0 {
+					var v uint64
+					for shift := uint(0); ; shift += 7 {
+						if shift >= 64 {
+							return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+						}
+						if iNdEx >= l {
+							return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+						}
+						b := dAtA[iNdEx]
+						iNdEx++
+						v |= uint64(b&0x7F) << shift
+						if b < 0x80 {
+							break
+						}
+					}
+					x.Data = append(x.Data, v)
+				} else if wireType == 2 {
+					var packedLen int
+					for shift := uint(0); ; shift += 7 {
+						if shift >= 64 {
+							return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+						}
+						if iNdEx >= l {
+							return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+						}
+						b := dAtA[iNdEx]
+						iNdEx++
+						packedLen |= int(b&0x7F) << shift
+						if b < 0x80 {
+							break
+						}
+					}
+					if packedLen < 0 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+					}
+					postIndex := iNdEx + packedLen
+					if postIndex < 0 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+					}
+					if postIndex > l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					var elementCount int
+					var count int
+					for _, integer := range dAtA[iNdEx:postIndex] {
+						if integer < 128 {
+							count++
+						}
+					}
+					elementCount = count
+					if elementCount != 0 && len(x.Data) == 0 {
+						x.Data = make([]uint64, 0, elementCount)
+					}
+					for iNdEx < postIndex {
+						var v uint64
+						for shift := uint(0); ; shift += 7 {
+							if shift >= 64 {
+								return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+							}
+							if iNdEx >= l {
+								return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+							}
+							b := dAtA[iNdEx]
+							iNdEx++
+							v |= uint64(b&0x7F) << shift
+							if b < 0x80 {
+								break
+							}
+						}
+						x.Data = append(x.Data, v)
+					}
+				} else {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Data", wireType)
+				}
+			case 6:
+				if wireType != 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field EncodedDataId", wireType)
+				}
+				x.EncodedDataId = 0
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					x.EncodedDataId |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+			case 7:
+				if wireType == 0 {
+					var v uint64
+					for shift := uint(0); ; shift += 7 {
+						if shift >= 64 {
+							return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+						}
+						if iNdEx >= l {
+							return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+						}
+						b := dAtA[iNdEx]
+						iNdEx++
+						v |= uint64(b&0x7F) << shift
+						if b < 0x80 {
+							break
+						}
+					}
+					x.EncodingProof = append(x.EncodingProof, v)
+				} else if wireType == 2 {
+					var packedLen int
+					for shift := uint(0); ; shift += 7 {
+						if shift >= 64 {
+							return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+						}
+						if iNdEx >= l {
+							return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+						}
+						b := dAtA[iNdEx]
+						iNdEx++
+						packedLen |= int(b&0x7F) << shift
+						if b < 0x80 {
+							break
+						}
+					}
+					if packedLen < 0 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+					}
+					postIndex := iNdEx + packedLen
+					if postIndex < 0 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+					}
+					if postIndex > l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					var elementCount int
+					var count int
+					for _, integer := range dAtA[iNdEx:postIndex] {
+						if integer < 128 {
+							count++
+						}
+					}
+					elementCount = count
+					if elementCount != 0 && len(x.EncodingProof) == 0 {
+						x.EncodingProof = make([]uint64, 0, elementCount)
+					}
+					for iNdEx < postIndex {
+						var v uint64
+						for shift := uint(0); ; shift += 7 {
+							if shift >= 64 {
+								return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+							}
+							if iNdEx >= l {
+								return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+							}
+							b := dAtA[iNdEx]
+							iNdEx++
+							v |= uint64(b&0x7F) << shift
+							if b < 0x80 {
+								break
+							}
+						}
+						x.EncodingProof = append(x.EncodingProof, v)
+					}
+				} else {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field EncodingProof", wireType)
+				}
+			case 8:
+				if wireType != 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field BlockNumber", wireType)
+				}
+				x.BlockNumber = 0
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					x.BlockNumber |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+			case 9:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field EncodingAlgorithm", wireType)
+				}
+				var stringLen uint64
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					stringLen |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				intStringLen := int(stringLen)
+				if intStringLen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + intStringLen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.EncodingAlgorithm = string(dAtA[iNdEx:postIndex])
+				iNdEx = postIndex
+			case 10:
+				if wireType != 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field DataSize", wireType)
+				}
+				x.DataSize = 0
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					x.DataSize |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+			case 11:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Checksum", wireType)
+				}
+				var stringLen uint64
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					stringLen |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				intStringLen := int(stringLen)
+				if intStringLen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + intStringLen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.Checksum = string(dAtA[iNdEx:postIndex])
+				iNdEx = postIndex
+			case 12:
+				if wireType != 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Version", wireType)
+				}
+				x.Version = 0
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					x.Version |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+			case 1:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Creator", wireType)
+				}
+				var stringLen uint64
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					stringLen |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				intStringLen := int(stringLen)
+				if intStringLen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + intStringLen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.Creator = string(dAtA[iNdEx:postIndex])
+				iNdEx = postIndex
+			case 2:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Port", wireType)
+				}
+				var stringLen uint64
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					stringLen |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				intStringLen := int(stringLen)
+				if intStringLen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + intStringLen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.Port = string(dAtA[iNdEx:postIndex])
+				iNdEx = postIndex
+			case 3:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field ChannelID", wireType)
+				}
+				var stringLen uint64
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					stringLen |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				intStringLen := int(stringLen)
+				if intStringLen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + intStringLen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.ChannelID = string(dAtA[iNdEx:postIndex])
+				iNdEx = postIndex
+			case 4:
+				if wireType != 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field TimeoutTimestamp", wireType)
+				}
+				x.TimeoutTimestamp = 0
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					x.TimeoutTimestamp |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+			default:
+				iNdEx = preIndex
+				skippy, err := runtime.Skip(dAtA[iNdEx:])
+				if err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				if (skippy < 0) || (iNdEx+skippy) < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if (iNdEx + skippy) > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if !options.DiscardUnknown {
+					x.unknownFields = append(x.unknownFields, dAtA[iNdEx:iNdEx+skippy]...)
+				}
+				iNdEx += skippy
+			}
+		}
+
+		if iNdEx > l {
+			return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+		}
+		return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, nil
+	}
+	return &protoiface.Methods{
+		NoUnkeyedLiterals: struct{}{},
+		Flags:             protoiface.SupportMarshalDeterministic | protoiface.SupportUnmarshalDiscardUnknown,
+		Size:              size,
+		Marshal:           marshal,
+		Unmarshal:         unmarshal,
+		Merge:             nil,
+		CheckInitialized:  nil,
+	}
+}
+
+var (
+	md_MsgSendIbcEncodedDataResponse protoreflect.MessageDescriptor
+)
+
+func init() {
+	file_codenet_codenet_tx_proto_init()
+	md_MsgSendIbcEncodedDataResponse = File_codenet_codenet_tx_proto.Messages().ByName("MsgSendIbcEncodedDataResponse")
+}
+
+var _ protoreflect.Message = (*fastReflection_MsgSendIbcEncodedDataResponse)(nil)
+
+type fastReflection_MsgSendIbcEncodedDataResponse MsgSendIbcEncodedDataResponse
+
+func (x *MsgSendIbcEncodedDataResponse) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_MsgSendIbcEncodedDataResponse)(x)
+}
+
+func (x *MsgSendIbcEncodedDataResponse) slowProtoReflect() protoreflect.Message {
+	mi := &file_codenet_codenet_tx_proto_msgTypes[5]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+var _fastReflection_MsgSendIbcEncodedDataResponse_messageType fastReflection_MsgSendIbcEncodedDataResponse_messageType
+var _ protoreflect.MessageType = fastReflection_MsgSendIbcEncodedDataResponse_messageType{}
+
+type fastReflection_MsgSendIbcEncodedDataResponse_messageType struct{}
+
+func (x fastReflection_MsgSendIbcEncodedDataResponse_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_MsgSendIbcEncodedDataResponse)(nil)
+}
+func (x fastReflection_MsgSendIbcEncodedDataResponse_messageType) New() protoreflect.Message {
+	return new(fastReflection_MsgSendIbcEncodedDataResponse)
+}
+func (x fastReflection_MsgSendIbcEncodedDataResponse_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_MsgSendIbcEncodedDataResponse
+}
+
+// Descriptor returns message descriptor, which contains only the protobuf
+// type information for the message.
+func (x *fastReflection_MsgSendIbcEncodedDataResponse) Descriptor() protoreflect.MessageDescriptor {
+	return md_MsgSendIbcEncodedDataResponse
+}
+
+// Type returns the message type, which encapsulates both Go and protobuf
+// type information. If the Go type information is not needed,
+// it is recommended that the message descriptor be used instead.
+func (x *fastReflection_MsgSendIbcEncodedDataResponse) Type() protoreflect.MessageType {
+	return _fastReflection_MsgSendIbcEncodedDataResponse_messageType
+}
+
+// New returns a newly allocated and mutable empty message.
+func (x *fastReflection_MsgSendIbcEncodedDataResponse) New() protoreflect.Message {
+	return new(fastReflection_MsgSendIbcEncodedDataResponse)
+}
+
+// Interface unwraps the message reflection interface and
+// returns the underlying ProtoMessage interface.
+func (x *fastReflection_MsgSendIbcEncodedDataResponse) Interface() protoreflect.ProtoMessage {
+	return (*MsgSendIbcEncodedDataResponse)(x)
+}
+
+// Range iterates over every populated field in an undefined order,
+// calling f for each field descriptor and value encountered.
+// Range returns immediately if f returns false.
+// While iterating, mutating operations may only be performed
+// on the current field descriptor.
+func (x *fastReflection_MsgSendIbcEncodedDataResponse) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+}
+
+// Has reports whether a field is populated.
+//
+// Some fields have the property of nullability where it is possible to
+// distinguish between the default value of a field and whether the field
+// was explicitly populated with the default value. Singular message fields,
+// member fields of a oneof, and proto2 scalar fields are nullable. Such
+// fields are populated only if explicitly set.
+//
+// In other cases (aside from the nullable cases above),
+// a proto3 scalar field is populated if it contains a non-zero value, and
+// a repeated field is populated if it is non-empty.
+func (x *fastReflection_MsgSendIbcEncodedDataResponse) Has(fd protoreflect.FieldDescriptor) bool {
+	switch fd.FullName() {
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: codenet.codenet.MsgSendIbcEncodedDataResponse"))
+		}
+		panic(fmt.Errorf("message codenet.codenet.MsgSendIbcEncodedDataResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// Clear clears the field such that a subsequent Has call reports false.
+//
+// Clearing an extension field clears both the extension type and value
+// associated with the given field number.
+//
+// Clear is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_MsgSendIbcEncodedDataResponse) Clear(fd protoreflect.FieldDescriptor) {
+	switch fd.FullName() {
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: codenet.codenet.MsgSendIbcEncodedDataResponse"))
+		}
+		panic(fmt.Errorf("message codenet.codenet.MsgSendIbcEncodedDataResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// Get retrieves the value for a field.
+//
+// For unpopulated scalars, it returns the default value, where
+// the default value of a bytes scalar is guaranteed to be a copy.
+// For unpopulated composite types, it returns an empty, read-only view
+// of the value; to obtain a mutable reference, use Mutable.
+func (x *fastReflection_MsgSendIbcEncodedDataResponse) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+	switch descriptor.FullName() {
+	default:
+		if descriptor.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: codenet.codenet.MsgSendIbcEncodedDataResponse"))
+		}
+		panic(fmt.Errorf("message codenet.codenet.MsgSendIbcEncodedDataResponse does not contain field %s", descriptor.FullName()))
+	}
+}
+
+// Set stores the value for a field.
+//
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType.
+// When setting a composite type, it is unspecified whether the stored value
+// aliases the source's memory in any way. If the composite value is an
+// empty, read-only value, then it panics.
+//
+// Set is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_MsgSendIbcEncodedDataResponse) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+	switch fd.FullName() {
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: codenet.codenet.MsgSendIbcEncodedDataResponse"))
+		}
+		panic(fmt.Errorf("message codenet.codenet.MsgSendIbcEncodedDataResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// Mutable returns a mutable reference to a composite type.
+//
+// If the field is unpopulated, it may allocate a composite value.
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType
+// if not already stored.
+// It panics if the field does not contain a composite type.
+//
+// Mutable is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_MsgSendIbcEncodedDataResponse) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: codenet.codenet.MsgSendIbcEncodedDataResponse"))
+		}
+		panic(fmt.Errorf("message codenet.codenet.MsgSendIbcEncodedDataResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// NewField returns a new value that is assignable to the field
+// for the given descriptor. For scalars, this returns the default value.
+// For lists, maps, and messages, this returns a new, empty, mutable value.
+func (x *fastReflection_MsgSendIbcEncodedDataResponse) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: codenet.codenet.MsgSendIbcEncodedDataResponse"))
+		}
+		panic(fmt.Errorf("message codenet.codenet.MsgSendIbcEncodedDataResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// WhichOneof reports which field within the oneof is populated,
+// returning nil if none are populated.
+// It panics if the oneof descriptor does not belong to this message.
+func (x *fastReflection_MsgSendIbcEncodedDataResponse) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+	switch d.FullName() {
+	default:
+		panic(fmt.Errorf("%s is not a oneof field in codenet.codenet.MsgSendIbcEncodedDataResponse", d.FullName()))
+	}
+	panic("unreachable")
+}
+
+// GetUnknown retrieves the entire list of unknown fields.
+// The caller may only mutate the contents of the RawFields
+// if the mutated bytes are stored back into the message with SetUnknown.
+func (x *fastReflection_MsgSendIbcEncodedDataResponse) GetUnknown() protoreflect.RawFields {
+	return x.unknownFields
+}
+
+// SetUnknown stores an entire list of unknown fields.
+// The raw fields must be syntactically valid according to the wire format.
+// An implementation may panic if this is not the case.
+// Once stored, the caller must not mutate the content of the RawFields.
+// An empty RawFields may be passed to clear the fields.
+//
+// SetUnknown is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_MsgSendIbcEncodedDataResponse) SetUnknown(fields protoreflect.RawFields) {
+	x.unknownFields = fields
+}
+
+// IsValid reports whether the message is valid.
+//
+// An invalid message is an empty, read-only value.
+//
+// An invalid message often corresponds to a nil pointer of the concrete
+// message type, but the details are implementation dependent.
+// Validity is not part of the protobuf data model, and may not
+// be preserved in marshaling or other operations.
+func (x *fastReflection_MsgSendIbcEncodedDataResponse) IsValid() bool {
+	return x != nil
+}
+
+// ProtoMethods returns optional fastReflectionFeature-path implementations of various operations.
+// This method may return nil.
+//
+// The returned methods type is identical to
+// "google.golang.org/protobuf/runtime/protoiface".Methods.
+// Consult the protoiface package documentation for details.
+func (x *fastReflection_MsgSendIbcEncodedDataResponse) ProtoMethods() *protoiface.Methods {
+	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
+		x := input.Message.Interface().(*MsgSendIbcEncodedDataResponse)
+		if x == nil {
+			return protoiface.SizeOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Size:              0,
+			}
+		}
+		options := runtime.SizeInputToOptions(input)
+		_ = options
+		var n int
+		var l int
+		_ = l
+		if x.unknownFields != nil {
+			n += len(x.unknownFields)
+		}
+		return protoiface.SizeOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Size:              n,
+		}
+	}
+
+	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
+		x := input.Message.Interface().(*MsgSendIbcEncodedDataResponse)
+		if x == nil {
+			return protoiface.MarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Buf:               input.Buf,
+			}, nil
+		}
+		options := runtime.MarshalInputToOptions(input)
+		_ = options
+		size := options.Size(x)
+		dAtA := make([]byte, size)
+		i := len(dAtA)
+		_ = i
+		var l int
+		_ = l
+		if x.unknownFields != nil {
+			i -= len(x.unknownFields)
+			copy(dAtA[i:], x.unknownFields)
+		}
+		if input.Buf != nil {
+			input.Buf = append(input.Buf, dAtA...)
+		} else {
+			input.Buf = dAtA
+		}
+		return protoiface.MarshalOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Buf:               input.Buf,
+		}, nil
+	}
+	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
+		x := input.Message.Interface().(*MsgSendIbcEncodedDataResponse)
+		if x == nil {
+			return protoiface.UnmarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Flags:             input.Flags,
+			}, nil
+		}
+		options := runtime.UnmarshalInputToOptions(input)
+		_ = options
+		dAtA := input.Buf
+		l := len(dAtA)
+		iNdEx := 0
+		for iNdEx < l {
+			preIndex := iNdEx
+			var wire uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				wire |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			fieldNum := int32(wire >> 3)
+			wireType := int(wire & 0x7)
+			if wireType == 4 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgSendIbcEncodedDataResponse: wiretype end group for non-group")
+			}
+			if fieldNum <= 0 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgSendIbcEncodedDataResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+			}
+			switch fieldNum {
+			default:
+				iNdEx = preIndex
+				skippy, err := runtime.Skip(dAtA[iNdEx:])
+				if err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				if (skippy < 0) || (iNdEx+skippy) < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if (iNdEx + skippy) > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if !options.DiscardUnknown {
+					x.unknownFields = append(x.unknownFields, dAtA[iNdEx:iNdEx+skippy]...)
+				}
+				iNdEx += skippy
+			}
+		}
+
+		if iNdEx > l {
+			return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+		}
+		return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, nil
+	}
+	return &protoiface.Methods{
+		NoUnkeyedLiterals: struct{}{},
+		Flags:             protoiface.SupportMarshalDeterministic | protoiface.SupportUnmarshalDiscardUnknown,
+		Size:              size,
+		Marshal:           marshal,
+		Unmarshal:         unmarshal,
+		Merge:             nil,
+		CheckInitialized:  nil,
+	}
+}
+
 // Code generated by protoc-gen-go. DO NOT EDIT.
 // versions:
 // 	protoc-gen-go v1.27.0
@@ -2541,6 +4173,155 @@ func (x *MsgEncodeDataResponse) GetEncodedDataId() uint64 {
 	return 0
 }
 
+type MsgSendIbcEncodedData struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Data              []uint64 `protobuf:"varint,5,rep,packed,name=data,proto3" json:"data,omitempty"`
+	EncodedDataId     uint64   `protobuf:"varint,6,opt,name=encodedDataId,proto3" json:"encodedDataId,omitempty"`
+	EncodingProof     []uint64 `protobuf:"varint,7,rep,packed,name=encodingProof,proto3" json:"encodingProof,omitempty"`
+	BlockNumber       uint64   `protobuf:"varint,8,opt,name=blockNumber,proto3" json:"blockNumber,omitempty"`
+	EncodingAlgorithm string   `protobuf:"bytes,9,opt,name=encodingAlgorithm,proto3" json:"encodingAlgorithm,omitempty"`
+	DataSize          uint64   `protobuf:"varint,10,opt,name=dataSize,proto3" json:"dataSize,omitempty"`
+	Checksum          string   `protobuf:"bytes,11,opt,name=checksum,proto3" json:"checksum,omitempty"`
+	Version           uint64   `protobuf:"varint,12,opt,name=version,proto3" json:"version,omitempty"`
+	Creator           string   `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
+	Port              string   `protobuf:"bytes,2,opt,name=port,proto3" json:"port,omitempty"`
+	ChannelID         string   `protobuf:"bytes,3,opt,name=channelID,proto3" json:"channelID,omitempty"`
+	TimeoutTimestamp  uint64   `protobuf:"varint,4,opt,name=timeoutTimestamp,proto3" json:"timeoutTimestamp,omitempty"`
+}
+
+func (x *MsgSendIbcEncodedData) Reset() {
+	*x = MsgSendIbcEncodedData{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_codenet_codenet_tx_proto_msgTypes[4]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *MsgSendIbcEncodedData) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MsgSendIbcEncodedData) ProtoMessage() {}
+
+// Deprecated: Use MsgSendIbcEncodedData.ProtoReflect.Descriptor instead.
+func (*MsgSendIbcEncodedData) Descriptor() ([]byte, []int) {
+	return file_codenet_codenet_tx_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *MsgSendIbcEncodedData) GetData() []uint64 {
+	if x != nil {
+		return x.Data
+	}
+	return nil
+}
+
+func (x *MsgSendIbcEncodedData) GetEncodedDataId() uint64 {
+	if x != nil {
+		return x.EncodedDataId
+	}
+	return 0
+}
+
+func (x *MsgSendIbcEncodedData) GetEncodingProof() []uint64 {
+	if x != nil {
+		return x.EncodingProof
+	}
+	return nil
+}
+
+func (x *MsgSendIbcEncodedData) GetBlockNumber() uint64 {
+	if x != nil {
+		return x.BlockNumber
+	}
+	return 0
+}
+
+func (x *MsgSendIbcEncodedData) GetEncodingAlgorithm() string {
+	if x != nil {
+		return x.EncodingAlgorithm
+	}
+	return ""
+}
+
+func (x *MsgSendIbcEncodedData) GetDataSize() uint64 {
+	if x != nil {
+		return x.DataSize
+	}
+	return 0
+}
+
+func (x *MsgSendIbcEncodedData) GetChecksum() string {
+	if x != nil {
+		return x.Checksum
+	}
+	return ""
+}
+
+func (x *MsgSendIbcEncodedData) GetVersion() uint64 {
+	if x != nil {
+		return x.Version
+	}
+	return 0
+}
+
+func (x *MsgSendIbcEncodedData) GetCreator() string {
+	if x != nil {
+		return x.Creator
+	}
+	return ""
+}
+
+func (x *MsgSendIbcEncodedData) GetPort() string {
+	if x != nil {
+		return x.Port
+	}
+	return ""
+}
+
+func (x *MsgSendIbcEncodedData) GetChannelID() string {
+	if x != nil {
+		return x.ChannelID
+	}
+	return ""
+}
+
+func (x *MsgSendIbcEncodedData) GetTimeoutTimestamp() uint64 {
+	if x != nil {
+		return x.TimeoutTimestamp
+	}
+	return 0
+}
+
+type MsgSendIbcEncodedDataResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *MsgSendIbcEncodedDataResponse) Reset() {
+	*x = MsgSendIbcEncodedDataResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_codenet_codenet_tx_proto_msgTypes[5]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *MsgSendIbcEncodedDataResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MsgSendIbcEncodedDataResponse) ProtoMessage() {}
+
+// Deprecated: Use MsgSendIbcEncodedDataResponse.ProtoReflect.Descriptor instead.
+func (*MsgSendIbcEncodedDataResponse) Descriptor() ([]byte, []int) {
+	return file_codenet_codenet_tx_proto_rawDescGZIP(), []int{5}
+}
+
 var File_codenet_codenet_tx_proto protoreflect.FileDescriptor
 
 var file_codenet_codenet_tx_proto_rawDesc = []byte{
@@ -2589,29 +4370,64 @@ var file_codenet_codenet_tx_proto_rawDesc = []byte{
 	0x64, 0x65, 0x44, 0x61, 0x74, 0x61, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x24,
 	0x0a, 0x0d, 0x65, 0x6e, 0x63, 0x6f, 0x64, 0x65, 0x64, 0x44, 0x61, 0x74, 0x61, 0x49, 0x64, 0x18,
 	0x01, 0x20, 0x01, 0x28, 0x04, 0x52, 0x0d, 0x65, 0x6e, 0x63, 0x6f, 0x64, 0x65, 0x64, 0x44, 0x61,
-	0x74, 0x61, 0x49, 0x64, 0x32, 0xbe, 0x01, 0x0a, 0x03, 0x4d, 0x73, 0x67, 0x12, 0x5a, 0x0a, 0x0c,
-	0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x50, 0x61, 0x72, 0x61, 0x6d, 0x73, 0x12, 0x20, 0x2e, 0x63,
-	0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2e, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2e, 0x4d,
-	0x73, 0x67, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x50, 0x61, 0x72, 0x61, 0x6d, 0x73, 0x1a, 0x28,
-	0x2e, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2e, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74,
-	0x2e, 0x4d, 0x73, 0x67, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x50, 0x61, 0x72, 0x61, 0x6d, 0x73,
-	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x54, 0x0a, 0x0a, 0x45, 0x6e, 0x63, 0x6f,
-	0x64, 0x65, 0x44, 0x61, 0x74, 0x61, 0x12, 0x1e, 0x2e, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74,
-	0x2e, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2e, 0x4d, 0x73, 0x67, 0x45, 0x6e, 0x63, 0x6f,
-	0x64, 0x65, 0x44, 0x61, 0x74, 0x61, 0x1a, 0x26, 0x2e, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74,
-	0x2e, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2e, 0x4d, 0x73, 0x67, 0x45, 0x6e, 0x63, 0x6f,
-	0x64, 0x65, 0x44, 0x61, 0x74, 0x61, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x1a, 0x05,
-	0x80, 0xe7, 0xb0, 0x2a, 0x01, 0x42, 0x9d, 0x01, 0x0a, 0x13, 0x63, 0x6f, 0x6d, 0x2e, 0x63, 0x6f,
-	0x64, 0x65, 0x6e, 0x65, 0x74, 0x2e, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x42, 0x07, 0x54,
-	0x78, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x50, 0x01, 0x5a, 0x20, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73,
-	0x73, 0x64, 0x6b, 0x2e, 0x69, 0x6f, 0x2f, 0x61, 0x70, 0x69, 0x2f, 0x63, 0x6f, 0x64, 0x65, 0x6e,
-	0x65, 0x74, 0x2f, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0xa2, 0x02, 0x03, 0x43, 0x43, 0x58,
-	0xaa, 0x02, 0x0f, 0x43, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2e, 0x43, 0x6f, 0x64, 0x65, 0x6e,
-	0x65, 0x74, 0xca, 0x02, 0x0f, 0x43, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x5c, 0x43, 0x6f, 0x64,
-	0x65, 0x6e, 0x65, 0x74, 0xe2, 0x02, 0x1b, 0x43, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x5c, 0x43,
-	0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x5c, 0x47, 0x50, 0x42, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61,
-	0x74, 0x61, 0xea, 0x02, 0x10, 0x43, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x3a, 0x3a, 0x43, 0x6f,
-	0x64, 0x65, 0x6e, 0x65, 0x74, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x74, 0x61, 0x49, 0x64, 0x22, 0x9f, 0x03, 0x0a, 0x15, 0x4d, 0x73, 0x67, 0x53, 0x65, 0x6e, 0x64,
+	0x49, 0x62, 0x63, 0x45, 0x6e, 0x63, 0x6f, 0x64, 0x65, 0x64, 0x44, 0x61, 0x74, 0x61, 0x12, 0x12,
+	0x0a, 0x04, 0x64, 0x61, 0x74, 0x61, 0x18, 0x05, 0x20, 0x03, 0x28, 0x04, 0x52, 0x04, 0x64, 0x61,
+	0x74, 0x61, 0x12, 0x24, 0x0a, 0x0d, 0x65, 0x6e, 0x63, 0x6f, 0x64, 0x65, 0x64, 0x44, 0x61, 0x74,
+	0x61, 0x49, 0x64, 0x18, 0x06, 0x20, 0x01, 0x28, 0x04, 0x52, 0x0d, 0x65, 0x6e, 0x63, 0x6f, 0x64,
+	0x65, 0x64, 0x44, 0x61, 0x74, 0x61, 0x49, 0x64, 0x12, 0x24, 0x0a, 0x0d, 0x65, 0x6e, 0x63, 0x6f,
+	0x64, 0x69, 0x6e, 0x67, 0x50, 0x72, 0x6f, 0x6f, 0x66, 0x18, 0x07, 0x20, 0x03, 0x28, 0x04, 0x52,
+	0x0d, 0x65, 0x6e, 0x63, 0x6f, 0x64, 0x69, 0x6e, 0x67, 0x50, 0x72, 0x6f, 0x6f, 0x66, 0x12, 0x20,
+	0x0a, 0x0b, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x4e, 0x75, 0x6d, 0x62, 0x65, 0x72, 0x18, 0x08, 0x20,
+	0x01, 0x28, 0x04, 0x52, 0x0b, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x4e, 0x75, 0x6d, 0x62, 0x65, 0x72,
+	0x12, 0x2c, 0x0a, 0x11, 0x65, 0x6e, 0x63, 0x6f, 0x64, 0x69, 0x6e, 0x67, 0x41, 0x6c, 0x67, 0x6f,
+	0x72, 0x69, 0x74, 0x68, 0x6d, 0x18, 0x09, 0x20, 0x01, 0x28, 0x09, 0x52, 0x11, 0x65, 0x6e, 0x63,
+	0x6f, 0x64, 0x69, 0x6e, 0x67, 0x41, 0x6c, 0x67, 0x6f, 0x72, 0x69, 0x74, 0x68, 0x6d, 0x12, 0x1a,
+	0x0a, 0x08, 0x64, 0x61, 0x74, 0x61, 0x53, 0x69, 0x7a, 0x65, 0x18, 0x0a, 0x20, 0x01, 0x28, 0x04,
+	0x52, 0x08, 0x64, 0x61, 0x74, 0x61, 0x53, 0x69, 0x7a, 0x65, 0x12, 0x1a, 0x0a, 0x08, 0x63, 0x68,
+	0x65, 0x63, 0x6b, 0x73, 0x75, 0x6d, 0x18, 0x0b, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x63, 0x68,
+	0x65, 0x63, 0x6b, 0x73, 0x75, 0x6d, 0x12, 0x18, 0x0a, 0x07, 0x76, 0x65, 0x72, 0x73, 0x69, 0x6f,
+	0x6e, 0x18, 0x0c, 0x20, 0x01, 0x28, 0x04, 0x52, 0x07, 0x76, 0x65, 0x72, 0x73, 0x69, 0x6f, 0x6e,
+	0x12, 0x18, 0x0a, 0x07, 0x63, 0x72, 0x65, 0x61, 0x74, 0x6f, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x09, 0x52, 0x07, 0x63, 0x72, 0x65, 0x61, 0x74, 0x6f, 0x72, 0x12, 0x12, 0x0a, 0x04, 0x70, 0x6f,
+	0x72, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x70, 0x6f, 0x72, 0x74, 0x12, 0x1c,
+	0x0a, 0x09, 0x63, 0x68, 0x61, 0x6e, 0x6e, 0x65, 0x6c, 0x49, 0x44, 0x18, 0x03, 0x20, 0x01, 0x28,
+	0x09, 0x52, 0x09, 0x63, 0x68, 0x61, 0x6e, 0x6e, 0x65, 0x6c, 0x49, 0x44, 0x12, 0x2a, 0x0a, 0x10,
+	0x74, 0x69, 0x6d, 0x65, 0x6f, 0x75, 0x74, 0x54, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70,
+	0x18, 0x04, 0x20, 0x01, 0x28, 0x04, 0x52, 0x10, 0x74, 0x69, 0x6d, 0x65, 0x6f, 0x75, 0x74, 0x54,
+	0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x3a, 0x0c, 0x82, 0xe7, 0xb0, 0x2a, 0x07, 0x63,
+	0x72, 0x65, 0x61, 0x74, 0x6f, 0x72, 0x22, 0x1f, 0x0a, 0x1d, 0x4d, 0x73, 0x67, 0x53, 0x65, 0x6e,
+	0x64, 0x49, 0x62, 0x63, 0x45, 0x6e, 0x63, 0x6f, 0x64, 0x65, 0x64, 0x44, 0x61, 0x74, 0x61, 0x52,
+	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x32, 0xac, 0x02, 0x0a, 0x03, 0x4d, 0x73, 0x67, 0x12,
+	0x5a, 0x0a, 0x0c, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x50, 0x61, 0x72, 0x61, 0x6d, 0x73, 0x12,
+	0x20, 0x2e, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2e, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65,
+	0x74, 0x2e, 0x4d, 0x73, 0x67, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x50, 0x61, 0x72, 0x61, 0x6d,
+	0x73, 0x1a, 0x28, 0x2e, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2e, 0x63, 0x6f, 0x64, 0x65,
+	0x6e, 0x65, 0x74, 0x2e, 0x4d, 0x73, 0x67, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x50, 0x61, 0x72,
+	0x61, 0x6d, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x54, 0x0a, 0x0a, 0x45,
+	0x6e, 0x63, 0x6f, 0x64, 0x65, 0x44, 0x61, 0x74, 0x61, 0x12, 0x1e, 0x2e, 0x63, 0x6f, 0x64, 0x65,
+	0x6e, 0x65, 0x74, 0x2e, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2e, 0x4d, 0x73, 0x67, 0x45,
+	0x6e, 0x63, 0x6f, 0x64, 0x65, 0x44, 0x61, 0x74, 0x61, 0x1a, 0x26, 0x2e, 0x63, 0x6f, 0x64, 0x65,
+	0x6e, 0x65, 0x74, 0x2e, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2e, 0x4d, 0x73, 0x67, 0x45,
+	0x6e, 0x63, 0x6f, 0x64, 0x65, 0x44, 0x61, 0x74, 0x61, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x12, 0x6c, 0x0a, 0x12, 0x53, 0x65, 0x6e, 0x64, 0x49, 0x62, 0x63, 0x45, 0x6e, 0x63, 0x6f,
+	0x64, 0x65, 0x64, 0x44, 0x61, 0x74, 0x61, 0x12, 0x26, 0x2e, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65,
+	0x74, 0x2e, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2e, 0x4d, 0x73, 0x67, 0x53, 0x65, 0x6e,
+	0x64, 0x49, 0x62, 0x63, 0x45, 0x6e, 0x63, 0x6f, 0x64, 0x65, 0x64, 0x44, 0x61, 0x74, 0x61, 0x1a,
+	0x2e, 0x2e, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2e, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65,
+	0x74, 0x2e, 0x4d, 0x73, 0x67, 0x53, 0x65, 0x6e, 0x64, 0x49, 0x62, 0x63, 0x45, 0x6e, 0x63, 0x6f,
+	0x64, 0x65, 0x64, 0x44, 0x61, 0x74, 0x61, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x1a,
+	0x05, 0x80, 0xe7, 0xb0, 0x2a, 0x01, 0x42, 0x9d, 0x01, 0x0a, 0x13, 0x63, 0x6f, 0x6d, 0x2e, 0x63,
+	0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2e, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x42, 0x07,
+	0x54, 0x78, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x50, 0x01, 0x5a, 0x20, 0x63, 0x6f, 0x73, 0x6d, 0x6f,
+	0x73, 0x73, 0x64, 0x6b, 0x2e, 0x69, 0x6f, 0x2f, 0x61, 0x70, 0x69, 0x2f, 0x63, 0x6f, 0x64, 0x65,
+	0x6e, 0x65, 0x74, 0x2f, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0xa2, 0x02, 0x03, 0x43, 0x43,
+	0x58, 0xaa, 0x02, 0x0f, 0x43, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2e, 0x43, 0x6f, 0x64, 0x65,
+	0x6e, 0x65, 0x74, 0xca, 0x02, 0x0f, 0x43, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x5c, 0x43, 0x6f,
+	0x64, 0x65, 0x6e, 0x65, 0x74, 0xe2, 0x02, 0x1b, 0x43, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x5c,
+	0x43, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x5c, 0x47, 0x50, 0x42, 0x4d, 0x65, 0x74, 0x61, 0x64,
+	0x61, 0x74, 0x61, 0xea, 0x02, 0x10, 0x43, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x3a, 0x3a, 0x43,
+	0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -2626,22 +4442,26 @@ func file_codenet_codenet_tx_proto_rawDescGZIP() []byte {
 	return file_codenet_codenet_tx_proto_rawDescData
 }
 
-var file_codenet_codenet_tx_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+var file_codenet_codenet_tx_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
 var file_codenet_codenet_tx_proto_goTypes = []interface{}{
-	(*MsgUpdateParams)(nil),         // 0: codenet.codenet.MsgUpdateParams
-	(*MsgUpdateParamsResponse)(nil), // 1: codenet.codenet.MsgUpdateParamsResponse
-	(*MsgEncodeData)(nil),           // 2: codenet.codenet.MsgEncodeData
-	(*MsgEncodeDataResponse)(nil),   // 3: codenet.codenet.MsgEncodeDataResponse
-	(*Params)(nil),                  // 4: codenet.codenet.Params
+	(*MsgUpdateParams)(nil),               // 0: codenet.codenet.MsgUpdateParams
+	(*MsgUpdateParamsResponse)(nil),       // 1: codenet.codenet.MsgUpdateParamsResponse
+	(*MsgEncodeData)(nil),                 // 2: codenet.codenet.MsgEncodeData
+	(*MsgEncodeDataResponse)(nil),         // 3: codenet.codenet.MsgEncodeDataResponse
+	(*MsgSendIbcEncodedData)(nil),         // 4: codenet.codenet.MsgSendIbcEncodedData
+	(*MsgSendIbcEncodedDataResponse)(nil), // 5: codenet.codenet.MsgSendIbcEncodedDataResponse
+	(*Params)(nil),                        // 6: codenet.codenet.Params
 }
 var file_codenet_codenet_tx_proto_depIdxs = []int32{
-	4, // 0: codenet.codenet.MsgUpdateParams.params:type_name -> codenet.codenet.Params
+	6, // 0: codenet.codenet.MsgUpdateParams.params:type_name -> codenet.codenet.Params
 	0, // 1: codenet.codenet.Msg.UpdateParams:input_type -> codenet.codenet.MsgUpdateParams
 	2, // 2: codenet.codenet.Msg.EncodeData:input_type -> codenet.codenet.MsgEncodeData
-	1, // 3: codenet.codenet.Msg.UpdateParams:output_type -> codenet.codenet.MsgUpdateParamsResponse
-	3, // 4: codenet.codenet.Msg.EncodeData:output_type -> codenet.codenet.MsgEncodeDataResponse
-	3, // [3:5] is the sub-list for method output_type
-	1, // [1:3] is the sub-list for method input_type
+	4, // 3: codenet.codenet.Msg.SendIbcEncodedData:input_type -> codenet.codenet.MsgSendIbcEncodedData
+	1, // 4: codenet.codenet.Msg.UpdateParams:output_type -> codenet.codenet.MsgUpdateParamsResponse
+	3, // 5: codenet.codenet.Msg.EncodeData:output_type -> codenet.codenet.MsgEncodeDataResponse
+	5, // 6: codenet.codenet.Msg.SendIbcEncodedData:output_type -> codenet.codenet.MsgSendIbcEncodedDataResponse
+	4, // [4:7] is the sub-list for method output_type
+	1, // [1:4] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name
 	1, // [1:1] is the sub-list for extension extendee
 	0, // [0:1] is the sub-list for field type_name
@@ -2702,6 +4522,30 @@ func file_codenet_codenet_tx_proto_init() {
 				return nil
 			}
 		}
+		file_codenet_codenet_tx_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*MsgSendIbcEncodedData); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_codenet_codenet_tx_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*MsgSendIbcEncodedDataResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -2709,7 +4553,7 @@ func file_codenet_codenet_tx_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_codenet_codenet_tx_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   4,
+			NumMessages:   6,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

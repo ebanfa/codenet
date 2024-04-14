@@ -16,8 +16,9 @@ service Msg {
   
   // UpdateParams defines a (governance) operation for updating the module
   // parameters. The authority defaults to the x/gov module account.
-  rpc UpdateParams (MsgUpdateParams) returns (MsgUpdateParamsResponse);
-  rpc EncodeData   (MsgEncodeData  ) returns (MsgEncodeDataResponse  );
+  rpc UpdateParams       (MsgUpdateParams      ) returns (MsgUpdateParamsResponse      );
+  rpc EncodeData         (MsgEncodeData        ) returns (MsgEncodeDataResponse        );
+  rpc SendIbcEncodedData (MsgSendIbcEncodedData) returns (MsgSendIbcEncodedDataResponse);
 }
 // MsgUpdateParams is the Msg/UpdateParams request type.
 message MsgUpdateParams {
@@ -52,4 +53,22 @@ message MsgEncodeData {
 message MsgEncodeDataResponse {
   uint64 encodedDataId = 1;
 }
+
+message MsgSendIbcEncodedData {
+  option (cosmos.msg.v1.signer) = "creator";
+  repeated uint64 data              =  5;
+           uint64 encodedDataId     =  6;
+  repeated uint64 encodingProof     =  7;
+           uint64 blockNumber       =  8;
+           string encodingAlgorithm =  9;
+           uint64 dataSize          = 10;
+           string checksum          = 11;
+           uint64 version           = 12;
+           string creator           =  1;
+           string port              =  2;
+           string channelID         =  3;
+           uint64 timeoutTimestamp  =  4;
+}
+
+message MsgSendIbcEncodedDataResponse {}
 

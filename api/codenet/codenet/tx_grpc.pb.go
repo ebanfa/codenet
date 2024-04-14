@@ -20,8 +20,9 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	Msg_UpdateParams_FullMethodName = "/codenet.codenet.Msg/UpdateParams"
-	Msg_EncodeData_FullMethodName   = "/codenet.codenet.Msg/EncodeData"
+	Msg_UpdateParams_FullMethodName       = "/codenet.codenet.Msg/UpdateParams"
+	Msg_EncodeData_FullMethodName         = "/codenet.codenet.Msg/EncodeData"
+	Msg_SendIbcEncodedData_FullMethodName = "/codenet.codenet.Msg/SendIbcEncodedData"
 )
 
 // MsgClient is the client API for Msg service.
@@ -32,6 +33,7 @@ type MsgClient interface {
 	// parameters. The authority defaults to the x/gov module account.
 	UpdateParams(ctx context.Context, in *MsgUpdateParams, opts ...grpc.CallOption) (*MsgUpdateParamsResponse, error)
 	EncodeData(ctx context.Context, in *MsgEncodeData, opts ...grpc.CallOption) (*MsgEncodeDataResponse, error)
+	SendIbcEncodedData(ctx context.Context, in *MsgSendIbcEncodedData, opts ...grpc.CallOption) (*MsgSendIbcEncodedDataResponse, error)
 }
 
 type msgClient struct {
@@ -60,6 +62,15 @@ func (c *msgClient) EncodeData(ctx context.Context, in *MsgEncodeData, opts ...g
 	return out, nil
 }
 
+func (c *msgClient) SendIbcEncodedData(ctx context.Context, in *MsgSendIbcEncodedData, opts ...grpc.CallOption) (*MsgSendIbcEncodedDataResponse, error) {
+	out := new(MsgSendIbcEncodedDataResponse)
+	err := c.cc.Invoke(ctx, Msg_SendIbcEncodedData_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // MsgServer is the server API for Msg service.
 // All implementations must embed UnimplementedMsgServer
 // for forward compatibility
@@ -68,6 +79,7 @@ type MsgServer interface {
 	// parameters. The authority defaults to the x/gov module account.
 	UpdateParams(context.Context, *MsgUpdateParams) (*MsgUpdateParamsResponse, error)
 	EncodeData(context.Context, *MsgEncodeData) (*MsgEncodeDataResponse, error)
+	SendIbcEncodedData(context.Context, *MsgSendIbcEncodedData) (*MsgSendIbcEncodedDataResponse, error)
 	mustEmbedUnimplementedMsgServer()
 }
 
@@ -80,6 +92,9 @@ func (UnimplementedMsgServer) UpdateParams(context.Context, *MsgUpdateParams) (*
 }
 func (UnimplementedMsgServer) EncodeData(context.Context, *MsgEncodeData) (*MsgEncodeDataResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method EncodeData not implemented")
+}
+func (UnimplementedMsgServer) SendIbcEncodedData(context.Context, *MsgSendIbcEncodedData) (*MsgSendIbcEncodedDataResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SendIbcEncodedData not implemented")
 }
 func (UnimplementedMsgServer) mustEmbedUnimplementedMsgServer() {}
 
@@ -130,6 +145,24 @@ func _Msg_EncodeData_Handler(srv interface{}, ctx context.Context, dec func(inte
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Msg_SendIbcEncodedData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgSendIbcEncodedData)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MsgServer).SendIbcEncodedData(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Msg_SendIbcEncodedData_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MsgServer).SendIbcEncodedData(ctx, req.(*MsgSendIbcEncodedData))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Msg_ServiceDesc is the grpc.ServiceDesc for Msg service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -144,6 +177,10 @@ var Msg_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "EncodeData",
 			Handler:    _Msg_EncodeData_Handler,
+		},
+		{
+			MethodName: "SendIbcEncodedData",
+			Handler:    _Msg_SendIbcEncodedData_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

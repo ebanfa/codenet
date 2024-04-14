@@ -1,13 +1,32 @@
 syntax = "proto3";
+
 package codenet.codenet;
 
 option go_package = "codenet/x/codenet/types";
 
 message CodenetPacketData {
-    oneof packet {
-        NoData noData = 1;
-    }
+  oneof packet {
+    NoData                   noData               = 1;
+    IbcEncodedDataPacketData ibcEncodedDataPacket = 2;
+  }
 }
 
-message NoData {
+message NoData {}
+
+// IbcEncodedDataPacketData defines a struct for the packet payload
+message IbcEncodedDataPacketData {
+  repeated uint64 data              = 1;
+           uint64 encodedDataId     = 2;
+  repeated uint64 encodingProof     = 3;
+           uint64 blockNumber       = 4;
+           string encodingAlgorithm = 5;
+           uint64 dataSize          = 6;
+           string checksum          = 7;
+           uint64 version           = 8;
 }
+
+// IbcEncodedDataPacketAck defines a struct for the packet acknowledgment
+message IbcEncodedDataPacketAck {
+  string encodedDataId = 1;
+}
+
