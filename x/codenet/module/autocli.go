@@ -28,6 +28,12 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 					RpcMethod: "UpdateParams",
 					Skip:      true, // skipped because authority gated
 				},
+				{
+					RpcMethod:      "EncodeData",
+					Use:            "encode-data [data] [encoding-algorithm] [data-size] [checksum] [version] [encoding-proof] [block-number]",
+					Short:          "Send a encodeData tx",
+					PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "data"}, {ProtoField: "encodingAlgorithm"}, {ProtoField: "dataSize"}, {ProtoField: "checksum"}, {ProtoField: "version"}, {ProtoField: "encodingProof"}, {ProtoField: "blockNumber"}},
+				},
 				// this line is used by ignite scaffolding # autocli/tx
 			},
 		},
