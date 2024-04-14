@@ -52,6 +52,13 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 					PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "creator"}},
 				},
 
+				{
+					RpcMethod:      "GetEncodedDataByTimestamp",
+					Use:            "get-encoded-data-by-timestamp [timestamp]",
+					Short:          "Query getEncodedDataByTimestamp",
+					PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "timestamp"}},
+				},
+
 				// this line is used by ignite scaffolding # autocli/query
 			},
 		},

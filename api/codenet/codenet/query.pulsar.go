@@ -5248,6 +5248,1003 @@ func (x *fastReflection_QueryGetEncodedDataByCreatorResponse) ProtoMethods() *pr
 	}
 }
 
+var (
+	md_QueryGetEncodedDataByTimestampRequest            protoreflect.MessageDescriptor
+	fd_QueryGetEncodedDataByTimestampRequest_timestamp  protoreflect.FieldDescriptor
+	fd_QueryGetEncodedDataByTimestampRequest_pagination protoreflect.FieldDescriptor
+)
+
+func init() {
+	file_codenet_codenet_query_proto_init()
+	md_QueryGetEncodedDataByTimestampRequest = File_codenet_codenet_query_proto.Messages().ByName("QueryGetEncodedDataByTimestampRequest")
+	fd_QueryGetEncodedDataByTimestampRequest_timestamp = md_QueryGetEncodedDataByTimestampRequest.Fields().ByName("timestamp")
+	fd_QueryGetEncodedDataByTimestampRequest_pagination = md_QueryGetEncodedDataByTimestampRequest.Fields().ByName("pagination")
+}
+
+var _ protoreflect.Message = (*fastReflection_QueryGetEncodedDataByTimestampRequest)(nil)
+
+type fastReflection_QueryGetEncodedDataByTimestampRequest QueryGetEncodedDataByTimestampRequest
+
+func (x *QueryGetEncodedDataByTimestampRequest) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_QueryGetEncodedDataByTimestampRequest)(x)
+}
+
+func (x *QueryGetEncodedDataByTimestampRequest) slowProtoReflect() protoreflect.Message {
+	mi := &file_codenet_codenet_query_proto_msgTypes[12]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+var _fastReflection_QueryGetEncodedDataByTimestampRequest_messageType fastReflection_QueryGetEncodedDataByTimestampRequest_messageType
+var _ protoreflect.MessageType = fastReflection_QueryGetEncodedDataByTimestampRequest_messageType{}
+
+type fastReflection_QueryGetEncodedDataByTimestampRequest_messageType struct{}
+
+func (x fastReflection_QueryGetEncodedDataByTimestampRequest_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_QueryGetEncodedDataByTimestampRequest)(nil)
+}
+func (x fastReflection_QueryGetEncodedDataByTimestampRequest_messageType) New() protoreflect.Message {
+	return new(fastReflection_QueryGetEncodedDataByTimestampRequest)
+}
+func (x fastReflection_QueryGetEncodedDataByTimestampRequest_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryGetEncodedDataByTimestampRequest
+}
+
+// Descriptor returns message descriptor, which contains only the protobuf
+// type information for the message.
+func (x *fastReflection_QueryGetEncodedDataByTimestampRequest) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryGetEncodedDataByTimestampRequest
+}
+
+// Type returns the message type, which encapsulates both Go and protobuf
+// type information. If the Go type information is not needed,
+// it is recommended that the message descriptor be used instead.
+func (x *fastReflection_QueryGetEncodedDataByTimestampRequest) Type() protoreflect.MessageType {
+	return _fastReflection_QueryGetEncodedDataByTimestampRequest_messageType
+}
+
+// New returns a newly allocated and mutable empty message.
+func (x *fastReflection_QueryGetEncodedDataByTimestampRequest) New() protoreflect.Message {
+	return new(fastReflection_QueryGetEncodedDataByTimestampRequest)
+}
+
+// Interface unwraps the message reflection interface and
+// returns the underlying ProtoMessage interface.
+func (x *fastReflection_QueryGetEncodedDataByTimestampRequest) Interface() protoreflect.ProtoMessage {
+	return (*QueryGetEncodedDataByTimestampRequest)(x)
+}
+
+// Range iterates over every populated field in an undefined order,
+// calling f for each field descriptor and value encountered.
+// Range returns immediately if f returns false.
+// While iterating, mutating operations may only be performed
+// on the current field descriptor.
+func (x *fastReflection_QueryGetEncodedDataByTimestampRequest) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+	if x.Timestamp != uint64(0) {
+		value := protoreflect.ValueOfUint64(x.Timestamp)
+		if !f(fd_QueryGetEncodedDataByTimestampRequest_timestamp, value) {
+			return
+		}
+	}
+	if x.Pagination != nil {
+		value := protoreflect.ValueOfMessage(x.Pagination.ProtoReflect())
+		if !f(fd_QueryGetEncodedDataByTimestampRequest_pagination, value) {
+			return
+		}
+	}
+}
+
+// Has reports whether a field is populated.
+//
+// Some fields have the property of nullability where it is possible to
+// distinguish between the default value of a field and whether the field
+// was explicitly populated with the default value. Singular message fields,
+// member fields of a oneof, and proto2 scalar fields are nullable. Such
+// fields are populated only if explicitly set.
+//
+// In other cases (aside from the nullable cases above),
+// a proto3 scalar field is populated if it contains a non-zero value, and
+// a repeated field is populated if it is non-empty.
+func (x *fastReflection_QueryGetEncodedDataByTimestampRequest) Has(fd protoreflect.FieldDescriptor) bool {
+	switch fd.FullName() {
+	case "codenet.codenet.QueryGetEncodedDataByTimestampRequest.timestamp":
+		return x.Timestamp != uint64(0)
+	case "codenet.codenet.QueryGetEncodedDataByTimestampRequest.pagination":
+		return x.Pagination != nil
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: codenet.codenet.QueryGetEncodedDataByTimestampRequest"))
+		}
+		panic(fmt.Errorf("message codenet.codenet.QueryGetEncodedDataByTimestampRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// Clear clears the field such that a subsequent Has call reports false.
+//
+// Clearing an extension field clears both the extension type and value
+// associated with the given field number.
+//
+// Clear is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryGetEncodedDataByTimestampRequest) Clear(fd protoreflect.FieldDescriptor) {
+	switch fd.FullName() {
+	case "codenet.codenet.QueryGetEncodedDataByTimestampRequest.timestamp":
+		x.Timestamp = uint64(0)
+	case "codenet.codenet.QueryGetEncodedDataByTimestampRequest.pagination":
+		x.Pagination = nil
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: codenet.codenet.QueryGetEncodedDataByTimestampRequest"))
+		}
+		panic(fmt.Errorf("message codenet.codenet.QueryGetEncodedDataByTimestampRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// Get retrieves the value for a field.
+//
+// For unpopulated scalars, it returns the default value, where
+// the default value of a bytes scalar is guaranteed to be a copy.
+// For unpopulated composite types, it returns an empty, read-only view
+// of the value; to obtain a mutable reference, use Mutable.
+func (x *fastReflection_QueryGetEncodedDataByTimestampRequest) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+	switch descriptor.FullName() {
+	case "codenet.codenet.QueryGetEncodedDataByTimestampRequest.timestamp":
+		value := x.Timestamp
+		return protoreflect.ValueOfUint64(value)
+	case "codenet.codenet.QueryGetEncodedDataByTimestampRequest.pagination":
+		value := x.Pagination
+		return protoreflect.ValueOfMessage(value.ProtoReflect())
+	default:
+		if descriptor.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: codenet.codenet.QueryGetEncodedDataByTimestampRequest"))
+		}
+		panic(fmt.Errorf("message codenet.codenet.QueryGetEncodedDataByTimestampRequest does not contain field %s", descriptor.FullName()))
+	}
+}
+
+// Set stores the value for a field.
+//
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType.
+// When setting a composite type, it is unspecified whether the stored value
+// aliases the source's memory in any way. If the composite value is an
+// empty, read-only value, then it panics.
+//
+// Set is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryGetEncodedDataByTimestampRequest) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+	switch fd.FullName() {
+	case "codenet.codenet.QueryGetEncodedDataByTimestampRequest.timestamp":
+		x.Timestamp = value.Uint()
+	case "codenet.codenet.QueryGetEncodedDataByTimestampRequest.pagination":
+		x.Pagination = value.Message().Interface().(*v1beta1.PageRequest)
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: codenet.codenet.QueryGetEncodedDataByTimestampRequest"))
+		}
+		panic(fmt.Errorf("message codenet.codenet.QueryGetEncodedDataByTimestampRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// Mutable returns a mutable reference to a composite type.
+//
+// If the field is unpopulated, it may allocate a composite value.
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType
+// if not already stored.
+// It panics if the field does not contain a composite type.
+//
+// Mutable is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryGetEncodedDataByTimestampRequest) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "codenet.codenet.QueryGetEncodedDataByTimestampRequest.pagination":
+		if x.Pagination == nil {
+			x.Pagination = new(v1beta1.PageRequest)
+		}
+		return protoreflect.ValueOfMessage(x.Pagination.ProtoReflect())
+	case "codenet.codenet.QueryGetEncodedDataByTimestampRequest.timestamp":
+		panic(fmt.Errorf("field timestamp of message codenet.codenet.QueryGetEncodedDataByTimestampRequest is not mutable"))
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: codenet.codenet.QueryGetEncodedDataByTimestampRequest"))
+		}
+		panic(fmt.Errorf("message codenet.codenet.QueryGetEncodedDataByTimestampRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// NewField returns a new value that is assignable to the field
+// for the given descriptor. For scalars, this returns the default value.
+// For lists, maps, and messages, this returns a new, empty, mutable value.
+func (x *fastReflection_QueryGetEncodedDataByTimestampRequest) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "codenet.codenet.QueryGetEncodedDataByTimestampRequest.timestamp":
+		return protoreflect.ValueOfUint64(uint64(0))
+	case "codenet.codenet.QueryGetEncodedDataByTimestampRequest.pagination":
+		m := new(v1beta1.PageRequest)
+		return protoreflect.ValueOfMessage(m.ProtoReflect())
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: codenet.codenet.QueryGetEncodedDataByTimestampRequest"))
+		}
+		panic(fmt.Errorf("message codenet.codenet.QueryGetEncodedDataByTimestampRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// WhichOneof reports which field within the oneof is populated,
+// returning nil if none are populated.
+// It panics if the oneof descriptor does not belong to this message.
+func (x *fastReflection_QueryGetEncodedDataByTimestampRequest) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+	switch d.FullName() {
+	default:
+		panic(fmt.Errorf("%s is not a oneof field in codenet.codenet.QueryGetEncodedDataByTimestampRequest", d.FullName()))
+	}
+	panic("unreachable")
+}
+
+// GetUnknown retrieves the entire list of unknown fields.
+// The caller may only mutate the contents of the RawFields
+// if the mutated bytes are stored back into the message with SetUnknown.
+func (x *fastReflection_QueryGetEncodedDataByTimestampRequest) GetUnknown() protoreflect.RawFields {
+	return x.unknownFields
+}
+
+// SetUnknown stores an entire list of unknown fields.
+// The raw fields must be syntactically valid according to the wire format.
+// An implementation may panic if this is not the case.
+// Once stored, the caller must not mutate the content of the RawFields.
+// An empty RawFields may be passed to clear the fields.
+//
+// SetUnknown is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryGetEncodedDataByTimestampRequest) SetUnknown(fields protoreflect.RawFields) {
+	x.unknownFields = fields
+}
+
+// IsValid reports whether the message is valid.
+//
+// An invalid message is an empty, read-only value.
+//
+// An invalid message often corresponds to a nil pointer of the concrete
+// message type, but the details are implementation dependent.
+// Validity is not part of the protobuf data model, and may not
+// be preserved in marshaling or other operations.
+func (x *fastReflection_QueryGetEncodedDataByTimestampRequest) IsValid() bool {
+	return x != nil
+}
+
+// ProtoMethods returns optional fastReflectionFeature-path implementations of various operations.
+// This method may return nil.
+//
+// The returned methods type is identical to
+// "google.golang.org/protobuf/runtime/protoiface".Methods.
+// Consult the protoiface package documentation for details.
+func (x *fastReflection_QueryGetEncodedDataByTimestampRequest) ProtoMethods() *protoiface.Methods {
+	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
+		x := input.Message.Interface().(*QueryGetEncodedDataByTimestampRequest)
+		if x == nil {
+			return protoiface.SizeOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Size:              0,
+			}
+		}
+		options := runtime.SizeInputToOptions(input)
+		_ = options
+		var n int
+		var l int
+		_ = l
+		if x.Timestamp != 0 {
+			n += 1 + runtime.Sov(uint64(x.Timestamp))
+		}
+		if x.Pagination != nil {
+			l = options.Size(x.Pagination)
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		if x.unknownFields != nil {
+			n += len(x.unknownFields)
+		}
+		return protoiface.SizeOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Size:              n,
+		}
+	}
+
+	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
+		x := input.Message.Interface().(*QueryGetEncodedDataByTimestampRequest)
+		if x == nil {
+			return protoiface.MarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Buf:               input.Buf,
+			}, nil
+		}
+		options := runtime.MarshalInputToOptions(input)
+		_ = options
+		size := options.Size(x)
+		dAtA := make([]byte, size)
+		i := len(dAtA)
+		_ = i
+		var l int
+		_ = l
+		if x.unknownFields != nil {
+			i -= len(x.unknownFields)
+			copy(dAtA[i:], x.unknownFields)
+		}
+		if x.Pagination != nil {
+			encoded, err := options.Marshal(x.Pagination)
+			if err != nil {
+				return protoiface.MarshalOutput{
+					NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+					Buf:               input.Buf,
+				}, err
+			}
+			i -= len(encoded)
+			copy(dAtA[i:], encoded)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(encoded)))
+			i--
+			dAtA[i] = 0x12
+		}
+		if x.Timestamp != 0 {
+			i = runtime.EncodeVarint(dAtA, i, uint64(x.Timestamp))
+			i--
+			dAtA[i] = 0x8
+		}
+		if input.Buf != nil {
+			input.Buf = append(input.Buf, dAtA...)
+		} else {
+			input.Buf = dAtA
+		}
+		return protoiface.MarshalOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Buf:               input.Buf,
+		}, nil
+	}
+	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
+		x := input.Message.Interface().(*QueryGetEncodedDataByTimestampRequest)
+		if x == nil {
+			return protoiface.UnmarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Flags:             input.Flags,
+			}, nil
+		}
+		options := runtime.UnmarshalInputToOptions(input)
+		_ = options
+		dAtA := input.Buf
+		l := len(dAtA)
+		iNdEx := 0
+		for iNdEx < l {
+			preIndex := iNdEx
+			var wire uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				wire |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			fieldNum := int32(wire >> 3)
+			wireType := int(wire & 0x7)
+			if wireType == 4 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryGetEncodedDataByTimestampRequest: wiretype end group for non-group")
+			}
+			if fieldNum <= 0 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryGetEncodedDataByTimestampRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+			}
+			switch fieldNum {
+			case 1:
+				if wireType != 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Timestamp", wireType)
+				}
+				x.Timestamp = 0
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					x.Timestamp |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+			case 2:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Pagination", wireType)
+				}
+				var msglen int
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					msglen |= int(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				if msglen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + msglen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if x.Pagination == nil {
+					x.Pagination = &v1beta1.PageRequest{}
+				}
+				if err := options.Unmarshal(dAtA[iNdEx:postIndex], x.Pagination); err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				iNdEx = postIndex
+			default:
+				iNdEx = preIndex
+				skippy, err := runtime.Skip(dAtA[iNdEx:])
+				if err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				if (skippy < 0) || (iNdEx+skippy) < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if (iNdEx + skippy) > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if !options.DiscardUnknown {
+					x.unknownFields = append(x.unknownFields, dAtA[iNdEx:iNdEx+skippy]...)
+				}
+				iNdEx += skippy
+			}
+		}
+
+		if iNdEx > l {
+			return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+		}
+		return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, nil
+	}
+	return &protoiface.Methods{
+		NoUnkeyedLiterals: struct{}{},
+		Flags:             protoiface.SupportMarshalDeterministic | protoiface.SupportUnmarshalDiscardUnknown,
+		Size:              size,
+		Marshal:           marshal,
+		Unmarshal:         unmarshal,
+		Merge:             nil,
+		CheckInitialized:  nil,
+	}
+}
+
+var (
+	md_QueryGetEncodedDataByTimestampResponse                 protoreflect.MessageDescriptor
+	fd_QueryGetEncodedDataByTimestampResponse_encodedDataList protoreflect.FieldDescriptor
+	fd_QueryGetEncodedDataByTimestampResponse_pagination      protoreflect.FieldDescriptor
+)
+
+func init() {
+	file_codenet_codenet_query_proto_init()
+	md_QueryGetEncodedDataByTimestampResponse = File_codenet_codenet_query_proto.Messages().ByName("QueryGetEncodedDataByTimestampResponse")
+	fd_QueryGetEncodedDataByTimestampResponse_encodedDataList = md_QueryGetEncodedDataByTimestampResponse.Fields().ByName("encodedDataList")
+	fd_QueryGetEncodedDataByTimestampResponse_pagination = md_QueryGetEncodedDataByTimestampResponse.Fields().ByName("pagination")
+}
+
+var _ protoreflect.Message = (*fastReflection_QueryGetEncodedDataByTimestampResponse)(nil)
+
+type fastReflection_QueryGetEncodedDataByTimestampResponse QueryGetEncodedDataByTimestampResponse
+
+func (x *QueryGetEncodedDataByTimestampResponse) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_QueryGetEncodedDataByTimestampResponse)(x)
+}
+
+func (x *QueryGetEncodedDataByTimestampResponse) slowProtoReflect() protoreflect.Message {
+	mi := &file_codenet_codenet_query_proto_msgTypes[13]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+var _fastReflection_QueryGetEncodedDataByTimestampResponse_messageType fastReflection_QueryGetEncodedDataByTimestampResponse_messageType
+var _ protoreflect.MessageType = fastReflection_QueryGetEncodedDataByTimestampResponse_messageType{}
+
+type fastReflection_QueryGetEncodedDataByTimestampResponse_messageType struct{}
+
+func (x fastReflection_QueryGetEncodedDataByTimestampResponse_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_QueryGetEncodedDataByTimestampResponse)(nil)
+}
+func (x fastReflection_QueryGetEncodedDataByTimestampResponse_messageType) New() protoreflect.Message {
+	return new(fastReflection_QueryGetEncodedDataByTimestampResponse)
+}
+func (x fastReflection_QueryGetEncodedDataByTimestampResponse_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryGetEncodedDataByTimestampResponse
+}
+
+// Descriptor returns message descriptor, which contains only the protobuf
+// type information for the message.
+func (x *fastReflection_QueryGetEncodedDataByTimestampResponse) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryGetEncodedDataByTimestampResponse
+}
+
+// Type returns the message type, which encapsulates both Go and protobuf
+// type information. If the Go type information is not needed,
+// it is recommended that the message descriptor be used instead.
+func (x *fastReflection_QueryGetEncodedDataByTimestampResponse) Type() protoreflect.MessageType {
+	return _fastReflection_QueryGetEncodedDataByTimestampResponse_messageType
+}
+
+// New returns a newly allocated and mutable empty message.
+func (x *fastReflection_QueryGetEncodedDataByTimestampResponse) New() protoreflect.Message {
+	return new(fastReflection_QueryGetEncodedDataByTimestampResponse)
+}
+
+// Interface unwraps the message reflection interface and
+// returns the underlying ProtoMessage interface.
+func (x *fastReflection_QueryGetEncodedDataByTimestampResponse) Interface() protoreflect.ProtoMessage {
+	return (*QueryGetEncodedDataByTimestampResponse)(x)
+}
+
+// Range iterates over every populated field in an undefined order,
+// calling f for each field descriptor and value encountered.
+// Range returns immediately if f returns false.
+// While iterating, mutating operations may only be performed
+// on the current field descriptor.
+func (x *fastReflection_QueryGetEncodedDataByTimestampResponse) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+	if x.EncodedDataList != nil {
+		value := protoreflect.ValueOfMessage(x.EncodedDataList.ProtoReflect())
+		if !f(fd_QueryGetEncodedDataByTimestampResponse_encodedDataList, value) {
+			return
+		}
+	}
+	if x.Pagination != nil {
+		value := protoreflect.ValueOfMessage(x.Pagination.ProtoReflect())
+		if !f(fd_QueryGetEncodedDataByTimestampResponse_pagination, value) {
+			return
+		}
+	}
+}
+
+// Has reports whether a field is populated.
+//
+// Some fields have the property of nullability where it is possible to
+// distinguish between the default value of a field and whether the field
+// was explicitly populated with the default value. Singular message fields,
+// member fields of a oneof, and proto2 scalar fields are nullable. Such
+// fields are populated only if explicitly set.
+//
+// In other cases (aside from the nullable cases above),
+// a proto3 scalar field is populated if it contains a non-zero value, and
+// a repeated field is populated if it is non-empty.
+func (x *fastReflection_QueryGetEncodedDataByTimestampResponse) Has(fd protoreflect.FieldDescriptor) bool {
+	switch fd.FullName() {
+	case "codenet.codenet.QueryGetEncodedDataByTimestampResponse.encodedDataList":
+		return x.EncodedDataList != nil
+	case "codenet.codenet.QueryGetEncodedDataByTimestampResponse.pagination":
+		return x.Pagination != nil
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: codenet.codenet.QueryGetEncodedDataByTimestampResponse"))
+		}
+		panic(fmt.Errorf("message codenet.codenet.QueryGetEncodedDataByTimestampResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// Clear clears the field such that a subsequent Has call reports false.
+//
+// Clearing an extension field clears both the extension type and value
+// associated with the given field number.
+//
+// Clear is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryGetEncodedDataByTimestampResponse) Clear(fd protoreflect.FieldDescriptor) {
+	switch fd.FullName() {
+	case "codenet.codenet.QueryGetEncodedDataByTimestampResponse.encodedDataList":
+		x.EncodedDataList = nil
+	case "codenet.codenet.QueryGetEncodedDataByTimestampResponse.pagination":
+		x.Pagination = nil
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: codenet.codenet.QueryGetEncodedDataByTimestampResponse"))
+		}
+		panic(fmt.Errorf("message codenet.codenet.QueryGetEncodedDataByTimestampResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// Get retrieves the value for a field.
+//
+// For unpopulated scalars, it returns the default value, where
+// the default value of a bytes scalar is guaranteed to be a copy.
+// For unpopulated composite types, it returns an empty, read-only view
+// of the value; to obtain a mutable reference, use Mutable.
+func (x *fastReflection_QueryGetEncodedDataByTimestampResponse) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+	switch descriptor.FullName() {
+	case "codenet.codenet.QueryGetEncodedDataByTimestampResponse.encodedDataList":
+		value := x.EncodedDataList
+		return protoreflect.ValueOfMessage(value.ProtoReflect())
+	case "codenet.codenet.QueryGetEncodedDataByTimestampResponse.pagination":
+		value := x.Pagination
+		return protoreflect.ValueOfMessage(value.ProtoReflect())
+	default:
+		if descriptor.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: codenet.codenet.QueryGetEncodedDataByTimestampResponse"))
+		}
+		panic(fmt.Errorf("message codenet.codenet.QueryGetEncodedDataByTimestampResponse does not contain field %s", descriptor.FullName()))
+	}
+}
+
+// Set stores the value for a field.
+//
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType.
+// When setting a composite type, it is unspecified whether the stored value
+// aliases the source's memory in any way. If the composite value is an
+// empty, read-only value, then it panics.
+//
+// Set is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryGetEncodedDataByTimestampResponse) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+	switch fd.FullName() {
+	case "codenet.codenet.QueryGetEncodedDataByTimestampResponse.encodedDataList":
+		x.EncodedDataList = value.Message().Interface().(*EncodedData)
+	case "codenet.codenet.QueryGetEncodedDataByTimestampResponse.pagination":
+		x.Pagination = value.Message().Interface().(*v1beta1.PageResponse)
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: codenet.codenet.QueryGetEncodedDataByTimestampResponse"))
+		}
+		panic(fmt.Errorf("message codenet.codenet.QueryGetEncodedDataByTimestampResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// Mutable returns a mutable reference to a composite type.
+//
+// If the field is unpopulated, it may allocate a composite value.
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType
+// if not already stored.
+// It panics if the field does not contain a composite type.
+//
+// Mutable is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryGetEncodedDataByTimestampResponse) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "codenet.codenet.QueryGetEncodedDataByTimestampResponse.encodedDataList":
+		if x.EncodedDataList == nil {
+			x.EncodedDataList = new(EncodedData)
+		}
+		return protoreflect.ValueOfMessage(x.EncodedDataList.ProtoReflect())
+	case "codenet.codenet.QueryGetEncodedDataByTimestampResponse.pagination":
+		if x.Pagination == nil {
+			x.Pagination = new(v1beta1.PageResponse)
+		}
+		return protoreflect.ValueOfMessage(x.Pagination.ProtoReflect())
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: codenet.codenet.QueryGetEncodedDataByTimestampResponse"))
+		}
+		panic(fmt.Errorf("message codenet.codenet.QueryGetEncodedDataByTimestampResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// NewField returns a new value that is assignable to the field
+// for the given descriptor. For scalars, this returns the default value.
+// For lists, maps, and messages, this returns a new, empty, mutable value.
+func (x *fastReflection_QueryGetEncodedDataByTimestampResponse) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "codenet.codenet.QueryGetEncodedDataByTimestampResponse.encodedDataList":
+		m := new(EncodedData)
+		return protoreflect.ValueOfMessage(m.ProtoReflect())
+	case "codenet.codenet.QueryGetEncodedDataByTimestampResponse.pagination":
+		m := new(v1beta1.PageResponse)
+		return protoreflect.ValueOfMessage(m.ProtoReflect())
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: codenet.codenet.QueryGetEncodedDataByTimestampResponse"))
+		}
+		panic(fmt.Errorf("message codenet.codenet.QueryGetEncodedDataByTimestampResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// WhichOneof reports which field within the oneof is populated,
+// returning nil if none are populated.
+// It panics if the oneof descriptor does not belong to this message.
+func (x *fastReflection_QueryGetEncodedDataByTimestampResponse) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+	switch d.FullName() {
+	default:
+		panic(fmt.Errorf("%s is not a oneof field in codenet.codenet.QueryGetEncodedDataByTimestampResponse", d.FullName()))
+	}
+	panic("unreachable")
+}
+
+// GetUnknown retrieves the entire list of unknown fields.
+// The caller may only mutate the contents of the RawFields
+// if the mutated bytes are stored back into the message with SetUnknown.
+func (x *fastReflection_QueryGetEncodedDataByTimestampResponse) GetUnknown() protoreflect.RawFields {
+	return x.unknownFields
+}
+
+// SetUnknown stores an entire list of unknown fields.
+// The raw fields must be syntactically valid according to the wire format.
+// An implementation may panic if this is not the case.
+// Once stored, the caller must not mutate the content of the RawFields.
+// An empty RawFields may be passed to clear the fields.
+//
+// SetUnknown is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryGetEncodedDataByTimestampResponse) SetUnknown(fields protoreflect.RawFields) {
+	x.unknownFields = fields
+}
+
+// IsValid reports whether the message is valid.
+//
+// An invalid message is an empty, read-only value.
+//
+// An invalid message often corresponds to a nil pointer of the concrete
+// message type, but the details are implementation dependent.
+// Validity is not part of the protobuf data model, and may not
+// be preserved in marshaling or other operations.
+func (x *fastReflection_QueryGetEncodedDataByTimestampResponse) IsValid() bool {
+	return x != nil
+}
+
+// ProtoMethods returns optional fastReflectionFeature-path implementations of various operations.
+// This method may return nil.
+//
+// The returned methods type is identical to
+// "google.golang.org/protobuf/runtime/protoiface".Methods.
+// Consult the protoiface package documentation for details.
+func (x *fastReflection_QueryGetEncodedDataByTimestampResponse) ProtoMethods() *protoiface.Methods {
+	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
+		x := input.Message.Interface().(*QueryGetEncodedDataByTimestampResponse)
+		if x == nil {
+			return protoiface.SizeOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Size:              0,
+			}
+		}
+		options := runtime.SizeInputToOptions(input)
+		_ = options
+		var n int
+		var l int
+		_ = l
+		if x.EncodedDataList != nil {
+			l = options.Size(x.EncodedDataList)
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		if x.Pagination != nil {
+			l = options.Size(x.Pagination)
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		if x.unknownFields != nil {
+			n += len(x.unknownFields)
+		}
+		return protoiface.SizeOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Size:              n,
+		}
+	}
+
+	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
+		x := input.Message.Interface().(*QueryGetEncodedDataByTimestampResponse)
+		if x == nil {
+			return protoiface.MarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Buf:               input.Buf,
+			}, nil
+		}
+		options := runtime.MarshalInputToOptions(input)
+		_ = options
+		size := options.Size(x)
+		dAtA := make([]byte, size)
+		i := len(dAtA)
+		_ = i
+		var l int
+		_ = l
+		if x.unknownFields != nil {
+			i -= len(x.unknownFields)
+			copy(dAtA[i:], x.unknownFields)
+		}
+		if x.Pagination != nil {
+			encoded, err := options.Marshal(x.Pagination)
+			if err != nil {
+				return protoiface.MarshalOutput{
+					NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+					Buf:               input.Buf,
+				}, err
+			}
+			i -= len(encoded)
+			copy(dAtA[i:], encoded)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(encoded)))
+			i--
+			dAtA[i] = 0x12
+		}
+		if x.EncodedDataList != nil {
+			encoded, err := options.Marshal(x.EncodedDataList)
+			if err != nil {
+				return protoiface.MarshalOutput{
+					NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+					Buf:               input.Buf,
+				}, err
+			}
+			i -= len(encoded)
+			copy(dAtA[i:], encoded)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(encoded)))
+			i--
+			dAtA[i] = 0xa
+		}
+		if input.Buf != nil {
+			input.Buf = append(input.Buf, dAtA...)
+		} else {
+			input.Buf = dAtA
+		}
+		return protoiface.MarshalOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Buf:               input.Buf,
+		}, nil
+	}
+	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
+		x := input.Message.Interface().(*QueryGetEncodedDataByTimestampResponse)
+		if x == nil {
+			return protoiface.UnmarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Flags:             input.Flags,
+			}, nil
+		}
+		options := runtime.UnmarshalInputToOptions(input)
+		_ = options
+		dAtA := input.Buf
+		l := len(dAtA)
+		iNdEx := 0
+		for iNdEx < l {
+			preIndex := iNdEx
+			var wire uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				wire |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			fieldNum := int32(wire >> 3)
+			wireType := int(wire & 0x7)
+			if wireType == 4 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryGetEncodedDataByTimestampResponse: wiretype end group for non-group")
+			}
+			if fieldNum <= 0 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryGetEncodedDataByTimestampResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+			}
+			switch fieldNum {
+			case 1:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field EncodedDataList", wireType)
+				}
+				var msglen int
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					msglen |= int(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				if msglen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + msglen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if x.EncodedDataList == nil {
+					x.EncodedDataList = &EncodedData{}
+				}
+				if err := options.Unmarshal(dAtA[iNdEx:postIndex], x.EncodedDataList); err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				iNdEx = postIndex
+			case 2:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Pagination", wireType)
+				}
+				var msglen int
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					msglen |= int(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				if msglen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + msglen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if x.Pagination == nil {
+					x.Pagination = &v1beta1.PageResponse{}
+				}
+				if err := options.Unmarshal(dAtA[iNdEx:postIndex], x.Pagination); err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				iNdEx = postIndex
+			default:
+				iNdEx = preIndex
+				skippy, err := runtime.Skip(dAtA[iNdEx:])
+				if err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				if (skippy < 0) || (iNdEx+skippy) < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if (iNdEx + skippy) > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if !options.DiscardUnknown {
+					x.unknownFields = append(x.unknownFields, dAtA[iNdEx:iNdEx+skippy]...)
+				}
+				iNdEx += skippy
+			}
+		}
+
+		if iNdEx > l {
+			return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+		}
+		return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, nil
+	}
+	return &protoiface.Methods{
+		NoUnkeyedLiterals: struct{}{},
+		Flags:             protoiface.SupportMarshalDeterministic | protoiface.SupportUnmarshalDiscardUnknown,
+		Size:              size,
+		Marshal:           marshal,
+		Unmarshal:         unmarshal,
+		Merge:             nil,
+		CheckInitialized:  nil,
+	}
+}
+
 // Code generated by protoc-gen-go. DO NOT EDIT.
 // versions:
 // 	protoc-gen-go v1.27.0
@@ -5691,6 +6688,92 @@ func (x *QueryGetEncodedDataByCreatorResponse) GetPagination() *v1beta1.PageResp
 	return nil
 }
 
+type QueryGetEncodedDataByTimestampRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Timestamp  uint64               `protobuf:"varint,1,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
+	Pagination *v1beta1.PageRequest `protobuf:"bytes,2,opt,name=pagination,proto3" json:"pagination,omitempty"`
+}
+
+func (x *QueryGetEncodedDataByTimestampRequest) Reset() {
+	*x = QueryGetEncodedDataByTimestampRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_codenet_codenet_query_proto_msgTypes[12]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *QueryGetEncodedDataByTimestampRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryGetEncodedDataByTimestampRequest) ProtoMessage() {}
+
+// Deprecated: Use QueryGetEncodedDataByTimestampRequest.ProtoReflect.Descriptor instead.
+func (*QueryGetEncodedDataByTimestampRequest) Descriptor() ([]byte, []int) {
+	return file_codenet_codenet_query_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *QueryGetEncodedDataByTimestampRequest) GetTimestamp() uint64 {
+	if x != nil {
+		return x.Timestamp
+	}
+	return 0
+}
+
+func (x *QueryGetEncodedDataByTimestampRequest) GetPagination() *v1beta1.PageRequest {
+	if x != nil {
+		return x.Pagination
+	}
+	return nil
+}
+
+type QueryGetEncodedDataByTimestampResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	EncodedDataList *EncodedData          `protobuf:"bytes,1,opt,name=encodedDataList,proto3" json:"encodedDataList,omitempty"`
+	Pagination      *v1beta1.PageResponse `protobuf:"bytes,2,opt,name=pagination,proto3" json:"pagination,omitempty"`
+}
+
+func (x *QueryGetEncodedDataByTimestampResponse) Reset() {
+	*x = QueryGetEncodedDataByTimestampResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_codenet_codenet_query_proto_msgTypes[13]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *QueryGetEncodedDataByTimestampResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryGetEncodedDataByTimestampResponse) ProtoMessage() {}
+
+// Deprecated: Use QueryGetEncodedDataByTimestampResponse.ProtoReflect.Descriptor instead.
+func (*QueryGetEncodedDataByTimestampResponse) Descriptor() ([]byte, []int) {
+	return file_codenet_codenet_query_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *QueryGetEncodedDataByTimestampResponse) GetEncodedDataList() *EncodedData {
+	if x != nil {
+		return x.EncodedDataList
+	}
+	return nil
+}
+
+func (x *QueryGetEncodedDataByTimestampResponse) GetPagination() *v1beta1.PageResponse {
+	if x != nil {
+		return x.Pagination
+	}
+	return nil
+}
+
 var File_codenet_codenet_query_proto protoreflect.FileDescriptor
 
 var file_codenet_codenet_query_proto_rawDesc = []byte{
@@ -5771,84 +6854,118 @@ var file_codenet_codenet_query_proto_rawDesc = []byte{
 	0x0b, 0x32, 0x27, 0x2e, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x62, 0x61, 0x73, 0x65, 0x2e,
 	0x71, 0x75, 0x65, 0x72, 0x79, 0x2e, 0x76, 0x31, 0x62, 0x65, 0x74, 0x61, 0x31, 0x2e, 0x50, 0x61,
 	0x67, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x52, 0x0a, 0x70, 0x61, 0x67, 0x69,
-	0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x32, 0xa4, 0x08, 0x0a, 0x05, 0x51, 0x75, 0x65, 0x72, 0x79,
-	0x12, 0x74, 0x0a, 0x06, 0x50, 0x61, 0x72, 0x61, 0x6d, 0x73, 0x12, 0x23, 0x2e, 0x63, 0x6f, 0x64,
-	0x65, 0x6e, 0x65, 0x74, 0x2e, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2e, 0x51, 0x75, 0x65,
-	0x72, 0x79, 0x50, 0x61, 0x72, 0x61, 0x6d, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a,
-	0x24, 0x2e, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2e, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65,
-	0x74, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x50, 0x61, 0x72, 0x61, 0x6d, 0x73, 0x52, 0x65, 0x73,
-	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x1f, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x19, 0x12, 0x17, 0x2f,
-	0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2f, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2f,
-	0x70, 0x61, 0x72, 0x61, 0x6d, 0x73, 0x12, 0xb8, 0x01, 0x0a, 0x12, 0x47, 0x65, 0x74, 0x45, 0x6e,
-	0x63, 0x6f, 0x64, 0x65, 0x64, 0x44, 0x61, 0x74, 0x61, 0x42, 0x79, 0x49, 0x64, 0x12, 0x2f, 0x2e,
-	0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2e, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2e,
-	0x51, 0x75, 0x65, 0x72, 0x79, 0x47, 0x65, 0x74, 0x45, 0x6e, 0x63, 0x6f, 0x64, 0x65, 0x64, 0x44,
-	0x61, 0x74, 0x61, 0x42, 0x79, 0x49, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x30,
-	0x2e, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2e, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74,
-	0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x47, 0x65, 0x74, 0x45, 0x6e, 0x63, 0x6f, 0x64, 0x65, 0x64,
-	0x44, 0x61, 0x74, 0x61, 0x42, 0x79, 0x49, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
-	0x22, 0x3f, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x39, 0x12, 0x37, 0x2f, 0x63, 0x6f, 0x64, 0x65, 0x6e,
-	0x65, 0x74, 0x2f, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2f, 0x67, 0x65, 0x74, 0x5f, 0x65,
-	0x6e, 0x63, 0x6f, 0x64, 0x65, 0x64, 0x5f, 0x64, 0x61, 0x74, 0x61, 0x5f, 0x62, 0x79, 0x5f, 0x69,
-	0x64, 0x2f, 0x7b, 0x65, 0x6e, 0x63, 0x6f, 0x64, 0x65, 0x64, 0x44, 0x61, 0x74, 0x61, 0x49, 0x64,
-	0x7d, 0x12, 0x9f, 0x01, 0x0a, 0x0c, 0x47, 0x65, 0x74, 0x50, 0x72, 0x6f, 0x6f, 0x66, 0x42, 0x79,
-	0x49, 0x64, 0x12, 0x29, 0x2e, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2e, 0x63, 0x6f, 0x64,
-	0x65, 0x6e, 0x65, 0x74, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x47, 0x65, 0x74, 0x50, 0x72, 0x6f,
-	0x6f, 0x66, 0x42, 0x79, 0x49, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x2a, 0x2e,
-	0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2e, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2e,
-	0x51, 0x75, 0x65, 0x72, 0x79, 0x47, 0x65, 0x74, 0x50, 0x72, 0x6f, 0x6f, 0x66, 0x42, 0x79, 0x49,
-	0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x38, 0x82, 0xd3, 0xe4, 0x93, 0x02,
-	0x32, 0x12, 0x30, 0x2f, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2f, 0x63, 0x6f, 0x64, 0x65,
-	0x6e, 0x65, 0x74, 0x2f, 0x67, 0x65, 0x74, 0x5f, 0x70, 0x72, 0x6f, 0x6f, 0x66, 0x5f, 0x62, 0x79,
-	0x5f, 0x69, 0x64, 0x2f, 0x7b, 0x65, 0x6e, 0x63, 0x6f, 0x64, 0x65, 0x64, 0x44, 0x61, 0x74, 0x61,
-	0x49, 0x64, 0x7d, 0x12, 0xa7, 0x01, 0x0a, 0x0e, 0x47, 0x65, 0x74, 0x43, 0x72, 0x65, 0x61, 0x74,
-	0x6f, 0x72, 0x42, 0x79, 0x49, 0x64, 0x12, 0x2b, 0x2e, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74,
-	0x2e, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x47, 0x65,
-	0x74, 0x43, 0x72, 0x65, 0x61, 0x74, 0x6f, 0x72, 0x42, 0x79, 0x49, 0x64, 0x52, 0x65, 0x71, 0x75,
-	0x65, 0x73, 0x74, 0x1a, 0x2c, 0x2e, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2e, 0x63, 0x6f,
-	0x64, 0x65, 0x6e, 0x65, 0x74, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x47, 0x65, 0x74, 0x43, 0x72,
-	0x65, 0x61, 0x74, 0x6f, 0x72, 0x42, 0x79, 0x49, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
-	0x65, 0x22, 0x3a, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x34, 0x12, 0x32, 0x2f, 0x63, 0x6f, 0x64, 0x65,
-	0x6e, 0x65, 0x74, 0x2f, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2f, 0x67, 0x65, 0x74, 0x5f,
-	0x63, 0x72, 0x65, 0x61, 0x74, 0x6f, 0x72, 0x5f, 0x62, 0x79, 0x5f, 0x69, 0x64, 0x2f, 0x7b, 0x65,
-	0x6e, 0x63, 0x6f, 0x64, 0x65, 0x64, 0x44, 0x61, 0x74, 0x61, 0x49, 0x64, 0x7d, 0x12, 0xd4, 0x01,
-	0x0a, 0x19, 0x47, 0x65, 0x74, 0x56, 0x65, 0x72, 0x69, 0x66, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6f,
-	0x6e, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x42, 0x79, 0x49, 0x64, 0x12, 0x36, 0x2e, 0x63, 0x6f,
+	0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x22, 0x8d, 0x01, 0x0a, 0x25, 0x51, 0x75, 0x65, 0x72, 0x79,
+	0x47, 0x65, 0x74, 0x45, 0x6e, 0x63, 0x6f, 0x64, 0x65, 0x64, 0x44, 0x61, 0x74, 0x61, 0x42, 0x79,
+	0x54, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
+	0x12, 0x1c, 0x0a, 0x09, 0x74, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x04, 0x52, 0x09, 0x74, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x12, 0x46,
+	0x0a, 0x0a, 0x70, 0x61, 0x67, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x18, 0x02, 0x20, 0x01,
+	0x28, 0x0b, 0x32, 0x26, 0x2e, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x62, 0x61, 0x73, 0x65,
+	0x2e, 0x71, 0x75, 0x65, 0x72, 0x79, 0x2e, 0x76, 0x31, 0x62, 0x65, 0x74, 0x61, 0x31, 0x2e, 0x50,
+	0x61, 0x67, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x52, 0x0a, 0x70, 0x61, 0x67, 0x69,
+	0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x22, 0xb9, 0x01, 0x0a, 0x26, 0x51, 0x75, 0x65, 0x72, 0x79,
+	0x47, 0x65, 0x74, 0x45, 0x6e, 0x63, 0x6f, 0x64, 0x65, 0x64, 0x44, 0x61, 0x74, 0x61, 0x42, 0x79,
+	0x54, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x12, 0x46, 0x0a, 0x0f, 0x65, 0x6e, 0x63, 0x6f, 0x64, 0x65, 0x64, 0x44, 0x61, 0x74, 0x61,
+	0x4c, 0x69, 0x73, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1c, 0x2e, 0x63, 0x6f, 0x64,
+	0x65, 0x6e, 0x65, 0x74, 0x2e, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2e, 0x45, 0x6e, 0x63,
+	0x6f, 0x64, 0x65, 0x64, 0x44, 0x61, 0x74, 0x61, 0x52, 0x0f, 0x65, 0x6e, 0x63, 0x6f, 0x64, 0x65,
+	0x64, 0x44, 0x61, 0x74, 0x61, 0x4c, 0x69, 0x73, 0x74, 0x12, 0x47, 0x0a, 0x0a, 0x70, 0x61, 0x67,
+	0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x27, 0x2e,
+	0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x62, 0x61, 0x73, 0x65, 0x2e, 0x71, 0x75, 0x65, 0x72,
+	0x79, 0x2e, 0x76, 0x31, 0x62, 0x65, 0x74, 0x61, 0x31, 0x2e, 0x50, 0x61, 0x67, 0x65, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x52, 0x0a, 0x70, 0x61, 0x67, 0x69, 0x6e, 0x61, 0x74, 0x69,
+	0x6f, 0x6e, 0x32, 0xf7, 0x09, 0x0a, 0x05, 0x51, 0x75, 0x65, 0x72, 0x79, 0x12, 0x74, 0x0a, 0x06,
+	0x50, 0x61, 0x72, 0x61, 0x6d, 0x73, 0x12, 0x23, 0x2e, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74,
+	0x2e, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x50, 0x61,
+	0x72, 0x61, 0x6d, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x24, 0x2e, 0x63, 0x6f,
 	0x64, 0x65, 0x6e, 0x65, 0x74, 0x2e, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2e, 0x51, 0x75,
-	0x65, 0x72, 0x79, 0x47, 0x65, 0x74, 0x56, 0x65, 0x72, 0x69, 0x66, 0x69, 0x63, 0x61, 0x74, 0x69,
-	0x6f, 0x6e, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x42, 0x79, 0x49, 0x64, 0x52, 0x65, 0x71, 0x75,
-	0x65, 0x73, 0x74, 0x1a, 0x37, 0x2e, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2e, 0x63, 0x6f,
-	0x64, 0x65, 0x6e, 0x65, 0x74, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x47, 0x65, 0x74, 0x56, 0x65,
-	0x72, 0x69, 0x66, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73,
-	0x42, 0x79, 0x49, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x46, 0x82, 0xd3,
-	0xe4, 0x93, 0x02, 0x40, 0x12, 0x3e, 0x2f, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2f, 0x63,
-	0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2f, 0x67, 0x65, 0x74, 0x5f, 0x76, 0x65, 0x72, 0x69, 0x66,
-	0x69, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x5f, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x5f, 0x62,
-	0x79, 0x5f, 0x69, 0x64, 0x2f, 0x7b, 0x65, 0x6e, 0x63, 0x6f, 0x64, 0x65, 0x64, 0x44, 0x61, 0x74,
-	0x61, 0x49, 0x64, 0x7d, 0x12, 0xc6, 0x01, 0x0a, 0x17, 0x47, 0x65, 0x74, 0x45, 0x6e, 0x63, 0x6f,
-	0x64, 0x65, 0x64, 0x44, 0x61, 0x74, 0x61, 0x42, 0x79, 0x43, 0x72, 0x65, 0x61, 0x74, 0x6f, 0x72,
-	0x12, 0x34, 0x2e, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2e, 0x63, 0x6f, 0x64, 0x65, 0x6e,
-	0x65, 0x74, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x47, 0x65, 0x74, 0x45, 0x6e, 0x63, 0x6f, 0x64,
-	0x65, 0x64, 0x44, 0x61, 0x74, 0x61, 0x42, 0x79, 0x43, 0x72, 0x65, 0x61, 0x74, 0x6f, 0x72, 0x52,
-	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x35, 0x2e, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74,
-	0x2e, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x47, 0x65,
-	0x74, 0x45, 0x6e, 0x63, 0x6f, 0x64, 0x65, 0x64, 0x44, 0x61, 0x74, 0x61, 0x42, 0x79, 0x43, 0x72,
-	0x65, 0x61, 0x74, 0x6f, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x3e, 0x82,
-	0xd3, 0xe4, 0x93, 0x02, 0x38, 0x12, 0x36, 0x2f, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2f,
-	0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2f, 0x67, 0x65, 0x74, 0x5f, 0x65, 0x6e, 0x63, 0x6f,
-	0x64, 0x65, 0x64, 0x5f, 0x64, 0x61, 0x74, 0x61, 0x5f, 0x62, 0x79, 0x5f, 0x63, 0x72, 0x65, 0x61,
-	0x74, 0x6f, 0x72, 0x2f, 0x7b, 0x63, 0x72, 0x65, 0x61, 0x74, 0x6f, 0x72, 0x7d, 0x42, 0xa0, 0x01,
-	0x0a, 0x13, 0x63, 0x6f, 0x6d, 0x2e, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2e, 0x63, 0x6f,
-	0x64, 0x65, 0x6e, 0x65, 0x74, 0x42, 0x0a, 0x51, 0x75, 0x65, 0x72, 0x79, 0x50, 0x72, 0x6f, 0x74,
-	0x6f, 0x50, 0x01, 0x5a, 0x20, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x73, 0x64, 0x6b, 0x2e, 0x69,
-	0x6f, 0x2f, 0x61, 0x70, 0x69, 0x2f, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2f, 0x63, 0x6f,
-	0x64, 0x65, 0x6e, 0x65, 0x74, 0xa2, 0x02, 0x03, 0x43, 0x43, 0x58, 0xaa, 0x02, 0x0f, 0x43, 0x6f,
-	0x64, 0x65, 0x6e, 0x65, 0x74, 0x2e, 0x43, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0xca, 0x02, 0x0f,
-	0x43, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x5c, 0x43, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0xe2,
-	0x02, 0x1b, 0x43, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x5c, 0x43, 0x6f, 0x64, 0x65, 0x6e, 0x65,
-	0x74, 0x5c, 0x47, 0x50, 0x42, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0xea, 0x02, 0x10,
-	0x43, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x3a, 0x3a, 0x43, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74,
-	0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x65, 0x72, 0x79, 0x50, 0x61, 0x72, 0x61, 0x6d, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x22, 0x1f, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x19, 0x12, 0x17, 0x2f, 0x63, 0x6f, 0x64, 0x65,
+	0x6e, 0x65, 0x74, 0x2f, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2f, 0x70, 0x61, 0x72, 0x61,
+	0x6d, 0x73, 0x12, 0xb8, 0x01, 0x0a, 0x12, 0x47, 0x65, 0x74, 0x45, 0x6e, 0x63, 0x6f, 0x64, 0x65,
+	0x64, 0x44, 0x61, 0x74, 0x61, 0x42, 0x79, 0x49, 0x64, 0x12, 0x2f, 0x2e, 0x63, 0x6f, 0x64, 0x65,
+	0x6e, 0x65, 0x74, 0x2e, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2e, 0x51, 0x75, 0x65, 0x72,
+	0x79, 0x47, 0x65, 0x74, 0x45, 0x6e, 0x63, 0x6f, 0x64, 0x65, 0x64, 0x44, 0x61, 0x74, 0x61, 0x42,
+	0x79, 0x49, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x30, 0x2e, 0x63, 0x6f, 0x64,
+	0x65, 0x6e, 0x65, 0x74, 0x2e, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2e, 0x51, 0x75, 0x65,
+	0x72, 0x79, 0x47, 0x65, 0x74, 0x45, 0x6e, 0x63, 0x6f, 0x64, 0x65, 0x64, 0x44, 0x61, 0x74, 0x61,
+	0x42, 0x79, 0x49, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x3f, 0x82, 0xd3,
+	0xe4, 0x93, 0x02, 0x39, 0x12, 0x37, 0x2f, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2f, 0x63,
+	0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2f, 0x67, 0x65, 0x74, 0x5f, 0x65, 0x6e, 0x63, 0x6f, 0x64,
+	0x65, 0x64, 0x5f, 0x64, 0x61, 0x74, 0x61, 0x5f, 0x62, 0x79, 0x5f, 0x69, 0x64, 0x2f, 0x7b, 0x65,
+	0x6e, 0x63, 0x6f, 0x64, 0x65, 0x64, 0x44, 0x61, 0x74, 0x61, 0x49, 0x64, 0x7d, 0x12, 0x9f, 0x01,
+	0x0a, 0x0c, 0x47, 0x65, 0x74, 0x50, 0x72, 0x6f, 0x6f, 0x66, 0x42, 0x79, 0x49, 0x64, 0x12, 0x29,
+	0x2e, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2e, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74,
+	0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x47, 0x65, 0x74, 0x50, 0x72, 0x6f, 0x6f, 0x66, 0x42, 0x79,
+	0x49, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x2a, 0x2e, 0x63, 0x6f, 0x64, 0x65,
+	0x6e, 0x65, 0x74, 0x2e, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2e, 0x51, 0x75, 0x65, 0x72,
+	0x79, 0x47, 0x65, 0x74, 0x50, 0x72, 0x6f, 0x6f, 0x66, 0x42, 0x79, 0x49, 0x64, 0x52, 0x65, 0x73,
+	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x38, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x32, 0x12, 0x30, 0x2f,
+	0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2f, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2f,
+	0x67, 0x65, 0x74, 0x5f, 0x70, 0x72, 0x6f, 0x6f, 0x66, 0x5f, 0x62, 0x79, 0x5f, 0x69, 0x64, 0x2f,
+	0x7b, 0x65, 0x6e, 0x63, 0x6f, 0x64, 0x65, 0x64, 0x44, 0x61, 0x74, 0x61, 0x49, 0x64, 0x7d, 0x12,
+	0xa7, 0x01, 0x0a, 0x0e, 0x47, 0x65, 0x74, 0x43, 0x72, 0x65, 0x61, 0x74, 0x6f, 0x72, 0x42, 0x79,
+	0x49, 0x64, 0x12, 0x2b, 0x2e, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2e, 0x63, 0x6f, 0x64,
+	0x65, 0x6e, 0x65, 0x74, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x47, 0x65, 0x74, 0x43, 0x72, 0x65,
+	0x61, 0x74, 0x6f, 0x72, 0x42, 0x79, 0x49, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a,
+	0x2c, 0x2e, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2e, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65,
+	0x74, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x47, 0x65, 0x74, 0x43, 0x72, 0x65, 0x61, 0x74, 0x6f,
+	0x72, 0x42, 0x79, 0x49, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x3a, 0x82,
+	0xd3, 0xe4, 0x93, 0x02, 0x34, 0x12, 0x32, 0x2f, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2f,
+	0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2f, 0x67, 0x65, 0x74, 0x5f, 0x63, 0x72, 0x65, 0x61,
+	0x74, 0x6f, 0x72, 0x5f, 0x62, 0x79, 0x5f, 0x69, 0x64, 0x2f, 0x7b, 0x65, 0x6e, 0x63, 0x6f, 0x64,
+	0x65, 0x64, 0x44, 0x61, 0x74, 0x61, 0x49, 0x64, 0x7d, 0x12, 0xd4, 0x01, 0x0a, 0x19, 0x47, 0x65,
+	0x74, 0x56, 0x65, 0x72, 0x69, 0x66, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x53, 0x74, 0x61,
+	0x74, 0x75, 0x73, 0x42, 0x79, 0x49, 0x64, 0x12, 0x36, 0x2e, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65,
+	0x74, 0x2e, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x47,
+	0x65, 0x74, 0x56, 0x65, 0x72, 0x69, 0x66, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x53, 0x74,
+	0x61, 0x74, 0x75, 0x73, 0x42, 0x79, 0x49, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a,
+	0x37, 0x2e, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2e, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65,
+	0x74, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x47, 0x65, 0x74, 0x56, 0x65, 0x72, 0x69, 0x66, 0x69,
+	0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x42, 0x79, 0x49, 0x64,
+	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x46, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x40,
+	0x12, 0x3e, 0x2f, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2f, 0x63, 0x6f, 0x64, 0x65, 0x6e,
+	0x65, 0x74, 0x2f, 0x67, 0x65, 0x74, 0x5f, 0x76, 0x65, 0x72, 0x69, 0x66, 0x69, 0x63, 0x61, 0x74,
+	0x69, 0x6f, 0x6e, 0x5f, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x5f, 0x62, 0x79, 0x5f, 0x69, 0x64,
+	0x2f, 0x7b, 0x65, 0x6e, 0x63, 0x6f, 0x64, 0x65, 0x64, 0x44, 0x61, 0x74, 0x61, 0x49, 0x64, 0x7d,
+	0x12, 0xc6, 0x01, 0x0a, 0x17, 0x47, 0x65, 0x74, 0x45, 0x6e, 0x63, 0x6f, 0x64, 0x65, 0x64, 0x44,
+	0x61, 0x74, 0x61, 0x42, 0x79, 0x43, 0x72, 0x65, 0x61, 0x74, 0x6f, 0x72, 0x12, 0x34, 0x2e, 0x63,
+	0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2e, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2e, 0x51,
+	0x75, 0x65, 0x72, 0x79, 0x47, 0x65, 0x74, 0x45, 0x6e, 0x63, 0x6f, 0x64, 0x65, 0x64, 0x44, 0x61,
+	0x74, 0x61, 0x42, 0x79, 0x43, 0x72, 0x65, 0x61, 0x74, 0x6f, 0x72, 0x52, 0x65, 0x71, 0x75, 0x65,
+	0x73, 0x74, 0x1a, 0x35, 0x2e, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2e, 0x63, 0x6f, 0x64,
+	0x65, 0x6e, 0x65, 0x74, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x47, 0x65, 0x74, 0x45, 0x6e, 0x63,
+	0x6f, 0x64, 0x65, 0x64, 0x44, 0x61, 0x74, 0x61, 0x42, 0x79, 0x43, 0x72, 0x65, 0x61, 0x74, 0x6f,
+	0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x3e, 0x82, 0xd3, 0xe4, 0x93, 0x02,
+	0x38, 0x12, 0x36, 0x2f, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2f, 0x63, 0x6f, 0x64, 0x65,
+	0x6e, 0x65, 0x74, 0x2f, 0x67, 0x65, 0x74, 0x5f, 0x65, 0x6e, 0x63, 0x6f, 0x64, 0x65, 0x64, 0x5f,
+	0x64, 0x61, 0x74, 0x61, 0x5f, 0x62, 0x79, 0x5f, 0x63, 0x72, 0x65, 0x61, 0x74, 0x6f, 0x72, 0x2f,
+	0x7b, 0x63, 0x72, 0x65, 0x61, 0x74, 0x6f, 0x72, 0x7d, 0x12, 0xd0, 0x01, 0x0a, 0x19, 0x47, 0x65,
+	0x74, 0x45, 0x6e, 0x63, 0x6f, 0x64, 0x65, 0x64, 0x44, 0x61, 0x74, 0x61, 0x42, 0x79, 0x54, 0x69,
+	0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x12, 0x36, 0x2e, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65,
+	0x74, 0x2e, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x47,
+	0x65, 0x74, 0x45, 0x6e, 0x63, 0x6f, 0x64, 0x65, 0x64, 0x44, 0x61, 0x74, 0x61, 0x42, 0x79, 0x54,
+	0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a,
+	0x37, 0x2e, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2e, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65,
+	0x74, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x47, 0x65, 0x74, 0x45, 0x6e, 0x63, 0x6f, 0x64, 0x65,
+	0x64, 0x44, 0x61, 0x74, 0x61, 0x42, 0x79, 0x54, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70,
+	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x42, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x3c,
+	0x12, 0x3a, 0x2f, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2f, 0x63, 0x6f, 0x64, 0x65, 0x6e,
+	0x65, 0x74, 0x2f, 0x67, 0x65, 0x74, 0x5f, 0x65, 0x6e, 0x63, 0x6f, 0x64, 0x65, 0x64, 0x5f, 0x64,
+	0x61, 0x74, 0x61, 0x5f, 0x62, 0x79, 0x5f, 0x74, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70,
+	0x2f, 0x7b, 0x74, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x7d, 0x42, 0xa0, 0x01, 0x0a,
+	0x13, 0x63, 0x6f, 0x6d, 0x2e, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2e, 0x63, 0x6f, 0x64,
+	0x65, 0x6e, 0x65, 0x74, 0x42, 0x0a, 0x51, 0x75, 0x65, 0x72, 0x79, 0x50, 0x72, 0x6f, 0x74, 0x6f,
+	0x50, 0x01, 0x5a, 0x20, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x73, 0x64, 0x6b, 0x2e, 0x69, 0x6f,
+	0x2f, 0x61, 0x70, 0x69, 0x2f, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2f, 0x63, 0x6f, 0x64,
+	0x65, 0x6e, 0x65, 0x74, 0xa2, 0x02, 0x03, 0x43, 0x43, 0x58, 0xaa, 0x02, 0x0f, 0x43, 0x6f, 0x64,
+	0x65, 0x6e, 0x65, 0x74, 0x2e, 0x43, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0xca, 0x02, 0x0f, 0x43,
+	0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x5c, 0x43, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0xe2, 0x02,
+	0x1b, 0x43, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x5c, 0x43, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74,
+	0x5c, 0x47, 0x50, 0x42, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0xea, 0x02, 0x10, 0x43,
+	0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x3a, 0x3a, 0x43, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x62,
+	0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -5863,7 +6980,7 @@ func file_codenet_codenet_query_proto_rawDescGZIP() []byte {
 	return file_codenet_codenet_query_proto_rawDescData
 }
 
-var file_codenet_codenet_query_proto_msgTypes = make([]protoimpl.MessageInfo, 12)
+var file_codenet_codenet_query_proto_msgTypes = make([]protoimpl.MessageInfo, 14)
 var file_codenet_codenet_query_proto_goTypes = []interface{}{
 	(*QueryParamsRequest)(nil),                     // 0: codenet.codenet.QueryParamsRequest
 	(*QueryParamsResponse)(nil),                    // 1: codenet.codenet.QueryParamsResponse
@@ -5877,34 +6994,41 @@ var file_codenet_codenet_query_proto_goTypes = []interface{}{
 	(*QueryGetVerificationStatusByIdResponse)(nil), // 9: codenet.codenet.QueryGetVerificationStatusByIdResponse
 	(*QueryGetEncodedDataByCreatorRequest)(nil),    // 10: codenet.codenet.QueryGetEncodedDataByCreatorRequest
 	(*QueryGetEncodedDataByCreatorResponse)(nil),   // 11: codenet.codenet.QueryGetEncodedDataByCreatorResponse
-	(*Params)(nil),               // 12: codenet.codenet.Params
-	(*EncodedData)(nil),          // 13: codenet.codenet.EncodedData
-	(*v1beta1.PageRequest)(nil),  // 14: cosmos.base.query.v1beta1.PageRequest
-	(*v1beta1.PageResponse)(nil), // 15: cosmos.base.query.v1beta1.PageResponse
+	(*QueryGetEncodedDataByTimestampRequest)(nil),  // 12: codenet.codenet.QueryGetEncodedDataByTimestampRequest
+	(*QueryGetEncodedDataByTimestampResponse)(nil), // 13: codenet.codenet.QueryGetEncodedDataByTimestampResponse
+	(*Params)(nil),               // 14: codenet.codenet.Params
+	(*EncodedData)(nil),          // 15: codenet.codenet.EncodedData
+	(*v1beta1.PageRequest)(nil),  // 16: cosmos.base.query.v1beta1.PageRequest
+	(*v1beta1.PageResponse)(nil), // 17: cosmos.base.query.v1beta1.PageResponse
 }
 var file_codenet_codenet_query_proto_depIdxs = []int32{
-	12, // 0: codenet.codenet.QueryParamsResponse.params:type_name -> codenet.codenet.Params
-	13, // 1: codenet.codenet.QueryGetEncodedDataByIdResponse.encodedData:type_name -> codenet.codenet.EncodedData
-	14, // 2: codenet.codenet.QueryGetEncodedDataByCreatorRequest.pagination:type_name -> cosmos.base.query.v1beta1.PageRequest
-	13, // 3: codenet.codenet.QueryGetEncodedDataByCreatorResponse.encodedDataList:type_name -> codenet.codenet.EncodedData
-	15, // 4: codenet.codenet.QueryGetEncodedDataByCreatorResponse.pagination:type_name -> cosmos.base.query.v1beta1.PageResponse
-	0,  // 5: codenet.codenet.Query.Params:input_type -> codenet.codenet.QueryParamsRequest
-	2,  // 6: codenet.codenet.Query.GetEncodedDataById:input_type -> codenet.codenet.QueryGetEncodedDataByIdRequest
-	4,  // 7: codenet.codenet.Query.GetProofById:input_type -> codenet.codenet.QueryGetProofByIdRequest
-	6,  // 8: codenet.codenet.Query.GetCreatorById:input_type -> codenet.codenet.QueryGetCreatorByIdRequest
-	8,  // 9: codenet.codenet.Query.GetVerificationStatusById:input_type -> codenet.codenet.QueryGetVerificationStatusByIdRequest
-	10, // 10: codenet.codenet.Query.GetEncodedDataByCreator:input_type -> codenet.codenet.QueryGetEncodedDataByCreatorRequest
-	1,  // 11: codenet.codenet.Query.Params:output_type -> codenet.codenet.QueryParamsResponse
-	3,  // 12: codenet.codenet.Query.GetEncodedDataById:output_type -> codenet.codenet.QueryGetEncodedDataByIdResponse
-	5,  // 13: codenet.codenet.Query.GetProofById:output_type -> codenet.codenet.QueryGetProofByIdResponse
-	7,  // 14: codenet.codenet.Query.GetCreatorById:output_type -> codenet.codenet.QueryGetCreatorByIdResponse
-	9,  // 15: codenet.codenet.Query.GetVerificationStatusById:output_type -> codenet.codenet.QueryGetVerificationStatusByIdResponse
-	11, // 16: codenet.codenet.Query.GetEncodedDataByCreator:output_type -> codenet.codenet.QueryGetEncodedDataByCreatorResponse
-	11, // [11:17] is the sub-list for method output_type
-	5,  // [5:11] is the sub-list for method input_type
-	5,  // [5:5] is the sub-list for extension type_name
-	5,  // [5:5] is the sub-list for extension extendee
-	0,  // [0:5] is the sub-list for field type_name
+	14, // 0: codenet.codenet.QueryParamsResponse.params:type_name -> codenet.codenet.Params
+	15, // 1: codenet.codenet.QueryGetEncodedDataByIdResponse.encodedData:type_name -> codenet.codenet.EncodedData
+	16, // 2: codenet.codenet.QueryGetEncodedDataByCreatorRequest.pagination:type_name -> cosmos.base.query.v1beta1.PageRequest
+	15, // 3: codenet.codenet.QueryGetEncodedDataByCreatorResponse.encodedDataList:type_name -> codenet.codenet.EncodedData
+	17, // 4: codenet.codenet.QueryGetEncodedDataByCreatorResponse.pagination:type_name -> cosmos.base.query.v1beta1.PageResponse
+	16, // 5: codenet.codenet.QueryGetEncodedDataByTimestampRequest.pagination:type_name -> cosmos.base.query.v1beta1.PageRequest
+	15, // 6: codenet.codenet.QueryGetEncodedDataByTimestampResponse.encodedDataList:type_name -> codenet.codenet.EncodedData
+	17, // 7: codenet.codenet.QueryGetEncodedDataByTimestampResponse.pagination:type_name -> cosmos.base.query.v1beta1.PageResponse
+	0,  // 8: codenet.codenet.Query.Params:input_type -> codenet.codenet.QueryParamsRequest
+	2,  // 9: codenet.codenet.Query.GetEncodedDataById:input_type -> codenet.codenet.QueryGetEncodedDataByIdRequest
+	4,  // 10: codenet.codenet.Query.GetProofById:input_type -> codenet.codenet.QueryGetProofByIdRequest
+	6,  // 11: codenet.codenet.Query.GetCreatorById:input_type -> codenet.codenet.QueryGetCreatorByIdRequest
+	8,  // 12: codenet.codenet.Query.GetVerificationStatusById:input_type -> codenet.codenet.QueryGetVerificationStatusByIdRequest
+	10, // 13: codenet.codenet.Query.GetEncodedDataByCreator:input_type -> codenet.codenet.QueryGetEncodedDataByCreatorRequest
+	12, // 14: codenet.codenet.Query.GetEncodedDataByTimestamp:input_type -> codenet.codenet.QueryGetEncodedDataByTimestampRequest
+	1,  // 15: codenet.codenet.Query.Params:output_type -> codenet.codenet.QueryParamsResponse
+	3,  // 16: codenet.codenet.Query.GetEncodedDataById:output_type -> codenet.codenet.QueryGetEncodedDataByIdResponse
+	5,  // 17: codenet.codenet.Query.GetProofById:output_type -> codenet.codenet.QueryGetProofByIdResponse
+	7,  // 18: codenet.codenet.Query.GetCreatorById:output_type -> codenet.codenet.QueryGetCreatorByIdResponse
+	9,  // 19: codenet.codenet.Query.GetVerificationStatusById:output_type -> codenet.codenet.QueryGetVerificationStatusByIdResponse
+	11, // 20: codenet.codenet.Query.GetEncodedDataByCreator:output_type -> codenet.codenet.QueryGetEncodedDataByCreatorResponse
+	13, // 21: codenet.codenet.Query.GetEncodedDataByTimestamp:output_type -> codenet.codenet.QueryGetEncodedDataByTimestampResponse
+	15, // [15:22] is the sub-list for method output_type
+	8,  // [8:15] is the sub-list for method input_type
+	8,  // [8:8] is the sub-list for extension type_name
+	8,  // [8:8] is the sub-list for extension extendee
+	0,  // [0:8] is the sub-list for field type_name
 }
 
 func init() { file_codenet_codenet_query_proto_init() }
@@ -6059,6 +7183,30 @@ func file_codenet_codenet_query_proto_init() {
 				return nil
 			}
 		}
+		file_codenet_codenet_query_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*QueryGetEncodedDataByTimestampRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_codenet_codenet_query_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*QueryGetEncodedDataByTimestampResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -6066,7 +7214,7 @@ func file_codenet_codenet_query_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_codenet_codenet_query_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   12,
+			NumMessages:   14,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

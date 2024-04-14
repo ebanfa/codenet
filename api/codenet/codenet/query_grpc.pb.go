@@ -26,6 +26,7 @@ const (
 	Query_GetCreatorById_FullMethodName            = "/codenet.codenet.Query/GetCreatorById"
 	Query_GetVerificationStatusById_FullMethodName = "/codenet.codenet.Query/GetVerificationStatusById"
 	Query_GetEncodedDataByCreator_FullMethodName   = "/codenet.codenet.Query/GetEncodedDataByCreator"
+	Query_GetEncodedDataByTimestamp_FullMethodName = "/codenet.codenet.Query/GetEncodedDataByTimestamp"
 )
 
 // QueryClient is the client API for Query service.
@@ -44,6 +45,8 @@ type QueryClient interface {
 	GetVerificationStatusById(ctx context.Context, in *QueryGetVerificationStatusByIdRequest, opts ...grpc.CallOption) (*QueryGetVerificationStatusByIdResponse, error)
 	// Queries a list of GetEncodedDataByCreator items.
 	GetEncodedDataByCreator(ctx context.Context, in *QueryGetEncodedDataByCreatorRequest, opts ...grpc.CallOption) (*QueryGetEncodedDataByCreatorResponse, error)
+	// Queries a list of GetEncodedDataByTimestamp items.
+	GetEncodedDataByTimestamp(ctx context.Context, in *QueryGetEncodedDataByTimestampRequest, opts ...grpc.CallOption) (*QueryGetEncodedDataByTimestampResponse, error)
 }
 
 type queryClient struct {
@@ -108,6 +111,15 @@ func (c *queryClient) GetEncodedDataByCreator(ctx context.Context, in *QueryGetE
 	return out, nil
 }
 
+func (c *queryClient) GetEncodedDataByTimestamp(ctx context.Context, in *QueryGetEncodedDataByTimestampRequest, opts ...grpc.CallOption) (*QueryGetEncodedDataByTimestampResponse, error) {
+	out := new(QueryGetEncodedDataByTimestampResponse)
+	err := c.cc.Invoke(ctx, Query_GetEncodedDataByTimestamp_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // QueryServer is the server API for Query service.
 // All implementations must embed UnimplementedQueryServer
 // for forward compatibility
@@ -124,6 +136,8 @@ type QueryServer interface {
 	GetVerificationStatusById(context.Context, *QueryGetVerificationStatusByIdRequest) (*QueryGetVerificationStatusByIdResponse, error)
 	// Queries a list of GetEncodedDataByCreator items.
 	GetEncodedDataByCreator(context.Context, *QueryGetEncodedDataByCreatorRequest) (*QueryGetEncodedDataByCreatorResponse, error)
+	// Queries a list of GetEncodedDataByTimestamp items.
+	GetEncodedDataByTimestamp(context.Context, *QueryGetEncodedDataByTimestampRequest) (*QueryGetEncodedDataByTimestampResponse, error)
 	mustEmbedUnimplementedQueryServer()
 }
 
@@ -148,6 +162,9 @@ func (UnimplementedQueryServer) GetVerificationStatusById(context.Context, *Quer
 }
 func (UnimplementedQueryServer) GetEncodedDataByCreator(context.Context, *QueryGetEncodedDataByCreatorRequest) (*QueryGetEncodedDataByCreatorResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetEncodedDataByCreator not implemented")
+}
+func (UnimplementedQueryServer) GetEncodedDataByTimestamp(context.Context, *QueryGetEncodedDataByTimestampRequest) (*QueryGetEncodedDataByTimestampResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetEncodedDataByTimestamp not implemented")
 }
 func (UnimplementedQueryServer) mustEmbedUnimplementedQueryServer() {}
 
@@ -270,6 +287,24 @@ func _Query_GetEncodedDataByCreator_Handler(srv interface{}, ctx context.Context
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Query_GetEncodedDataByTimestamp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryGetEncodedDataByTimestampRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).GetEncodedDataByTimestamp(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Query_GetEncodedDataByTimestamp_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).GetEncodedDataByTimestamp(ctx, req.(*QueryGetEncodedDataByTimestampRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Query_ServiceDesc is the grpc.ServiceDesc for Query service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -300,6 +335,10 @@ var Query_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetEncodedDataByCreator",
 			Handler:    _Query_GetEncodedDataByCreator_Handler,
+		},
+		{
+			MethodName: "GetEncodedDataByTimestamp",
+			Handler:    _Query_GetEncodedDataByTimestamp_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
