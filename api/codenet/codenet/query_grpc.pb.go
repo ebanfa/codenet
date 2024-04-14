@@ -20,14 +20,15 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	Query_Params_FullMethodName                    = "/codenet.codenet.Query/Params"
-	Query_GetEncodedDataById_FullMethodName        = "/codenet.codenet.Query/GetEncodedDataById"
-	Query_GetProofById_FullMethodName              = "/codenet.codenet.Query/GetProofById"
-	Query_GetCreatorById_FullMethodName            = "/codenet.codenet.Query/GetCreatorById"
-	Query_GetVerificationStatusById_FullMethodName = "/codenet.codenet.Query/GetVerificationStatusById"
-	Query_GetEncodedDataByCreator_FullMethodName   = "/codenet.codenet.Query/GetEncodedDataByCreator"
-	Query_GetEncodedDataByTimestamp_FullMethodName = "/codenet.codenet.Query/GetEncodedDataByTimestamp"
-	Query_GetEncodedDataByChecksum_FullMethodName  = "/codenet.codenet.Query/GetEncodedDataByChecksum"
+	Query_Params_FullMethodName                      = "/codenet.codenet.Query/Params"
+	Query_GetEncodedDataById_FullMethodName          = "/codenet.codenet.Query/GetEncodedDataById"
+	Query_GetProofById_FullMethodName                = "/codenet.codenet.Query/GetProofById"
+	Query_GetCreatorById_FullMethodName              = "/codenet.codenet.Query/GetCreatorById"
+	Query_GetVerificationStatusById_FullMethodName   = "/codenet.codenet.Query/GetVerificationStatusById"
+	Query_GetEncodedDataByCreator_FullMethodName     = "/codenet.codenet.Query/GetEncodedDataByCreator"
+	Query_GetEncodedDataByTimestamp_FullMethodName   = "/codenet.codenet.Query/GetEncodedDataByTimestamp"
+	Query_GetEncodedDataByChecksum_FullMethodName    = "/codenet.codenet.Query/GetEncodedDataByChecksum"
+	Query_GetEncodedDataByBlockNumber_FullMethodName = "/codenet.codenet.Query/GetEncodedDataByBlockNumber"
 )
 
 // QueryClient is the client API for Query service.
@@ -50,6 +51,8 @@ type QueryClient interface {
 	GetEncodedDataByTimestamp(ctx context.Context, in *QueryGetEncodedDataByTimestampRequest, opts ...grpc.CallOption) (*QueryGetEncodedDataByTimestampResponse, error)
 	// Queries a list of GetEncodedDataByChecksum items.
 	GetEncodedDataByChecksum(ctx context.Context, in *QueryGetEncodedDataByChecksumRequest, opts ...grpc.CallOption) (*QueryGetEncodedDataByChecksumResponse, error)
+	// Queries a list of GetEncodedDataByBlockNumber items.
+	GetEncodedDataByBlockNumber(ctx context.Context, in *QueryGetEncodedDataByBlockNumberRequest, opts ...grpc.CallOption) (*QueryGetEncodedDataByBlockNumberResponse, error)
 }
 
 type queryClient struct {
@@ -132,6 +135,15 @@ func (c *queryClient) GetEncodedDataByChecksum(ctx context.Context, in *QueryGet
 	return out, nil
 }
 
+func (c *queryClient) GetEncodedDataByBlockNumber(ctx context.Context, in *QueryGetEncodedDataByBlockNumberRequest, opts ...grpc.CallOption) (*QueryGetEncodedDataByBlockNumberResponse, error) {
+	out := new(QueryGetEncodedDataByBlockNumberResponse)
+	err := c.cc.Invoke(ctx, Query_GetEncodedDataByBlockNumber_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // QueryServer is the server API for Query service.
 // All implementations must embed UnimplementedQueryServer
 // for forward compatibility
@@ -152,6 +164,8 @@ type QueryServer interface {
 	GetEncodedDataByTimestamp(context.Context, *QueryGetEncodedDataByTimestampRequest) (*QueryGetEncodedDataByTimestampResponse, error)
 	// Queries a list of GetEncodedDataByChecksum items.
 	GetEncodedDataByChecksum(context.Context, *QueryGetEncodedDataByChecksumRequest) (*QueryGetEncodedDataByChecksumResponse, error)
+	// Queries a list of GetEncodedDataByBlockNumber items.
+	GetEncodedDataByBlockNumber(context.Context, *QueryGetEncodedDataByBlockNumberRequest) (*QueryGetEncodedDataByBlockNumberResponse, error)
 	mustEmbedUnimplementedQueryServer()
 }
 
@@ -182,6 +196,9 @@ func (UnimplementedQueryServer) GetEncodedDataByTimestamp(context.Context, *Quer
 }
 func (UnimplementedQueryServer) GetEncodedDataByChecksum(context.Context, *QueryGetEncodedDataByChecksumRequest) (*QueryGetEncodedDataByChecksumResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetEncodedDataByChecksum not implemented")
+}
+func (UnimplementedQueryServer) GetEncodedDataByBlockNumber(context.Context, *QueryGetEncodedDataByBlockNumberRequest) (*QueryGetEncodedDataByBlockNumberResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetEncodedDataByBlockNumber not implemented")
 }
 func (UnimplementedQueryServer) mustEmbedUnimplementedQueryServer() {}
 
@@ -340,6 +357,24 @@ func _Query_GetEncodedDataByChecksum_Handler(srv interface{}, ctx context.Contex
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Query_GetEncodedDataByBlockNumber_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryGetEncodedDataByBlockNumberRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).GetEncodedDataByBlockNumber(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Query_GetEncodedDataByBlockNumber_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).GetEncodedDataByBlockNumber(ctx, req.(*QueryGetEncodedDataByBlockNumberRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Query_ServiceDesc is the grpc.ServiceDesc for Query service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -378,6 +413,10 @@ var Query_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetEncodedDataByChecksum",
 			Handler:    _Query_GetEncodedDataByChecksum_Handler,
+		},
+		{
+			MethodName: "GetEncodedDataByBlockNumber",
+			Handler:    _Query_GetEncodedDataByBlockNumber_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

@@ -66,6 +66,13 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 					PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "checksum"}},
 				},
 
+				{
+					RpcMethod:      "GetEncodedDataByBlockNumber",
+					Use:            "get-encoded-data-by-block-number [block-number]",
+					Short:          "Query getEncodedDataByBlockNumber",
+					PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "blockNumber"}},
+				},
+
 				// this line is used by ignite scaffolding # autocli/query
 			},
 		},

@@ -61,6 +61,12 @@ service Query {
     option (google.api.http).get = "/codenet/codenet/get_encoded_data_by_checksum/{checksum}";
   
   }
+  
+  // Queries a list of GetEncodedDataByBlockNumber items.
+  rpc GetEncodedDataByBlockNumber (QueryGetEncodedDataByBlockNumberRequest) returns (QueryGetEncodedDataByBlockNumberResponse) {
+    option (google.api.http).get = "/codenet/codenet/get_encoded_data_by_block_number/{blockNumber}";
+  
+  }
 }
 // QueryParamsRequest is request type for the Query/Params RPC method.
 message QueryParamsRequest {}
@@ -130,6 +136,16 @@ message QueryGetEncodedDataByChecksumRequest {
 }
 
 message QueryGetEncodedDataByChecksumResponse {
+  EncodedData                            encodedDataList = 1;
+  cosmos.base.query.v1beta1.PageResponse pagination      = 2;
+}
+
+message QueryGetEncodedDataByBlockNumberRequest {
+  uint64                                blockNumber = 1;
+  cosmos.base.query.v1beta1.PageRequest pagination  = 2;
+}
+
+message QueryGetEncodedDataByBlockNumberResponse {
   EncodedData                            encodedDataList = 1;
   cosmos.base.query.v1beta1.PageResponse pagination      = 2;
 }
