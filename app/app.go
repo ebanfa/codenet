@@ -319,6 +319,10 @@ func New(
 
 	app.App = appBuilder.Build(db, traceStore, baseAppOptions...)
 
+	proposalHandler := NewProposalHandler(logger)
+	app.App.BaseApp.SetPrepareProposal(proposalHandler.PrepareProposal())
+	app.App.BaseApp.SetProcessProposal(proposalHandler.ProcessProposal())
+
 	// Register legacy modules
 	if err := app.registerIBCModules(appOpts); err != nil {
 		return nil, err

@@ -6,6 +6,7 @@ import (
 	"codenet/x/codenet/types"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
+	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )
@@ -19,12 +20,12 @@ func (k Keeper) GetEncodedDataById(goCtx context.Context, req *types.QueryGetEnc
 
 	// TODO: Process the query
 	_ = ctx
-	encodedData, found := k.GetEncodedData(ctx, req.Id)
-    if !found {
-        return nil, sdkerrors.ErrKeyNotFound
-    }
+	encodedData, found := k.GetEncodedData(ctx, req.EncodedDataId)
+	if !found {
+		return nil, sdkerrors.ErrKeyNotFound
+	}
 
 	return &types.QueryGetEncodedDataByIdResponse{
-		EncodedData: &encodedData
+		EncodedData: encodedData,
 	}, nil
 }

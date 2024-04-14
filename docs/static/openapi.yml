@@ -904,10 +904,8 @@ paths:
               creator:
                 type: string
               data:
-                type: array
-                items:
-                  type: string
-                  format: uint64
+                type: string
+                format: byte
               encodingAlgorithm:
                 type: string
               dataSize:
@@ -18030,10 +18028,8 @@ definitions:
       creator:
         type: string
       data:
-        type: array
-        items:
-          type: string
-          format: uint64
+        type: string
+        format: byte
       encodingAlgorithm:
         type: string
       dataSize:
