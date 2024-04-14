@@ -37,6 +37,12 @@ service Query {
     option (google.api.http).get = "/codenet/codenet/get_creator_by_id/{encodedDataId}";
   
   }
+  
+  // Queries a list of GetVerificationStatusById items.
+  rpc GetVerificationStatusById (QueryGetVerificationStatusByIdRequest) returns (QueryGetVerificationStatusByIdResponse) {
+    option (google.api.http).get = "/codenet/codenet/get_verification_status_by_id/{encodedDataId}";
+  
+  }
 }
 // QueryParamsRequest is request type for the Query/Params RPC method.
 message QueryParamsRequest {}
@@ -70,5 +76,13 @@ message QueryGetCreatorByIdRequest {
 
 message QueryGetCreatorByIdResponse {
   string creator = 1;
+}
+
+message QueryGetVerificationStatusByIdRequest {
+  uint64 encodedDataId = 1;
+}
+
+message QueryGetVerificationStatusByIdResponse {
+  string verificationStatus = 1;
 }
 

@@ -38,6 +38,13 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 					PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "encodedDataId"}},
 				},
 
+				{
+					RpcMethod:      "GetVerificationStatusById",
+					Use:            "get-verification-status-by-id [encoded-data-id]",
+					Short:          "Query getVerificationStatusById",
+					PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "encodedDataId"}},
+				},
+
 				// this line is used by ignite scaffolding # autocli/query
 			},
 		},
