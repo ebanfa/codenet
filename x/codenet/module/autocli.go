@@ -59,6 +59,13 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 					PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "timestamp"}},
 				},
 
+				{
+					RpcMethod:      "GetEncodedDataByChecksum",
+					Use:            "get-encoded-data-by-checksum [checksum]",
+					Short:          "Query getEncodedDataByChecksum",
+					PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "checksum"}},
+				},
+
 				// this line is used by ignite scaffolding # autocli/query
 			},
 		},
