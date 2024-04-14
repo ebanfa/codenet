@@ -1,0 +1,13 @@
+syntax = "proto3";
+package codenet.codenet;
+
+option go_package = "codenet/x/codenet/types";
+
+message CodenetPacketData {
+    oneof packet {
+        NoData noData = 1;
+    }
+}
+
+message NoData {
+}

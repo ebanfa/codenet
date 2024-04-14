@@ -35,7 +35,10 @@ import (
 	ibckeeper "github.com/cosmos/ibc-go/v8/modules/core/keeper"
 	solomachine "github.com/cosmos/ibc-go/v8/modules/light-clients/06-solomachine"
 	ibctm "github.com/cosmos/ibc-go/v8/modules/light-clients/07-tendermint"
+
 	// this line is used by starport scaffolding # ibc/app/import
+	codenetmodule "codenet/x/codenet/module"
+	codenetmoduletypes "codenet/x/codenet/types"
 )
 
 // registerIBCModules register IBC keepers and non dependency inject modules.
@@ -158,6 +161,8 @@ func (app *App) registerIBCModules(appOpts servertypes.AppOptions) error {
 		AddRoute(icacontrollertypes.SubModuleName, icaControllerIBCModule).
 		AddRoute(icahosttypes.SubModuleName, icaHostIBCModule)
 
+	codenetIBCModule := ibcfee.NewIBCMiddleware(codenetmodule.NewIBCModule(app.CodenetKeeper), app.IBCFeeKeeper)
+	ibcRouter.AddRoute(codenetmoduletypes.ModuleName, codenetIBCModule)
 	// this line is used by starport scaffolding # ibc/app/module
 
 	app.IBCKeeper.SetRouter(ibcRouter)

@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package codenet.codenet;
+
+import "amino/amino.proto";
+import "gogoproto/gogo.proto";
+import "codenet/codenet/params.proto";
+
+option go_package = "codenet/x/codenet/types";
+
+// GenesisState defines the codenet module's genesis state.
+message GenesisState {
+  
+  // params defines all the parameters of the module.
+  Params params  = 1 [(gogoproto.nullable) = false, (amino.dont_omitempty) = true];
+  string port_id = 2;
+}
+
