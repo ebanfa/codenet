@@ -31,6 +31,12 @@ service Query {
     option (google.api.http).get = "/codenet/codenet/get_proof_by_id/{encodedDataId}";
   
   }
+  
+  // Queries a list of GetCreatorById items.
+  rpc GetCreatorById (QueryGetCreatorByIdRequest) returns (QueryGetCreatorByIdResponse) {
+    option (google.api.http).get = "/codenet/codenet/get_creator_by_id/{encodedDataId}";
+  
+  }
 }
 // QueryParamsRequest is request type for the Query/Params RPC method.
 message QueryParamsRequest {}
@@ -56,5 +62,13 @@ message QueryGetProofByIdRequest {
 
 message QueryGetProofByIdResponse {
   repeated uint64 proof = 1;
+}
+
+message QueryGetCreatorByIdRequest {
+  uint64 encodedDataId = 1;
+}
+
+message QueryGetCreatorByIdResponse {
+  string creator = 1;
 }
 

@@ -4,6 +4,44 @@ info:
   name: ''
   description: ''
 paths:
+  /codenet/codenet/get_creator_by_id/{encodedDataId}:
+    get:
+      summary: Queries a list of GetCreatorById items.
+      operationId: CodenetCodenetQuery_GetCreatorById
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties:
+              creator:
+                type: string
+        default:
+          description: An unexpected error response.
+          schema:
+            type: object
+            properties:
+              code:
+                type: integer
+                format: int32
+              message:
+                type: string
+              details:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    '@type':
+                      type: string
+                  additionalProperties: {}
+      parameters:
+        - name: encodedDataId
+          in: path
+          required: true
+          type: string
+          format: uint64
+      tags:
+        - Query
   /codenet/codenet/get_encoded_data_by_id/{encodedDataId}:
     get:
       summary: Queries a list of GetEncodedDataById items.
@@ -16922,6 +16960,11 @@ definitions:
   codenet.codenet.Params:
     type: object
     description: Params defines the parameters for the module.
+  codenet.codenet.QueryGetCreatorByIdResponse:
+    type: object
+    properties:
+      creator:
+        type: string
   codenet.codenet.QueryGetEncodedDataByIdResponse:
     type: object
     properties:
