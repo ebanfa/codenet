@@ -17,6 +17,13 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 					Use:       "params",
 					Short:     "Shows the parameters of the module",
 				},
+				{
+					RpcMethod:      "GetEncodedDataById",
+					Use:            "get-encoded-data-by-id [encoded-data-id]",
+					Short:          "Query getEncodedDataById",
+					PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "encodedDataId"}},
+				},
+
 				// this line is used by ignite scaffolding # autocli/query
 			},
 		},

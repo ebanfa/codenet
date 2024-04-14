@@ -115,15 +115,105 @@ func (m *QueryParamsResponse) GetParams() Params {
 	return Params{}
 }
 
+type QueryGetEncodedDataByIdRequest struct {
+	EncodedDataId uint64 `protobuf:"varint,1,opt,name=encodedDataId,proto3" json:"encodedDataId,omitempty"`
+}
+
+func (m *QueryGetEncodedDataByIdRequest) Reset()         { *m = QueryGetEncodedDataByIdRequest{} }
+func (m *QueryGetEncodedDataByIdRequest) String() string { return proto.CompactTextString(m) }
+func (*QueryGetEncodedDataByIdRequest) ProtoMessage()    {}
+func (*QueryGetEncodedDataByIdRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_fd912081da53b2a6, []int{2}
+}
+func (m *QueryGetEncodedDataByIdRequest) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryGetEncodedDataByIdRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryGetEncodedDataByIdRequest.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryGetEncodedDataByIdRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryGetEncodedDataByIdRequest.Merge(m, src)
+}
+func (m *QueryGetEncodedDataByIdRequest) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryGetEncodedDataByIdRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryGetEncodedDataByIdRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryGetEncodedDataByIdRequest proto.InternalMessageInfo
+
+func (m *QueryGetEncodedDataByIdRequest) GetEncodedDataId() uint64 {
+	if m != nil {
+		return m.EncodedDataId
+	}
+	return 0
+}
+
+type QueryGetEncodedDataByIdResponse struct {
+	EncodedData *EncodedData `protobuf:"bytes,1,opt,name=encodedData,proto3" json:"encodedData,omitempty"`
+}
+
+func (m *QueryGetEncodedDataByIdResponse) Reset()         { *m = QueryGetEncodedDataByIdResponse{} }
+func (m *QueryGetEncodedDataByIdResponse) String() string { return proto.CompactTextString(m) }
+func (*QueryGetEncodedDataByIdResponse) ProtoMessage()    {}
+func (*QueryGetEncodedDataByIdResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_fd912081da53b2a6, []int{3}
+}
+func (m *QueryGetEncodedDataByIdResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryGetEncodedDataByIdResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryGetEncodedDataByIdResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryGetEncodedDataByIdResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryGetEncodedDataByIdResponse.Merge(m, src)
+}
+func (m *QueryGetEncodedDataByIdResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryGetEncodedDataByIdResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryGetEncodedDataByIdResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryGetEncodedDataByIdResponse proto.InternalMessageInfo
+
+func (m *QueryGetEncodedDataByIdResponse) GetEncodedData() *EncodedData {
+	if m != nil {
+		return m.EncodedData
+	}
+	return nil
+}
+
 func init() {
 	proto.RegisterType((*QueryParamsRequest)(nil), "codenet.codenet.QueryParamsRequest")
 	proto.RegisterType((*QueryParamsResponse)(nil), "codenet.codenet.QueryParamsResponse")
+	proto.RegisterType((*QueryGetEncodedDataByIdRequest)(nil), "codenet.codenet.QueryGetEncodedDataByIdRequest")
+	proto.RegisterType((*QueryGetEncodedDataByIdResponse)(nil), "codenet.codenet.QueryGetEncodedDataByIdResponse")
 }
 
 func init() { proto.RegisterFile("codenet/codenet/query.proto", fileDescriptor_fd912081da53b2a6) }
 
 var fileDescriptor_fd912081da53b2a6 = []byte{
-	// 292 bytes of a gzipped FileDescriptorProto
+	// 419 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x92, 0x4e, 0xce, 0x4f, 0x49,
 	0xcd, 0x4b, 0x2d, 0xd1, 0x87, 0xd1, 0x85, 0xa5, 0xa9, 0x45, 0x95, 0x7a, 0x05, 0x45, 0xf9, 0x25,
 	0xf9, 0x42, 0xfc, 0x50, 0x41, 0x3d, 0x28, 0x2d, 0x25, 0x98, 0x98, 0x9b, 0x99, 0x97, 0xaf, 0x0f,
@@ -132,17 +222,25 @@ var fileDescriptor_fd912081da53b2a6 = []byte{
 	0x92, 0x58, 0x92, 0x99, 0x9f, 0x57, 0x0c, 0x95, 0xd5, 0x4a, 0xce, 0x2f, 0xce, 0xcd, 0x2f, 0xd6,
 	0x4f, 0x4a, 0x2c, 0x4e, 0x85, 0x58, 0xa8, 0x5f, 0x66, 0x98, 0x94, 0x5a, 0x92, 0x68, 0xa8, 0x5f,
 	0x90, 0x98, 0x9e, 0x99, 0x07, 0x56, 0x0c, 0x33, 0x09, 0xdd, 0x81, 0x05, 0x89, 0x45, 0x89, 0xb9,
-	0x50, 0x93, 0x94, 0x44, 0xb8, 0x84, 0x02, 0x41, 0xfa, 0x03, 0xc0, 0x82, 0x41, 0xa9, 0x85, 0xa5,
-	0xa9, 0xc5, 0x25, 0x4a, 0x81, 0x5c, 0xc2, 0x28, 0xa2, 0xc5, 0x05, 0xf9, 0x79, 0xc5, 0xa9, 0x42,
-	0x56, 0x5c, 0x6c, 0x10, 0xcd, 0x12, 0x8c, 0x0a, 0x8c, 0x1a, 0xdc, 0x46, 0xe2, 0x7a, 0x68, 0xfe,
-	0xd3, 0x83, 0x68, 0x70, 0xe2, 0x3c, 0x71, 0x4f, 0x9e, 0x61, 0xc5, 0xf3, 0x0d, 0x5a, 0x8c, 0x41,
-	0x50, 0x1d, 0x46, 0xb5, 0x5c, 0xac, 0x60, 0x23, 0x85, 0x4a, 0xb8, 0xd8, 0x20, 0xaa, 0x84, 0x94,
-	0x31, 0xb4, 0x63, 0x3a, 0x45, 0x4a, 0x05, 0xbf, 0x22, 0x88, 0xcb, 0x94, 0xe4, 0x9b, 0x2e, 0x3f,
-	0x99, 0xcc, 0x24, 0x29, 0x24, 0xae, 0x8f, 0xdd, 0xb7, 0x4e, 0x86, 0x27, 0x1e, 0xc9, 0x31, 0x5e,
-	0x78, 0x24, 0xc7, 0xf8, 0xe0, 0x91, 0x1c, 0xe3, 0x84, 0xc7, 0x72, 0x0c, 0x17, 0x1e, 0xcb, 0x31,
-	0xdc, 0x78, 0x2c, 0xc7, 0x10, 0x25, 0x0e, 0x53, 0x59, 0x01, 0xd7, 0x53, 0x52, 0x59, 0x90, 0x5a,
-	0x9c, 0xc4, 0x06, 0x0e, 0x21, 0x63, 0x40, 0x00, 0x00, 0x00, 0xff, 0xff, 0x65, 0xf5, 0x00, 0x5e,
-	0xe2, 0x01, 0x00, 0x00,
+	0x30, 0x93, 0x94, 0xd0, 0x65, 0x53, 0xf3, 0x40, 0xac, 0x94, 0xf8, 0x94, 0xc4, 0x92, 0x44, 0x88,
+	0x1a, 0x25, 0x11, 0x2e, 0xa1, 0x40, 0x90, 0x1d, 0x01, 0x60, 0x8d, 0x41, 0xa9, 0x85, 0xa5, 0xa9,
+	0xc5, 0x25, 0x4a, 0x81, 0x5c, 0xc2, 0x28, 0xa2, 0xc5, 0x05, 0xf9, 0x79, 0xc5, 0xa9, 0x42, 0x56,
+	0x5c, 0x6c, 0x10, 0x0b, 0x24, 0x18, 0x15, 0x18, 0x35, 0xb8, 0x8d, 0xc4, 0xf5, 0xd0, 0xc2, 0x40,
+	0x0f, 0xa2, 0xc1, 0x89, 0xf3, 0xc4, 0x3d, 0x79, 0x86, 0x15, 0xcf, 0x37, 0x68, 0x31, 0x06, 0x41,
+	0x75, 0x28, 0xb9, 0x71, 0xc9, 0x81, 0x8d, 0x74, 0x4f, 0x2d, 0x71, 0x85, 0x38, 0xc3, 0x25, 0xb1,
+	0x24, 0xd1, 0xa9, 0xd2, 0x33, 0x05, 0x6a, 0xa9, 0x90, 0x0a, 0x17, 0x6f, 0x2a, 0x42, 0xc6, 0x33,
+	0x05, 0x6c, 0x09, 0x4b, 0x10, 0xaa, 0xa0, 0x52, 0x22, 0x97, 0x3c, 0x4e, 0x73, 0xa0, 0xce, 0xb4,
+	0xe3, 0xe2, 0x46, 0xd2, 0x03, 0x75, 0xab, 0x0c, 0x86, 0x5b, 0x91, 0xb4, 0x07, 0x21, 0x6b, 0x30,
+	0xda, 0xc1, 0xc4, 0xc5, 0x0a, 0xb6, 0x43, 0xa8, 0x84, 0x8b, 0x0d, 0xe2, 0x23, 0x21, 0x65, 0x0c,
+	0xed, 0x98, 0xc1, 0x26, 0xa5, 0x82, 0x5f, 0x11, 0xc4, 0x79, 0x4a, 0xf2, 0x4d, 0x97, 0x9f, 0x4c,
+	0x66, 0x92, 0x14, 0x12, 0xd7, 0xc7, 0x1e, 0x7b, 0x42, 0x3b, 0x18, 0xb9, 0x84, 0x30, 0xbd, 0x27,
+	0xa4, 0x8f, 0xdd, 0x74, 0x9c, 0x01, 0x2a, 0x65, 0x40, 0xbc, 0x06, 0xa8, 0xd3, 0xec, 0xc1, 0x4e,
+	0xb3, 0x14, 0x32, 0xc7, 0x70, 0x5a, 0x7a, 0x6a, 0x49, 0x3c, 0x72, 0xf2, 0x89, 0x4f, 0xaa, 0x8c,
+	0xcf, 0x4c, 0xd1, 0xaf, 0x46, 0x89, 0x9c, 0x5a, 0x27, 0xc3, 0x13, 0x8f, 0xe4, 0x18, 0x2f, 0x3c,
+	0x92, 0x63, 0x7c, 0xf0, 0x48, 0x8e, 0x71, 0xc2, 0x63, 0x39, 0x86, 0x0b, 0x8f, 0xe5, 0x18, 0x6e,
+	0x3c, 0x96, 0x63, 0x88, 0x12, 0x87, 0x99, 0x54, 0x01, 0x37, 0xb3, 0xa4, 0xb2, 0x20, 0xb5, 0x38,
+	0x89, 0x0d, 0x9c, 0x10, 0x8d, 0x01, 0x01, 0x00, 0x00, 0xff, 0xff, 0x2d, 0xf9, 0x4f, 0x56, 0x6d,
+	0x03, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -159,6 +257,8 @@ const _ = grpc.SupportPackageIsVersion4
 type QueryClient interface {
 	// Parameters queries the parameters of the module.
 	Params(ctx context.Context, in *QueryParamsRequest, opts ...grpc.CallOption) (*QueryParamsResponse, error)
+	// Queries a list of GetEncodedDataById items.
+	GetEncodedDataById(ctx context.Context, in *QueryGetEncodedDataByIdRequest, opts ...grpc.CallOption) (*QueryGetEncodedDataByIdResponse, error)
 }
 
 type queryClient struct {
@@ -178,10 +278,21 @@ func (c *queryClient) Params(ctx context.Context, in *QueryParamsRequest, opts .
 	return out, nil
 }
 
+func (c *queryClient) GetEncodedDataById(ctx context.Context, in *QueryGetEncodedDataByIdRequest, opts ...grpc.CallOption) (*QueryGetEncodedDataByIdResponse, error) {
+	out := new(QueryGetEncodedDataByIdResponse)
+	err := c.cc.Invoke(ctx, "/codenet.codenet.Query/GetEncodedDataById", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // QueryServer is the server API for Query service.
 type QueryServer interface {
 	// Parameters queries the parameters of the module.
 	Params(context.Context, *QueryParamsRequest) (*QueryParamsResponse, error)
+	// Queries a list of GetEncodedDataById items.
+	GetEncodedDataById(context.Context, *QueryGetEncodedDataByIdRequest) (*QueryGetEncodedDataByIdResponse, error)
 }
 
 // UnimplementedQueryServer can be embedded to have forward compatible implementations.
@@ -190,6 +301,9 @@ type UnimplementedQueryServer struct {
 
 func (*UnimplementedQueryServer) Params(ctx context.Context, req *QueryParamsRequest) (*QueryParamsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Params not implemented")
+}
+func (*UnimplementedQueryServer) GetEncodedDataById(ctx context.Context, req *QueryGetEncodedDataByIdRequest) (*QueryGetEncodedDataByIdResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetEncodedDataById not implemented")
 }
 
 func RegisterQueryServer(s grpc1.Server, srv QueryServer) {
@@ -214,6 +328,24 @@ func _Query_Params_Handler(srv interface{}, ctx context.Context, dec func(interf
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Query_GetEncodedDataById_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryGetEncodedDataByIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).GetEncodedDataById(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/codenet.codenet.Query/GetEncodedDataById",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).GetEncodedDataById(ctx, req.(*QueryGetEncodedDataByIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _Query_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "codenet.codenet.Query",
 	HandlerType: (*QueryServer)(nil),
@@ -221,6 +353,10 @@ var _Query_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Params",
 			Handler:    _Query_Params_Handler,
+		},
+		{
+			MethodName: "GetEncodedDataById",
+			Handler:    _Query_GetEncodedDataById_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -283,6 +419,69 @@ func (m *QueryParamsResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	return len(dAtA) - i, nil
 }
 
+func (m *QueryGetEncodedDataByIdRequest) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryGetEncodedDataByIdRequest) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryGetEncodedDataByIdRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.EncodedDataId != 0 {
+		i = encodeVarintQuery(dAtA, i, uint64(m.EncodedDataId))
+		i--
+		dAtA[i] = 0x8
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *QueryGetEncodedDataByIdResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryGetEncodedDataByIdResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryGetEncodedDataByIdResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.EncodedData != nil {
+		{
+			size, err := m.EncodedData.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintQuery(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
 func encodeVarintQuery(dAtA []byte, offset int, v uint64) int {
 	offset -= sovQuery(v)
 	base := offset
@@ -311,6 +510,31 @@ func (m *QueryParamsResponse) Size() (n int) {
 	_ = l
 	l = m.Params.Size()
 	n += 1 + l + sovQuery(uint64(l))
+	return n
+}
+
+func (m *QueryGetEncodedDataByIdRequest) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.EncodedDataId != 0 {
+		n += 1 + sovQuery(uint64(m.EncodedDataId))
+	}
+	return n
+}
+
+func (m *QueryGetEncodedDataByIdResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.EncodedData != nil {
+		l = m.EncodedData.Size()
+		n += 1 + l + sovQuery(uint64(l))
+	}
 	return n
 }
 
@@ -429,6 +653,161 @@ func (m *QueryParamsResponse) Unmarshal(dAtA []byte) error {
 				return io.ErrUnexpectedEOF
 			}
 			if err := m.Params.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryGetEncodedDataByIdRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryGetEncodedDataByIdRequest: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryGetEncodedDataByIdRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field EncodedDataId", wireType)
+			}
+			m.EncodedDataId = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.EncodedDataId |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryGetEncodedDataByIdResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryGetEncodedDataByIdResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryGetEncodedDataByIdResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field EncodedData", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.EncodedData == nil {
+				m.EncodedData = &EncodedData{}
+			}
+			if err := m.EncodedData.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
 				return err
 			}
 			iNdEx = postIndex
