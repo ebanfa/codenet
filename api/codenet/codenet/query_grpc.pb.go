@@ -25,6 +25,7 @@ const (
 	Query_GetProofById_FullMethodName              = "/codenet.codenet.Query/GetProofById"
 	Query_GetCreatorById_FullMethodName            = "/codenet.codenet.Query/GetCreatorById"
 	Query_GetVerificationStatusById_FullMethodName = "/codenet.codenet.Query/GetVerificationStatusById"
+	Query_GetEncodedDataByCreator_FullMethodName   = "/codenet.codenet.Query/GetEncodedDataByCreator"
 )
 
 // QueryClient is the client API for Query service.
@@ -41,6 +42,8 @@ type QueryClient interface {
 	GetCreatorById(ctx context.Context, in *QueryGetCreatorByIdRequest, opts ...grpc.CallOption) (*QueryGetCreatorByIdResponse, error)
 	// Queries a list of GetVerificationStatusById items.
 	GetVerificationStatusById(ctx context.Context, in *QueryGetVerificationStatusByIdRequest, opts ...grpc.CallOption) (*QueryGetVerificationStatusByIdResponse, error)
+	// Queries a list of GetEncodedDataByCreator items.
+	GetEncodedDataByCreator(ctx context.Context, in *QueryGetEncodedDataByCreatorRequest, opts ...grpc.CallOption) (*QueryGetEncodedDataByCreatorResponse, error)
 }
 
 type queryClient struct {
@@ -96,6 +99,15 @@ func (c *queryClient) GetVerificationStatusById(ctx context.Context, in *QueryGe
 	return out, nil
 }
 
+func (c *queryClient) GetEncodedDataByCreator(ctx context.Context, in *QueryGetEncodedDataByCreatorRequest, opts ...grpc.CallOption) (*QueryGetEncodedDataByCreatorResponse, error) {
+	out := new(QueryGetEncodedDataByCreatorResponse)
+	err := c.cc.Invoke(ctx, Query_GetEncodedDataByCreator_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // QueryServer is the server API for Query service.
 // All implementations must embed UnimplementedQueryServer
 // for forward compatibility
@@ -110,6 +122,8 @@ type QueryServer interface {
 	GetCreatorById(context.Context, *QueryGetCreatorByIdRequest) (*QueryGetCreatorByIdResponse, error)
 	// Queries a list of GetVerificationStatusById items.
 	GetVerificationStatusById(context.Context, *QueryGetVerificationStatusByIdRequest) (*QueryGetVerificationStatusByIdResponse, error)
+	// Queries a list of GetEncodedDataByCreator items.
+	GetEncodedDataByCreator(context.Context, *QueryGetEncodedDataByCreatorRequest) (*QueryGetEncodedDataByCreatorResponse, error)
 	mustEmbedUnimplementedQueryServer()
 }
 
@@ -131,6 +145,9 @@ func (UnimplementedQueryServer) GetCreatorById(context.Context, *QueryGetCreator
 }
 func (UnimplementedQueryServer) GetVerificationStatusById(context.Context, *QueryGetVerificationStatusByIdRequest) (*QueryGetVerificationStatusByIdResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetVerificationStatusById not implemented")
+}
+func (UnimplementedQueryServer) GetEncodedDataByCreator(context.Context, *QueryGetEncodedDataByCreatorRequest) (*QueryGetEncodedDataByCreatorResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetEncodedDataByCreator not implemented")
 }
 func (UnimplementedQueryServer) mustEmbedUnimplementedQueryServer() {}
 
@@ -235,6 +252,24 @@ func _Query_GetVerificationStatusById_Handler(srv interface{}, ctx context.Conte
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Query_GetEncodedDataByCreator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryGetEncodedDataByCreatorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).GetEncodedDataByCreator(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Query_GetEncodedDataByCreator_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).GetEncodedDataByCreator(ctx, req.(*QueryGetEncodedDataByCreatorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Query_ServiceDesc is the grpc.ServiceDesc for Query service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -261,6 +296,10 @@ var Query_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetVerificationStatusById",
 			Handler:    _Query_GetVerificationStatusById_Handler,
+		},
+		{
+			MethodName: "GetEncodedDataByCreator",
+			Handler:    _Query_GetEncodedDataByCreator_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

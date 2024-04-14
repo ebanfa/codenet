@@ -45,6 +45,13 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 					PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "encodedDataId"}},
 				},
 
+				{
+					RpcMethod:      "GetEncodedDataByCreator",
+					Use:            "get-encoded-data-by-creator [creator]",
+					Short:          "Query getEncodedDataByCreator",
+					PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "creator"}},
+				},
+
 				// this line is used by ignite scaffolding # autocli/query
 			},
 		},

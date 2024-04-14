@@ -43,6 +43,12 @@ service Query {
     option (google.api.http).get = "/codenet/codenet/get_verification_status_by_id/{encodedDataId}";
   
   }
+  
+  // Queries a list of GetEncodedDataByCreator items.
+  rpc GetEncodedDataByCreator (QueryGetEncodedDataByCreatorRequest) returns (QueryGetEncodedDataByCreatorResponse) {
+    option (google.api.http).get = "/codenet/codenet/get_encoded_data_by_creator/{creator}";
+  
+  }
 }
 // QueryParamsRequest is request type for the Query/Params RPC method.
 message QueryParamsRequest {}
@@ -84,5 +90,15 @@ message QueryGetVerificationStatusByIdRequest {
 
 message QueryGetVerificationStatusByIdResponse {
   string verificationStatus = 1;
+}
+
+message QueryGetEncodedDataByCreatorRequest {
+  string                                creator    = 1;
+  cosmos.base.query.v1beta1.PageRequest pagination = 2;
+}
+
+message QueryGetEncodedDataByCreatorResponse {
+  EncodedData                            encodedDataList = 1;
+  cosmos.base.query.v1beta1.PageResponse pagination      = 2;
 }
 
