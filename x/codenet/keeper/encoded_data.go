@@ -13,31 +13,31 @@ import (
 // It increments the count of encoded data and sets the ID of the data before storing it.
 func (k Keeper) AppendEncodedData(ctx sdk.Context, data types.EncodedData) uint64 {
 	// Get the current count of encoded data
-	count := k.GetEncodedDataCount(ctx)
+	count := k.GetCountOfEncodedData(ctx)
 	// Set the ID of the data
-	data.DataId = count
+	data.EncodedDataId = count
 	// Create a new store adapter for the provided context
 	storeAdapter := runtime.KVStoreAdapter(k.storeService.OpenKVStore(ctx))
 	// Create a new store with a prefix for encoded data keys
-	store := prefix.NewStore(storeAdapter, types.KeyPrefix(types.EncodeDataKey))
+	store := prefix.NewStore(storeAdapter, types.KeyPrefix(types.EncodedDataKey))
 	// Marshal the encoded data into bytes
 	appendedValue := k.cdc.MustMarshal(&data)
 	// Set the data in the store with its ID as the key
-	store.Set(GetEncodedDataIDBytes(data.DataId), appendedValue)
+	store.Set(GetEncodedDataIDBytes(data.EncodedDataId), appendedValue)
 	// Increment the count of encoded data
 	k.SeEncodedDataCount(ctx, count+1)
 	// Return the ID of the appended data
 	return count
 }
 
-// GetEncodedDataCount retrieves the current count of encoded data from the store.
-func (k Keeper) GetEncodedDataCount(ctx sdk.Context) uint64 {
+// GetCountOfEncodedData retrieves the current count of encoded data from the store.
+func (k Keeper) GetCountOfEncodedData(ctx sdk.Context) uint64 {
 	// Create a new store adapter for the provided context
 	storeAdapter := runtime.KVStoreAdapter(k.storeService.OpenKVStore(ctx))
 	// Create a new store without any prefix
 	store := prefix.NewStore(storeAdapter, []byte{})
 	// Retrieve the byte slice associated with the encoded data count key
-	byteKey := types.KeyPrefix(types.EncodeDataCountKey)
+	byteKey := types.KeyPrefix(types.EncodedDataCountKey)
 	bz := store.Get(byteKey)
 	// If the byte slice is nil, return 0
 	if bz == nil {
@@ -64,7 +64,7 @@ func (k Keeper) SeEncodedDataCount(ctx sdk.Context, count uint64) {
 	// Create a new store without any prefix
 	store := prefix.NewStore(storeAdapter, []byte{})
 	// Retrieve the byte slice associated with the encoded data count key
-	byteKey := types.KeyPrefix(types.EncodeDataCountKey)
+	byteKey := types.KeyPrefix(types.EncodedDataCountKey)
 	// Create a new byte slice of length 8 and store the count in big-endian byte order
 	bz := make([]byte, 8)
 	binary.BigEndian.PutUint64(bz, count)

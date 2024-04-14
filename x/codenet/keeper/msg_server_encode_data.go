@@ -13,6 +13,16 @@ func (k msgServer) EncodeData(goCtx context.Context, msg *types.MsgEncodeData) (
 
 	// TODO: Handling the message
 	_ = ctx
+	var data = types.EncodedData{
+		Creator:           msg.Creator,
+		DataSize:          msg.DataSize,
+		EncodingAlgorithm: msg.EncodingAlgorithm,
+		Version:           msg.Version,
+	}
+	_ = k.AppendEncodedData(
+		ctx,
+		data,
+	)
 
 	return &types.MsgEncodeDataResponse{}, nil
 }
