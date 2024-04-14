@@ -19,6 +19,12 @@ func (k Keeper) GetEncodedDataById(goCtx context.Context, req *types.QueryGetEnc
 
 	// TODO: Process the query
 	_ = ctx
+	encodedData, found := k.GetEncodedData(ctx, req.Id)
+    if !found {
+        return nil, sdkerrors.ErrKeyNotFound
+    }
 
-	return &types.QueryGetEncodedDataByIdResponse{}, nil
+	return &types.QueryGetEncodedDataByIdResponse{
+		EncodedData: &encodedData
+	}, nil
 }

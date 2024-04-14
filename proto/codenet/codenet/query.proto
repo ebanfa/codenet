@@ -89,7 +89,7 @@ message QueryGetEncodedDataByIdRequest {
 }
 
 message QueryGetEncodedDataByIdResponse {
-  EncodedData encodedData = 1;
+  EncodedData encodedData = 1 [(gogoproto.nullable) = false];
 }
 
 message QueryGetProofByIdRequest {
