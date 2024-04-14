@@ -19,10 +19,12 @@ func (k msgServer) EncodeData(goCtx context.Context, msg *types.MsgEncodeData) (
 		EncodingAlgorithm: msg.EncodingAlgorithm,
 		Version:           msg.Version,
 	}
-	_ = k.AppendEncodedData(
+	id := k.AppendEncodedData(
 		ctx,
 		data,
 	)
 
-	return &types.MsgEncodeDataResponse{}, nil
+	return &types.MsgEncodeDataResponse{
+		EncodedDataId: id,
+	}, nil
 }

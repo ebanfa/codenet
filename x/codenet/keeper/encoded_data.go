@@ -71,3 +71,32 @@ func (k Keeper) SeEncodedDataCount(ctx sdk.Context, count uint64) {
 	// Set the byte slice in the store
 	store.Set(byteKey, bz)
 }
+
+// GetPost retrieves the encoded data with the given ID from the store.
+func (k Keeper) GetEncodedData(ctx sdk.Context, id uint64) (val types.EncodedData, found bool) {
+	// Create a new store adapter for the provided context
+	storeAdapter := runtime.KVStoreAdapter(k.storeService.OpenKVStore(ctx))
+	// Create a new store with a prefix for encoded data keys
+	store := prefix.NewStore(storeAdapter, types.KeyPrefix(types.EncodedDataKey))
+	// Retrieve the byte slice associated with the encoded data ID key
+	b := store.Get(GetEncodedDataIDBytes(id))
+	// If the byte slice is nil, return an empty EncodedData and false
+	if b == nil {
+		return val, false
+	}
+	// Unmarshal the byte slice into EncodedData and return it along with true
+	k.cdc.MustUnmarshal(b, &val)
+	return val, true
+}
+
+// SetEncodedData stores the provided encoded data in the store.
+func (k Keeper) SetEncodedData(ctx sdk.Context, encodedData types.EncodedData) {
+	// Create a new store adapter for the provided context
+	storeAdapter := runtime.KVStoreAdapter(k.storeService.OpenKVStore(ctx))
+	// Create a new store with a prefix for encoded data keys
+	store := prefix.NewStore(storeAdapter, types.KeyPrefix(types.EncodedDataKey))
+	// Marshal the encoded data into bytes
+	b := k.cdc.MustMarshal(&encodedData)
+	// Set the encoded data in the store with its ID as the key
+	store.Set(GetEncodedDataIDBytes(encodedData.EncodedDataId), b)
+}
