@@ -36,13 +36,12 @@ func CmdSendIbcEncodedData() *cobra.Command {
 			srcChannel := args[1]
 
 			argCastData := strings.Split(args[2], listSeparator)
-			argData := make([]uint64, len(argCastData))
+			argData := make([]byte, len(argCastData))
 			for i, arg := range argCastData {
-				value, err := cast.ToUint64E(arg)
-				if err != nil {
-					return err
-				}
-				argData[i] = value
+				// Convert the string to byte
+				value := []byte(arg)
+				// Assign to argData
+				argData[i] = value[0] // Assuming each element represents a single byte
 			}
 			argEncodedDataId, err := cast.ToUint64E(args[3])
 			if err != nil {
@@ -67,7 +66,7 @@ func CmdSendIbcEncodedData() *cobra.Command {
 				return err
 			}
 			argChecksum := args[8]
-			argVersion, err := cast.ToUint64E(args[9])
+			argVersion, err := cast.ToUint32E(args[9])
 			if err != nil {
 				return err
 			}

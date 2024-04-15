@@ -13,14 +13,14 @@ func NewMsgSendIbcEncodedData(
 	port string,
 	channelID string,
 	timeoutTimestamp uint64,
-	data []uint64,
+	data []byte,
 	encodedDataId uint64,
 	encodingProof []uint64,
 	blockNumber uint64,
 	encodingAlgorithm string,
 	dataSize uint64,
 	checksum string,
-	version uint64,
+	version uint32,
 ) *MsgSendIbcEncodedData {
 	return &MsgSendIbcEncodedData{
 		Creator:           creator,

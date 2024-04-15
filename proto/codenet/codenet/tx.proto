@@ -41,29 +41,28 @@ message MsgUpdateParamsResponse {}
 message MsgEncodeData {
   option (cosmos.msg.v1.signer) = "creator";
            string creator           = 1;
-  repeated uint64 data              = 2;
+           bytes data               = 2;
            string encodingAlgorithm = 3;
            uint64 dataSize          = 4;
            string checksum          = 5;
-           uint64 version           = 6;
-  repeated uint64 encodingProof     = 7;
-           uint64 blockNumber       = 8;
+           uint32 version           = 6;
 }
 
 message MsgEncodeDataResponse {
-  uint64 encodedDataId = 1;
+           uint64 encodedDataId     = 1;
+  repeated uint64 encodingProof     = 2;
 }
 
 message MsgSendIbcEncodedData {
   option (cosmos.msg.v1.signer) = "creator";
-  repeated uint64 data              =  5;
+           bytes data              =  5;
            uint64 encodedDataId     =  6;
   repeated uint64 encodingProof     =  7;
            uint64 blockNumber       =  8;
            string encodingAlgorithm =  9;
            uint64 dataSize          = 10;
            string checksum          = 11;
-           uint64 version           = 12;
+           uint32 version           = 12;
            string creator           =  1;
            string port              =  2;
            string channelID         =  3;

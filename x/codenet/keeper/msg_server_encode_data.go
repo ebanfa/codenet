@@ -18,6 +18,7 @@ func (k msgServer) EncodeData(goCtx context.Context, msg *types.MsgEncodeData) (
 		DataSize:          msg.DataSize,
 		EncodingAlgorithm: msg.EncodingAlgorithm,
 		Version:           msg.Version,
+		Checksum:          msg.Checksum,
 	}
 	id := k.AppendEncodedData(
 		ctx,

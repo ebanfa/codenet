@@ -8,7 +8,7 @@ import (
 
 var _ sdk.Msg = &MsgEncodeData{}
 
-func NewMsgEncodeData(creator string, data []uint64, encodingAlgorithm string, dataSize uint64, checksum string, version uint64, encodingProof []uint64, blockNumber uint64) *MsgEncodeData {
+func NewMsgEncodeData(creator string, data []byte, encodingAlgorithm string, dataSize uint64, checksum string, version uint32) *MsgEncodeData {
 	return &MsgEncodeData{
 		Creator:           creator,
 		Data:              data,
@@ -16,8 +16,6 @@ func NewMsgEncodeData(creator string, data []uint64, encodingAlgorithm string, d
 		DataSize:          dataSize,
 		Checksum:          checksum,
 		Version:           version,
-		EncodingProof:     encodingProof,
-		BlockNumber:       blockNumber,
 	}
 }
 

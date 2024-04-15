@@ -5,14 +5,14 @@ option go_package = "codenet/x/codenet/types";
 
 message EncodedData {
   
-  uint64 dataSegments = 1; 
-  uint64 paritySegments = 2; 
-  repeated uint64 encodingProof = 3; 
+  uint32 dataSegments = 1; 
+  uint32 paritySegments = 2; 
+  bytes  encodingProof = 3; 
   uint64 timestamp = 4; 
   string creator = 5; 
   uint64 encodedDataId = 6; 
   string encodingAlgorithm = 7; 
   uint64 dataSize = 8; 
   string checksum = 9; 
-  uint64 version = 10; 
+  uint32 version = 10; 
 }

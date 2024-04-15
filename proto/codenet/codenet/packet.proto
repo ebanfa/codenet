@@ -15,14 +15,14 @@ message NoData {}
 
 // IbcEncodedDataPacketData defines a struct for the packet payload
 message IbcEncodedDataPacketData {
-  repeated uint64 data              = 1;
+           bytes data              = 1;
            uint64 encodedDataId     = 2;
   repeated uint64 encodingProof     = 3;
            uint64 blockNumber       = 4;
            string encodingAlgorithm = 5;
            uint64 dataSize          = 6;
            string checksum          = 7;
-           uint64 version           = 8;
+           uint32 version           = 8;
 }
 
 // IbcEncodedDataPacketAck defines a struct for the packet acknowledgment

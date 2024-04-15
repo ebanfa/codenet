@@ -93,9 +93,9 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 				},
 				{
 					RpcMethod:      "EncodeData",
-					Use:            "encode-data [data] [encoding-algorithm] [data-size] [checksum] [version] [encoding-proof] [block-number]",
+					Use:            "encode-data [data] [encoding-algorithm] [data-size] [checksum] [version]",
 					Short:          "Send a encodeData tx",
-					PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "data"}, {ProtoField: "encodingAlgorithm"}, {ProtoField: "dataSize"}, {ProtoField: "checksum"}, {ProtoField: "version"}, {ProtoField: "encodingProof"}, {ProtoField: "blockNumber"}},
+					PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "data"}, {ProtoField: "encodingAlgorithm"}, {ProtoField: "dataSize"}, {ProtoField: "checksum"}, {ProtoField: "version"}},
 				},
 				// this line is used by ignite scaffolding # autocli/tx
 			},

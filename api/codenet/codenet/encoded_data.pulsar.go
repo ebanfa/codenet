@@ -12,52 +12,6 @@ import (
 	sync "sync"
 )
 
-var _ protoreflect.List = (*_EncodedData_3_list)(nil)
-
-type _EncodedData_3_list struct {
-	list *[]uint64
-}
-
-func (x *_EncodedData_3_list) Len() int {
-	if x.list == nil {
-		return 0
-	}
-	return len(*x.list)
-}
-
-func (x *_EncodedData_3_list) Get(i int) protoreflect.Value {
-	return protoreflect.ValueOfUint64((*x.list)[i])
-}
-
-func (x *_EncodedData_3_list) Set(i int, value protoreflect.Value) {
-	valueUnwrapped := value.Uint()
-	concreteValue := valueUnwrapped
-	(*x.list)[i] = concreteValue
-}
-
-func (x *_EncodedData_3_list) Append(value protoreflect.Value) {
-	valueUnwrapped := value.Uint()
-	concreteValue := valueUnwrapped
-	*x.list = append(*x.list, concreteValue)
-}
-
-func (x *_EncodedData_3_list) AppendMutable() protoreflect.Value {
-	panic(fmt.Errorf("AppendMutable can not be called on message EncodedData at list field EncodingProof as it is not of Message kind"))
-}
-
-func (x *_EncodedData_3_list) Truncate(n int) {
-	*x.list = (*x.list)[:n]
-}
-
-func (x *_EncodedData_3_list) NewElement() protoreflect.Value {
-	v := uint64(0)
-	return protoreflect.ValueOfUint64(v)
-}
-
-func (x *_EncodedData_3_list) IsValid() bool {
-	return x.list != nil
-}
-
 var (
 	md_EncodedData                   protoreflect.MessageDescriptor
 	fd_EncodedData_dataSegments      protoreflect.FieldDescriptor
@@ -152,20 +106,20 @@ func (x *fastReflection_EncodedData) Interface() protoreflect.ProtoMessage {
 // While iterating, mutating operations may only be performed
 // on the current field descriptor.
 func (x *fastReflection_EncodedData) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
-	if x.DataSegments != uint64(0) {
-		value := protoreflect.ValueOfUint64(x.DataSegments)
+	if x.DataSegments != uint32(0) {
+		value := protoreflect.ValueOfUint32(x.DataSegments)
 		if !f(fd_EncodedData_dataSegments, value) {
 			return
 		}
 	}
-	if x.ParitySegments != uint64(0) {
-		value := protoreflect.ValueOfUint64(x.ParitySegments)
+	if x.ParitySegments != uint32(0) {
+		value := protoreflect.ValueOfUint32(x.ParitySegments)
 		if !f(fd_EncodedData_paritySegments, value) {
 			return
 		}
 	}
 	if len(x.EncodingProof) != 0 {
-		value := protoreflect.ValueOfList(&_EncodedData_3_list{list: &x.EncodingProof})
+		value := protoreflect.ValueOfBytes(x.EncodingProof)
 		if !f(fd_EncodedData_encodingProof, value) {
 			return
 		}
@@ -206,8 +160,8 @@ func (x *fastReflection_EncodedData) Range(f func(protoreflect.FieldDescriptor, 
 			return
 		}
 	}
-	if x.Version != uint64(0) {
-		value := protoreflect.ValueOfUint64(x.Version)
+	if x.Version != uint32(0) {
+		value := protoreflect.ValueOfUint32(x.Version)
 		if !f(fd_EncodedData_version, value) {
 			return
 		}
@@ -228,9 +182,9 @@ func (x *fastReflection_EncodedData) Range(f func(protoreflect.FieldDescriptor, 
 func (x *fastReflection_EncodedData) Has(fd protoreflect.FieldDescriptor) bool {
 	switch fd.FullName() {
 	case "codenet.codenet.EncodedData.dataSegments":
-		return x.DataSegments != uint64(0)
+		return x.DataSegments != uint32(0)
 	case "codenet.codenet.EncodedData.paritySegments":
-		return x.ParitySegments != uint64(0)
+		return x.ParitySegments != uint32(0)
 	case "codenet.codenet.EncodedData.encodingProof":
 		return len(x.EncodingProof) != 0
 	case "codenet.codenet.EncodedData.timestamp":
@@ -246,7 +200,7 @@ func (x *fastReflection_EncodedData) Has(fd protoreflect.FieldDescriptor) bool {
 	case "codenet.codenet.EncodedData.checksum":
 		return x.Checksum != ""
 	case "codenet.codenet.EncodedData.version":
-		return x.Version != uint64(0)
+		return x.Version != uint32(0)
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: codenet.codenet.EncodedData"))
@@ -264,9 +218,9 @@ func (x *fastReflection_EncodedData) Has(fd protoreflect.FieldDescriptor) bool {
 func (x *fastReflection_EncodedData) Clear(fd protoreflect.FieldDescriptor) {
 	switch fd.FullName() {
 	case "codenet.codenet.EncodedData.dataSegments":
-		x.DataSegments = uint64(0)
+		x.DataSegments = uint32(0)
 	case "codenet.codenet.EncodedData.paritySegments":
-		x.ParitySegments = uint64(0)
+		x.ParitySegments = uint32(0)
 	case "codenet.codenet.EncodedData.encodingProof":
 		x.EncodingProof = nil
 	case "codenet.codenet.EncodedData.timestamp":
@@ -282,7 +236,7 @@ func (x *fastReflection_EncodedData) Clear(fd protoreflect.FieldDescriptor) {
 	case "codenet.codenet.EncodedData.checksum":
 		x.Checksum = ""
 	case "codenet.codenet.EncodedData.version":
-		x.Version = uint64(0)
+		x.Version = uint32(0)
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: codenet.codenet.EncodedData"))
@@ -301,16 +255,13 @@ func (x *fastReflection_EncodedData) Get(descriptor protoreflect.FieldDescriptor
 	switch descriptor.FullName() {
 	case "codenet.codenet.EncodedData.dataSegments":
 		value := x.DataSegments
-		return protoreflect.ValueOfUint64(value)
+		return protoreflect.ValueOfUint32(value)
 	case "codenet.codenet.EncodedData.paritySegments":
 		value := x.ParitySegments
-		return protoreflect.ValueOfUint64(value)
+		return protoreflect.ValueOfUint32(value)
 	case "codenet.codenet.EncodedData.encodingProof":
-		if len(x.EncodingProof) == 0 {
-			return protoreflect.ValueOfList(&_EncodedData_3_list{})
-		}
-		listValue := &_EncodedData_3_list{list: &x.EncodingProof}
-		return protoreflect.ValueOfList(listValue)
+		value := x.EncodingProof
+		return protoreflect.ValueOfBytes(value)
 	case "codenet.codenet.EncodedData.timestamp":
 		value := x.Timestamp
 		return protoreflect.ValueOfUint64(value)
@@ -331,7 +282,7 @@ func (x *fastReflection_EncodedData) Get(descriptor protoreflect.FieldDescriptor
 		return protoreflect.ValueOfString(value)
 	case "codenet.codenet.EncodedData.version":
 		value := x.Version
-		return protoreflect.ValueOfUint64(value)
+		return protoreflect.ValueOfUint32(value)
 	default:
 		if descriptor.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: codenet.codenet.EncodedData"))
@@ -353,13 +304,11 @@ func (x *fastReflection_EncodedData) Get(descriptor protoreflect.FieldDescriptor
 func (x *fastReflection_EncodedData) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
 	switch fd.FullName() {
 	case "codenet.codenet.EncodedData.dataSegments":
-		x.DataSegments = value.Uint()
+		x.DataSegments = uint32(value.Uint())
 	case "codenet.codenet.EncodedData.paritySegments":
-		x.ParitySegments = value.Uint()
+		x.ParitySegments = uint32(value.Uint())
 	case "codenet.codenet.EncodedData.encodingProof":
-		lv := value.List()
-		clv := lv.(*_EncodedData_3_list)
-		x.EncodingProof = *clv.list
+		x.EncodingProof = value.Bytes()
 	case "codenet.codenet.EncodedData.timestamp":
 		x.Timestamp = value.Uint()
 	case "codenet.codenet.EncodedData.creator":
@@ -373,7 +322,7 @@ func (x *fastReflection_EncodedData) Set(fd protoreflect.FieldDescriptor, value 
 	case "codenet.codenet.EncodedData.checksum":
 		x.Checksum = value.Interface().(string)
 	case "codenet.codenet.EncodedData.version":
-		x.Version = value.Uint()
+		x.Version = uint32(value.Uint())
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: codenet.codenet.EncodedData"))
@@ -394,16 +343,12 @@ func (x *fastReflection_EncodedData) Set(fd protoreflect.FieldDescriptor, value 
 // Mutable is a mutating operation and unsafe for concurrent use.
 func (x *fastReflection_EncodedData) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "codenet.codenet.EncodedData.encodingProof":
-		if x.EncodingProof == nil {
-			x.EncodingProof = []uint64{}
-		}
-		value := &_EncodedData_3_list{list: &x.EncodingProof}
-		return protoreflect.ValueOfList(value)
 	case "codenet.codenet.EncodedData.dataSegments":
 		panic(fmt.Errorf("field dataSegments of message codenet.codenet.EncodedData is not mutable"))
 	case "codenet.codenet.EncodedData.paritySegments":
 		panic(fmt.Errorf("field paritySegments of message codenet.codenet.EncodedData is not mutable"))
+	case "codenet.codenet.EncodedData.encodingProof":
+		panic(fmt.Errorf("field encodingProof of message codenet.codenet.EncodedData is not mutable"))
 	case "codenet.codenet.EncodedData.timestamp":
 		panic(fmt.Errorf("field timestamp of message codenet.codenet.EncodedData is not mutable"))
 	case "codenet.codenet.EncodedData.creator":
@@ -432,12 +377,11 @@ func (x *fastReflection_EncodedData) Mutable(fd protoreflect.FieldDescriptor) pr
 func (x *fastReflection_EncodedData) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
 	case "codenet.codenet.EncodedData.dataSegments":
-		return protoreflect.ValueOfUint64(uint64(0))
+		return protoreflect.ValueOfUint32(uint32(0))
 	case "codenet.codenet.EncodedData.paritySegments":
-		return protoreflect.ValueOfUint64(uint64(0))
+		return protoreflect.ValueOfUint32(uint32(0))
 	case "codenet.codenet.EncodedData.encodingProof":
-		list := []uint64{}
-		return protoreflect.ValueOfList(&_EncodedData_3_list{list: &list})
+		return protoreflect.ValueOfBytes(nil)
 	case "codenet.codenet.EncodedData.timestamp":
 		return protoreflect.ValueOfUint64(uint64(0))
 	case "codenet.codenet.EncodedData.creator":
@@ -451,7 +395,7 @@ func (x *fastReflection_EncodedData) NewField(fd protoreflect.FieldDescriptor) p
 	case "codenet.codenet.EncodedData.checksum":
 		return protoreflect.ValueOfString("")
 	case "codenet.codenet.EncodedData.version":
-		return protoreflect.ValueOfUint64(uint64(0))
+		return protoreflect.ValueOfUint32(uint32(0))
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: codenet.codenet.EncodedData"))
@@ -527,12 +471,9 @@ func (x *fastReflection_EncodedData) ProtoMethods() *protoiface.Methods {
 		if x.ParitySegments != 0 {
 			n += 1 + runtime.Sov(uint64(x.ParitySegments))
 		}
-		if len(x.EncodingProof) > 0 {
-			l = 0
-			for _, e := range x.EncodingProof {
-				l += runtime.Sov(uint64(e))
-			}
-			n += 1 + runtime.Sov(uint64(l)) + l
+		l = len(x.EncodingProof)
+		if l > 0 {
+			n += 1 + l + runtime.Sov(uint64(l))
 		}
 		if x.Timestamp != 0 {
 			n += 1 + runtime.Sov(uint64(x.Timestamp))
@@ -629,22 +570,9 @@ func (x *fastReflection_EncodedData) ProtoMethods() *protoiface.Methods {
 			dAtA[i] = 0x20
 		}
 		if len(x.EncodingProof) > 0 {
-			var pksize2 int
-			for _, num := range x.EncodingProof {
-				pksize2 += runtime.Sov(uint64(num))
-			}
-			i -= pksize2
-			j1 := i
-			for _, num := range x.EncodingProof {
-				for num >= 1<<7 {
-					dAtA[j1] = uint8(uint64(num)&0x7f | 0x80)
-					num >>= 7
-					j1++
-				}
-				dAtA[j1] = uint8(num)
-				j1++
-			}
-			i = runtime.EncodeVarint(dAtA, i, uint64(pksize2))
+			i -= len(x.EncodingProof)
+			copy(dAtA[i:], x.EncodingProof)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.EncodingProof)))
 			i--
 			dAtA[i] = 0x1a
 		}
@@ -721,7 +649,7 @@ func (x *fastReflection_EncodedData) ProtoMethods() *protoiface.Methods {
 					}
 					b := dAtA[iNdEx]
 					iNdEx++
-					x.DataSegments |= uint64(b&0x7F) << shift
+					x.DataSegments |= uint32(b&0x7F) << shift
 					if b < 0x80 {
 						break
 					}
@@ -740,87 +668,45 @@ func (x *fastReflection_EncodedData) ProtoMethods() *protoiface.Methods {
 					}
 					b := dAtA[iNdEx]
 					iNdEx++
-					x.ParitySegments |= uint64(b&0x7F) << shift
+					x.ParitySegments |= uint32(b&0x7F) << shift
 					if b < 0x80 {
 						break
 					}
 				}
 			case 3:
-				if wireType == 0 {
-					var v uint64
-					for shift := uint(0); ; shift += 7 {
-						if shift >= 64 {
-							return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
-						}
-						if iNdEx >= l {
-							return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
-						}
-						b := dAtA[iNdEx]
-						iNdEx++
-						v |= uint64(b&0x7F) << shift
-						if b < 0x80 {
-							break
-						}
-					}
-					x.EncodingProof = append(x.EncodingProof, v)
-				} else if wireType == 2 {
-					var packedLen int
-					for shift := uint(0); ; shift += 7 {
-						if shift >= 64 {
-							return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
-						}
-						if iNdEx >= l {
-							return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
-						}
-						b := dAtA[iNdEx]
-						iNdEx++
-						packedLen |= int(b&0x7F) << shift
-						if b < 0x80 {
-							break
-						}
-					}
-					if packedLen < 0 {
-						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
-					}
-					postIndex := iNdEx + packedLen
-					if postIndex < 0 {
-						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
-					}
-					if postIndex > l {
-						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
-					}
-					var elementCount int
-					var count int
-					for _, integer := range dAtA[iNdEx:postIndex] {
-						if integer < 128 {
-							count++
-						}
-					}
-					elementCount = count
-					if elementCount != 0 && len(x.EncodingProof) == 0 {
-						x.EncodingProof = make([]uint64, 0, elementCount)
-					}
-					for iNdEx < postIndex {
-						var v uint64
-						for shift := uint(0); ; shift += 7 {
-							if shift >= 64 {
-								return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
-							}
-							if iNdEx >= l {
-								return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
-							}
-							b := dAtA[iNdEx]
-							iNdEx++
-							v |= uint64(b&0x7F) << shift
-							if b < 0x80 {
-								break
-							}
-						}
-						x.EncodingProof = append(x.EncodingProof, v)
-					}
-				} else {
+				if wireType != 2 {
 					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field EncodingProof", wireType)
 				}
+				var byteLen int
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					byteLen |= int(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				if byteLen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + byteLen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.EncodingProof = append(x.EncodingProof[:0], dAtA[iNdEx:postIndex]...)
+				if x.EncodingProof == nil {
+					x.EncodingProof = []byte{}
+				}
+				iNdEx = postIndex
 			case 4:
 				if wireType != 0 {
 					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Timestamp", wireType)
@@ -988,7 +874,7 @@ func (x *fastReflection_EncodedData) ProtoMethods() *protoiface.Methods {
 					}
 					b := dAtA[iNdEx]
 					iNdEx++
-					x.Version |= uint64(b&0x7F) << shift
+					x.Version |= uint32(b&0x7F) << shift
 					if b < 0x80 {
 						break
 					}
@@ -1046,16 +932,16 @@ type EncodedData struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	DataSegments      uint64   `protobuf:"varint,1,opt,name=dataSegments,proto3" json:"dataSegments,omitempty"`
-	ParitySegments    uint64   `protobuf:"varint,2,opt,name=paritySegments,proto3" json:"paritySegments,omitempty"`
-	EncodingProof     []uint64 `protobuf:"varint,3,rep,packed,name=encodingProof,proto3" json:"encodingProof,omitempty"`
-	Timestamp         uint64   `protobuf:"varint,4,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
-	Creator           string   `protobuf:"bytes,5,opt,name=creator,proto3" json:"creator,omitempty"`
-	EncodedDataId     uint64   `protobuf:"varint,6,opt,name=encodedDataId,proto3" json:"encodedDataId,omitempty"`
-	EncodingAlgorithm string   `protobuf:"bytes,7,opt,name=encodingAlgorithm,proto3" json:"encodingAlgorithm,omitempty"`
-	DataSize          uint64   `protobuf:"varint,8,opt,name=dataSize,proto3" json:"dataSize,omitempty"`
-	Checksum          string   `protobuf:"bytes,9,opt,name=checksum,proto3" json:"checksum,omitempty"`
-	Version           uint64   `protobuf:"varint,10,opt,name=version,proto3" json:"version,omitempty"`
+	DataSegments      uint32 `protobuf:"varint,1,opt,name=dataSegments,proto3" json:"dataSegments,omitempty"`
+	ParitySegments    uint32 `protobuf:"varint,2,opt,name=paritySegments,proto3" json:"paritySegments,omitempty"`
+	EncodingProof     []byte `protobuf:"bytes,3,opt,name=encodingProof,proto3" json:"encodingProof,omitempty"`
+	Timestamp         uint64 `protobuf:"varint,4,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
+	Creator           string `protobuf:"bytes,5,opt,name=creator,proto3" json:"creator,omitempty"`
+	EncodedDataId     uint64 `protobuf:"varint,6,opt,name=encodedDataId,proto3" json:"encodedDataId,omitempty"`
+	EncodingAlgorithm string `protobuf:"bytes,7,opt,name=encodingAlgorithm,proto3" json:"encodingAlgorithm,omitempty"`
+	DataSize          uint64 `protobuf:"varint,8,opt,name=dataSize,proto3" json:"dataSize,omitempty"`
+	Checksum          string `protobuf:"bytes,9,opt,name=checksum,proto3" json:"checksum,omitempty"`
+	Version           uint32 `protobuf:"varint,10,opt,name=version,proto3" json:"version,omitempty"`
 }
 
 func (x *EncodedData) Reset() {
@@ -1078,21 +964,21 @@ func (*EncodedData) Descriptor() ([]byte, []int) {
 	return file_codenet_codenet_encoded_data_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *EncodedData) GetDataSegments() uint64 {
+func (x *EncodedData) GetDataSegments() uint32 {
 	if x != nil {
 		return x.DataSegments
 	}
 	return 0
 }
 
-func (x *EncodedData) GetParitySegments() uint64 {
+func (x *EncodedData) GetParitySegments() uint32 {
 	if x != nil {
 		return x.ParitySegments
 	}
 	return 0
 }
 
-func (x *EncodedData) GetEncodingProof() []uint64 {
+func (x *EncodedData) GetEncodingProof() []byte {
 	if x != nil {
 		return x.EncodingProof
 	}
@@ -1141,7 +1027,7 @@ func (x *EncodedData) GetChecksum() string {
 	return ""
 }
 
-func (x *EncodedData) GetVersion() uint64 {
+func (x *EncodedData) GetVersion() uint32 {
 	if x != nil {
 		return x.Version
 	}
@@ -1156,12 +1042,12 @@ var file_codenet_codenet_encoded_data_proto_rawDesc = []byte{
 	0x72, 0x6f, 0x74, 0x6f, 0x12, 0x0f, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x2e, 0x63, 0x6f,
 	0x64, 0x65, 0x6e, 0x65, 0x74, 0x22, 0xdd, 0x02, 0x0a, 0x0b, 0x45, 0x6e, 0x63, 0x6f, 0x64, 0x65,
 	0x64, 0x44, 0x61, 0x74, 0x61, 0x12, 0x22, 0x0a, 0x0c, 0x64, 0x61, 0x74, 0x61, 0x53, 0x65, 0x67,
-	0x6d, 0x65, 0x6e, 0x74, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x04, 0x52, 0x0c, 0x64, 0x61, 0x74,
+	0x6d, 0x65, 0x6e, 0x74, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x0c, 0x64, 0x61, 0x74,
 	0x61, 0x53, 0x65, 0x67, 0x6d, 0x65, 0x6e, 0x74, 0x73, 0x12, 0x26, 0x0a, 0x0e, 0x70, 0x61, 0x72,
 	0x69, 0x74, 0x79, 0x53, 0x65, 0x67, 0x6d, 0x65, 0x6e, 0x74, 0x73, 0x18, 0x02, 0x20, 0x01, 0x28,
-	0x04, 0x52, 0x0e, 0x70, 0x61, 0x72, 0x69, 0x74, 0x79, 0x53, 0x65, 0x67, 0x6d, 0x65, 0x6e, 0x74,
+	0x0d, 0x52, 0x0e, 0x70, 0x61, 0x72, 0x69, 0x74, 0x79, 0x53, 0x65, 0x67, 0x6d, 0x65, 0x6e, 0x74,
 	0x73, 0x12, 0x24, 0x0a, 0x0d, 0x65, 0x6e, 0x63, 0x6f, 0x64, 0x69, 0x6e, 0x67, 0x50, 0x72, 0x6f,
-	0x6f, 0x66, 0x18, 0x03, 0x20, 0x03, 0x28, 0x04, 0x52, 0x0d, 0x65, 0x6e, 0x63, 0x6f, 0x64, 0x69,
+	0x6f, 0x66, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x0d, 0x65, 0x6e, 0x63, 0x6f, 0x64, 0x69,
 	0x6e, 0x67, 0x50, 0x72, 0x6f, 0x6f, 0x66, 0x12, 0x1c, 0x0a, 0x09, 0x74, 0x69, 0x6d, 0x65, 0x73,
 	0x74, 0x61, 0x6d, 0x70, 0x18, 0x04, 0x20, 0x01, 0x28, 0x04, 0x52, 0x09, 0x74, 0x69, 0x6d, 0x65,
 	0x73, 0x74, 0x61, 0x6d, 0x70, 0x12, 0x18, 0x0a, 0x07, 0x63, 0x72, 0x65, 0x61, 0x74, 0x6f, 0x72,
@@ -1175,7 +1061,7 @@ var file_codenet_codenet_encoded_data_proto_rawDesc = []byte{
 	0x08, 0x20, 0x01, 0x28, 0x04, 0x52, 0x08, 0x64, 0x61, 0x74, 0x61, 0x53, 0x69, 0x7a, 0x65, 0x12,
 	0x1a, 0x0a, 0x08, 0x63, 0x68, 0x65, 0x63, 0x6b, 0x73, 0x75, 0x6d, 0x18, 0x09, 0x20, 0x01, 0x28,
 	0x09, 0x52, 0x08, 0x63, 0x68, 0x65, 0x63, 0x6b, 0x73, 0x75, 0x6d, 0x12, 0x18, 0x0a, 0x07, 0x76,
-	0x65, 0x72, 0x73, 0x69, 0x6f, 0x6e, 0x18, 0x0a, 0x20, 0x01, 0x28, 0x04, 0x52, 0x07, 0x76, 0x65,
+	0x65, 0x72, 0x73, 0x69, 0x6f, 0x6e, 0x18, 0x0a, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x07, 0x76, 0x65,
 	0x72, 0x73, 0x69, 0x6f, 0x6e, 0x42, 0xa6, 0x01, 0x0a, 0x13, 0x63, 0x6f, 0x6d, 0x2e, 0x63, 0x6f,
 	0x64, 0x65, 0x6e, 0x65, 0x74, 0x2e, 0x63, 0x6f, 0x64, 0x65, 0x6e, 0x65, 0x74, 0x42, 0x10, 0x45,
 	0x6e, 0x63, 0x6f, 0x64, 0x65, 0x64, 0x44, 0x61, 0x74, 0x61, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x50,

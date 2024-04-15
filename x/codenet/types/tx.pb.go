@@ -125,14 +125,12 @@ func (m *MsgUpdateParamsResponse) XXX_DiscardUnknown() {
 var xxx_messageInfo_MsgUpdateParamsResponse proto.InternalMessageInfo
 
 type MsgEncodeData struct {
-	Creator           string   `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
-	Data              []uint64 `protobuf:"varint,2,rep,packed,name=data,proto3" json:"data,omitempty"`
-	EncodingAlgorithm string   `protobuf:"bytes,3,opt,name=encodingAlgorithm,proto3" json:"encodingAlgorithm,omitempty"`
-	DataSize          uint64   `protobuf:"varint,4,opt,name=dataSize,proto3" json:"dataSize,omitempty"`
-	Checksum          string   `protobuf:"bytes,5,opt,name=checksum,proto3" json:"checksum,omitempty"`
-	Version           uint64   `protobuf:"varint,6,opt,name=version,proto3" json:"version,omitempty"`
-	EncodingProof     []uint64 `protobuf:"varint,7,rep,packed,name=encodingProof,proto3" json:"encodingProof,omitempty"`
-	BlockNumber       uint64   `protobuf:"varint,8,opt,name=blockNumber,proto3" json:"blockNumber,omitempty"`
+	Creator           string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
+	Data              []byte `protobuf:"bytes,2,opt,name=data,proto3" json:"data,omitempty"`
+	EncodingAlgorithm string `protobuf:"bytes,3,opt,name=encodingAlgorithm,proto3" json:"encodingAlgorithm,omitempty"`
+	DataSize          uint64 `protobuf:"varint,4,opt,name=dataSize,proto3" json:"dataSize,omitempty"`
+	Checksum          string `protobuf:"bytes,5,opt,name=checksum,proto3" json:"checksum,omitempty"`
+	Version           uint32 `protobuf:"varint,6,opt,name=version,proto3" json:"version,omitempty"`
 }
 
 func (m *MsgEncodeData) Reset()         { *m = MsgEncodeData{} }
@@ -175,7 +173,7 @@ func (m *MsgEncodeData) GetCreator() string {
 	return ""
 }
 
-func (m *MsgEncodeData) GetData() []uint64 {
+func (m *MsgEncodeData) GetData() []byte {
 	if m != nil {
 		return m.Data
 	}
@@ -203,29 +201,16 @@ func (m *MsgEncodeData) GetChecksum() string {
 	return ""
 }
 
-func (m *MsgEncodeData) GetVersion() uint64 {
+func (m *MsgEncodeData) GetVersion() uint32 {
 	if m != nil {
 		return m.Version
 	}
 	return 0
 }
 
-func (m *MsgEncodeData) GetEncodingProof() []uint64 {
-	if m != nil {
-		return m.EncodingProof
-	}
-	return nil
-}
-
-func (m *MsgEncodeData) GetBlockNumber() uint64 {
-	if m != nil {
-		return m.BlockNumber
-	}
-	return 0
-}
-
 type MsgEncodeDataResponse struct {
-	EncodedDataId uint64 `protobuf:"varint,1,opt,name=encodedDataId,proto3" json:"encodedDataId,omitempty"`
+	EncodedDataId uint64   `protobuf:"varint,1,opt,name=encodedDataId,proto3" json:"encodedDataId,omitempty"`
+	EncodingProof []uint64 `protobuf:"varint,2,rep,packed,name=encodingProof,proto3" json:"encodingProof,omitempty"`
 }
 
 func (m *MsgEncodeDataResponse) Reset()         { *m = MsgEncodeDataResponse{} }
@@ -268,15 +253,22 @@ func (m *MsgEncodeDataResponse) GetEncodedDataId() uint64 {
 	return 0
 }
 
+func (m *MsgEncodeDataResponse) GetEncodingProof() []uint64 {
+	if m != nil {
+		return m.EncodingProof
+	}
+	return nil
+}
+
 type MsgSendIbcEncodedData struct {
-	Data              []uint64 `protobuf:"varint,5,rep,packed,name=data,proto3" json:"data,omitempty"`
+	Data              []byte   `protobuf:"bytes,5,opt,name=data,proto3" json:"data,omitempty"`
 	EncodedDataId     uint64   `protobuf:"varint,6,opt,name=encodedDataId,proto3" json:"encodedDataId,omitempty"`
 	EncodingProof     []uint64 `protobuf:"varint,7,rep,packed,name=encodingProof,proto3" json:"encodingProof,omitempty"`
 	BlockNumber       uint64   `protobuf:"varint,8,opt,name=blockNumber,proto3" json:"blockNumber,omitempty"`
 	EncodingAlgorithm string   `protobuf:"bytes,9,opt,name=encodingAlgorithm,proto3" json:"encodingAlgorithm,omitempty"`
 	DataSize          uint64   `protobuf:"varint,10,opt,name=dataSize,proto3" json:"dataSize,omitempty"`
 	Checksum          string   `protobuf:"bytes,11,opt,name=checksum,proto3" json:"checksum,omitempty"`
-	Version           uint64   `protobuf:"varint,12,opt,name=version,proto3" json:"version,omitempty"`
+	Version           uint32   `protobuf:"varint,12,opt,name=version,proto3" json:"version,omitempty"`
 	Creator           string   `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
 	Port              string   `protobuf:"bytes,2,opt,name=port,proto3" json:"port,omitempty"`
 	ChannelID         string   `protobuf:"bytes,3,opt,name=channelID,proto3" json:"channelID,omitempty"`
@@ -316,7 +308,7 @@ func (m *MsgSendIbcEncodedData) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_MsgSendIbcEncodedData proto.InternalMessageInfo
 
-func (m *MsgSendIbcEncodedData) GetData() []uint64 {
+func (m *MsgSendIbcEncodedData) GetData() []byte {
 	if m != nil {
 		return m.Data
 	}
@@ -365,7 +357,7 @@ func (m *MsgSendIbcEncodedData) GetChecksum() string {
 	return ""
 }
 
-func (m *MsgSendIbcEncodedData) GetVersion() uint64 {
+func (m *MsgSendIbcEncodedData) GetVersion() uint32 {
 	if m != nil {
 		return m.Version
 	}
@@ -448,47 +440,47 @@ func init() {
 func init() { proto.RegisterFile("codenet/codenet/tx.proto", fileDescriptor_ccd63b46561f26eb) }
 
 var fileDescriptor_ccd63b46561f26eb = []byte{
-	// 638 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x54, 0xbf, 0x6f, 0xd3, 0x4e,
-	0x14, 0x8f, 0x93, 0x34, 0xad, 0xaf, 0xad, 0xfa, 0xed, 0xa9, 0x5f, 0xe5, 0x6a, 0x15, 0xd7, 0x44,
-	0x08, 0x45, 0x11, 0x24, 0x6a, 0x41, 0x0c, 0x95, 0x18, 0x5a, 0xb5, 0x43, 0x87, 0xa2, 0xca, 0x29,
-	0x4b, 0x17, 0x74, 0xb1, 0x0f, 0xc7, 0x6a, 0xec, 0xb3, 0x7c, 0x97, 0xaa, 0x65, 0x42, 0x8c, 0x4c,
-	0x48, 0xfc, 0x01, 0xac, 0x0c, 0x0c, 0x19, 0xd8, 0xf8, 0x07, 0x3a, 0x56, 0x4c, 0x4c, 0x08, 0x25,
-	0x43, 0xfe, 0x0d, 0xe4, 0xf3, 0x8f, 0x24, 0xb6, 0x09, 0x1d, 0x58, 0xec, 0x7b, 0x9f, 0xf7, 0x3e,
-	0xef, 0xbd, 0x7b, 0x3f, 0x0e, 0x20, 0x83, 0x9a, 0xc4, 0x25, 0xbc, 0x15, 0xff, 0xf9, 0x55, 0xd3,
-	0xf3, 0x29, 0xa7, 0x70, 0x2d, 0x42, 0x9a, 0xd1, 0x5f, 0x59, 0xc7, 0x8e, 0xed, 0xd2, 0x96, 0xf8,
-	0x86, 0x36, 0x4a, 0xd5, 0xa0, 0xcc, 0xa1, 0xac, 0xe5, 0x30, 0xab, 0x75, 0xb9, 0x13, 0xfc, 0x22,
-	0xc5, 0x66, 0xa8, 0x78, 0x25, 0xa4, 0x56, 0x28, 0x44, 0xaa, 0x0d, 0x8b, 0x5a, 0x34, 0xc4, 0x83,
-	0x53, 0x84, 0x6e, 0xa5, 0xf3, 0xf0, 0xb0, 0x8f, 0x9d, 0x88, 0x53, 0xfb, 0x26, 0x81, 0xb5, 0x13,
-	0x66, 0xbd, 0xf4, 0x4c, 0xcc, 0xc9, 0xa9, 0xd0, 0xc0, 0x67, 0x40, 0xc6, 0x7d, 0xde, 0xa5, 0xbe,
-	0xcd, 0xaf, 0x91, 0xa4, 0x49, 0x75, 0xf9, 0x00, 0x7d, 0xff, 0xfa, 0x78, 0x23, 0x0a, 0xb6, 0x6f,
-	0x9a, 0x3e, 0x61, 0xac, 0xcd, 0x7d, 0xdb, 0xb5, 0xf4, 0x89, 0x29, 0xdc, 0x03, 0x95, 0xd0, 0x37,
-	0x2a, 0x6a, 0x52, 0x7d, 0x79, 0xb7, 0xda, 0x4c, 0x5d, 0xb4, 0x19, 0x06, 0x38, 0x90, 0x6f, 0x7e,
-	0x6e, 0x17, 0x3e, 0x8f, 0x07, 0x0d, 0x49, 0x8f, 0x18, 0x7b, 0x4f, 0xdf, 0x8d, 0x07, 0x8d, 0x89,
-	0xaf, 0xf7, 0xe3, 0x41, 0xe3, 0x7e, 0x9c, 0xf0, 0x55, 0x92, 0x7a, 0x2a, 0xd3, 0xda, 0x26, 0xa8,
-	0xa6, 0x20, 0x9d, 0x30, 0x8f, 0xba, 0x8c, 0xd4, 0x3e, 0x16, 0xc1, 0xea, 0x09, 0xb3, 0x8e, 0xdc,
-	0x80, 0x7b, 0x88, 0x39, 0x86, 0x08, 0x2c, 0x1a, 0x3e, 0xc1, 0x9c, 0xfa, 0xe1, 0xa5, 0xf4, 0x58,
-	0x84, 0x10, 0x94, 0x4d, 0xcc, 0x31, 0x2a, 0x6a, 0xa5, 0x7a, 0x59, 0x17, 0x67, 0xf8, 0x08, 0xac,
-	0x93, 0x80, 0x6b, 0xbb, 0xd6, 0x7e, 0xcf, 0x0a, 0x92, 0xea, 0x3a, 0xa8, 0x24, 0x78, 0x59, 0x05,
-	0x54, 0xc0, 0x52, 0xc0, 0x6a, 0xdb, 0x6f, 0x08, 0x2a, 0x6b, 0x52, 0xbd, 0xac, 0x27, 0x72, 0xa0,
-	0x33, 0xba, 0xc4, 0xb8, 0x60, 0x7d, 0x07, 0x2d, 0x08, 0x07, 0x89, 0x1c, 0xe4, 0x74, 0x49, 0x7c,
-	0x66, 0x53, 0x17, 0x55, 0x04, 0x2d, 0x16, 0xe1, 0x03, 0xb0, 0x1a, 0x87, 0x39, 0xf5, 0x29, 0x7d,
-	0x8d, 0x16, 0x45, 0x72, 0xb3, 0x20, 0xd4, 0xc0, 0x72, 0xa7, 0x47, 0x8d, 0x8b, 0x17, 0x7d, 0xa7,
-	0x43, 0x7c, 0xb4, 0x24, 0x7c, 0x4c, 0x43, 0x7b, 0x2b, 0x41, 0x61, 0xe3, 0x9b, 0xd6, 0x9e, 0x83,
-	0xff, 0x67, 0x8a, 0x12, 0x97, 0x2b, 0x09, 0x47, 0xcc, 0x00, 0x3e, 0x36, 0x45, 0x89, 0xe2, 0x70,
-	0x31, 0x58, 0xfb, 0x54, 0x12, 0xfc, 0x36, 0x71, 0xcd, 0xe3, 0x8e, 0x71, 0x34, 0xd1, 0x25, 0x25,
-	0x5c, 0x98, 0x2a, 0x61, 0xc6, 0x67, 0x25, 0xc7, 0xe7, 0xbf, 0xba, 0x68, 0x7e, 0xc3, 0xe4, 0xbb,
-	0x34, 0x0c, 0xcc, 0x69, 0xd8, 0xf2, 0x9f, 0x1b, 0xb6, 0x32, 0xdb, 0xb0, 0xb9, 0xe3, 0xe5, 0x51,
-	0x9f, 0x8b, 0xad, 0x90, 0x75, 0x71, 0x86, 0x5b, 0x40, 0x36, 0xba, 0xd8, 0x75, 0x49, 0xef, 0xf8,
-	0x30, 0x1a, 0xab, 0x09, 0x00, 0x1b, 0xe0, 0x3f, 0x6e, 0x3b, 0x84, 0xf6, 0xf9, 0x99, 0xed, 0x10,
-	0xc6, 0xb1, 0xe3, 0x45, 0x63, 0x95, 0xc1, 0x53, 0x0d, 0xde, 0x06, 0xf7, 0x72, 0x1b, 0x14, 0x37,
-	0x7a, 0xf7, 0x4b, 0x11, 0x94, 0x4e, 0x98, 0x05, 0xcf, 0xc1, 0xca, 0xcc, 0xd2, 0x6b, 0x99, 0x65,
-	0x4d, 0x6d, 0x96, 0x52, 0xff, 0x9b, 0x45, 0x32, 0x4c, 0x67, 0x00, 0x4c, 0xed, 0x9d, 0x9a, 0xc7,
-	0x9b, 0xe8, 0x95, 0x87, 0xf3, 0xf5, 0x89, 0xd7, 0x1e, 0x80, 0x39, 0x83, 0x97, 0xcb, 0xce, 0xda,
-	0x29, 0xcd, 0xbb, 0xd9, 0xc5, 0xd1, 0x94, 0x85, 0xb7, 0xc1, 0xfb, 0x74, 0xb0, 0x73, 0x33, 0x54,
-	0xa5, 0xdb, 0xa1, 0x2a, 0xfd, 0x1a, 0xaa, 0xd2, 0x87, 0x91, 0x5a, 0xb8, 0x1d, 0xa9, 0x85, 0x1f,
-	0x23, 0xb5, 0x70, 0x5e, 0xcd, 0x3e, 0x4f, 0xfc, 0xda, 0x23, 0xac, 0x53, 0x11, 0x2f, 0xeb, 0x93,
-	0xdf, 0x01, 0x00, 0x00, 0xff, 0xff, 0xd7, 0xd4, 0x8d, 0xfa, 0x01, 0x06, 0x00, 0x00,
+	// 639 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x8c, 0x54, 0xbf, 0x6f, 0xd3, 0x4e,
+	0x14, 0x8f, 0x9b, 0x34, 0xad, 0xaf, 0xa9, 0xfa, 0xed, 0xa9, 0x5f, 0xc5, 0xb5, 0x8a, 0x6b, 0x22,
+	0x84, 0xa2, 0x08, 0x12, 0xb5, 0x20, 0x86, 0x6c, 0x8d, 0xda, 0x21, 0x43, 0x50, 0xe5, 0x94, 0xa5,
+	0x0b, 0xba, 0xd8, 0x87, 0x63, 0x35, 0xf6, 0x59, 0xbe, 0x4b, 0xd5, 0x32, 0x21, 0x46, 0x26, 0xfe,
+	0x03, 0x56, 0x06, 0x86, 0x0c, 0x6c, 0xfc, 0x03, 0x95, 0x58, 0x2a, 0x26, 0x26, 0x84, 0x92, 0x21,
+	0xff, 0x06, 0xf2, 0xf9, 0x47, 0x12, 0xdb, 0x84, 0x2c, 0xf6, 0xbd, 0xcf, 0xfb, 0xf5, 0x79, 0xf7,
+	0xde, 0x3b, 0x20, 0xe9, 0xc4, 0xc0, 0x0e, 0x66, 0x8d, 0xe8, 0xcf, 0x6e, 0xea, 0xae, 0x47, 0x18,
+	0x81, 0x3b, 0x21, 0x52, 0x0f, 0xff, 0xf2, 0x2e, 0xb2, 0x2d, 0x87, 0x34, 0xf8, 0x37, 0xb0, 0x91,
+	0xcb, 0x3a, 0xa1, 0x36, 0xa1, 0x0d, 0x9b, 0x9a, 0x8d, 0xeb, 0x23, 0xff, 0x17, 0x2a, 0xf6, 0x03,
+	0xc5, 0x6b, 0x2e, 0x35, 0x02, 0x21, 0x54, 0xed, 0x99, 0xc4, 0x24, 0x01, 0xee, 0x9f, 0x42, 0xf4,
+	0x20, 0xc9, 0xc3, 0x45, 0x1e, 0xb2, 0x43, 0x9f, 0xca, 0x37, 0x01, 0xec, 0x74, 0xa8, 0xf9, 0xca,
+	0x35, 0x10, 0xc3, 0xe7, 0x5c, 0x03, 0x5f, 0x00, 0x11, 0x0d, 0x59, 0x9f, 0x78, 0x16, 0xbb, 0x95,
+	0x04, 0x55, 0xa8, 0x8a, 0x2d, 0xe9, 0xc7, 0xd7, 0xa7, 0x7b, 0x61, 0xb2, 0x13, 0xc3, 0xf0, 0x30,
+	0xa5, 0x5d, 0xe6, 0x59, 0x8e, 0xa9, 0xcd, 0x4c, 0x61, 0x13, 0x14, 0x83, 0xd8, 0xd2, 0x9a, 0x2a,
+	0x54, 0xb7, 0x8e, 0xcb, 0xf5, 0x44, 0xa1, 0xf5, 0x20, 0x41, 0x4b, 0xbc, 0xfb, 0x75, 0x98, 0xfb,
+	0x3c, 0x1d, 0xd5, 0x04, 0x2d, 0xf4, 0x68, 0x3e, 0x7f, 0x3f, 0x1d, 0xd5, 0x66, 0xb1, 0x3e, 0x4c,
+	0x47, 0xb5, 0x87, 0x11, 0xe1, 0x9b, 0x98, 0x7a, 0x82, 0x69, 0x65, 0x1f, 0x94, 0x13, 0x90, 0x86,
+	0xa9, 0x4b, 0x1c, 0x8a, 0x2b, 0xdf, 0x05, 0xb0, 0xdd, 0xa1, 0xe6, 0x99, 0xe3, 0xfb, 0x9e, 0x22,
+	0x86, 0xa0, 0x04, 0x36, 0x74, 0x0f, 0x23, 0x46, 0xbc, 0xa0, 0x28, 0x2d, 0x12, 0x21, 0x04, 0x05,
+	0x03, 0x31, 0xc4, 0x69, 0x97, 0x34, 0x7e, 0x86, 0x4f, 0xc0, 0x2e, 0xf6, 0x7d, 0x2d, 0xc7, 0x3c,
+	0x19, 0x98, 0x3e, 0xa9, 0xbe, 0x2d, 0xe5, 0xb9, 0x5f, 0x5a, 0x01, 0x65, 0xb0, 0xe9, 0x7b, 0x75,
+	0xad, 0xb7, 0x58, 0x2a, 0xa8, 0x42, 0xb5, 0xa0, 0xc5, 0xb2, 0xaf, 0xd3, 0xfb, 0x58, 0xbf, 0xa2,
+	0x43, 0x5b, 0x5a, 0xe7, 0x01, 0x62, 0xd9, 0xe7, 0x74, 0x8d, 0x3d, 0x6a, 0x11, 0x47, 0x2a, 0xaa,
+	0x42, 0x75, 0x5b, 0x8b, 0xc4, 0x66, 0xc9, 0xbf, 0x90, 0x88, 0x61, 0x45, 0x07, 0xff, 0x2f, 0x14,
+	0x13, 0x95, 0x09, 0x1f, 0x81, 0x6d, 0xce, 0x06, 0x1b, 0x3e, 0xdc, 0x36, 0x78, 0x69, 0x05, 0x6d,
+	0x11, 0x8c, 0xad, 0x2c, 0xc7, 0x3c, 0xf7, 0x08, 0x79, 0x23, 0xad, 0xa9, 0xf9, 0xd8, 0x2a, 0x02,
+	0x2b, 0x9f, 0xf2, 0x3c, 0x4b, 0x17, 0x3b, 0x46, 0xbb, 0xa7, 0x9f, 0xcd, 0x22, 0xc4, 0x17, 0xb4,
+	0x3e, 0x77, 0x41, 0xa9, 0xcc, 0xc5, 0x95, 0x32, 0x6f, 0x64, 0x64, 0x86, 0x2a, 0xd8, 0xea, 0x0d,
+	0x88, 0x7e, 0xf5, 0x72, 0x68, 0xf7, 0xb0, 0x27, 0x6d, 0xf2, 0x48, 0xf3, 0x50, 0x76, 0x3b, 0xc4,
+	0x55, 0xda, 0x01, 0x96, 0xb4, 0x63, 0xeb, 0xef, 0xed, 0x28, 0x2d, 0xb4, 0x63, 0xf9, 0xf0, 0xb8,
+	0xc4, 0x63, 0x7c, 0x78, 0x44, 0x8d, 0x9f, 0xe1, 0x01, 0x10, 0xf5, 0x3e, 0x72, 0x1c, 0x3c, 0x68,
+	0x9f, 0x86, 0x43, 0x33, 0x03, 0x60, 0x0d, 0xfc, 0xc7, 0x2c, 0x1b, 0x93, 0x21, 0xbb, 0xb0, 0x6c,
+	0x4c, 0x19, 0xb2, 0xdd, 0x70, 0x68, 0x52, 0x78, 0x62, 0x0c, 0x0e, 0xc1, 0x83, 0xcc, 0x06, 0x45,
+	0xe3, 0x70, 0xfc, 0x65, 0x0d, 0xe4, 0x3b, 0xd4, 0x84, 0x97, 0xa0, 0xb4, 0xb0, 0xd2, 0x6a, 0x6a,
+	0x15, 0x13, 0x7b, 0x23, 0x57, 0xff, 0x65, 0x11, 0x8f, 0xdc, 0x05, 0x00, 0x73, 0x5b, 0xa5, 0x64,
+	0xf9, 0xcd, 0xf4, 0xf2, 0xe3, 0xe5, 0xfa, 0x38, 0xea, 0x00, 0xc0, 0x8c, 0xc1, 0xcb, 0xf4, 0x4e,
+	0xdb, 0xc9, 0xf5, 0xd5, 0xec, 0xa2, 0x6c, 0xf2, 0xfa, 0x3b, 0xff, 0xf5, 0x69, 0x1d, 0xdd, 0x8d,
+	0x15, 0xe1, 0x7e, 0xac, 0x08, 0xbf, 0xc7, 0x8a, 0xf0, 0x71, 0xa2, 0xe4, 0xee, 0x27, 0x4a, 0xee,
+	0xe7, 0x44, 0xc9, 0x5d, 0x96, 0xd3, 0x8f, 0x0f, 0xbb, 0x75, 0x31, 0xed, 0x15, 0xf9, 0xbb, 0xf9,
+	0xec, 0x4f, 0x00, 0x00, 0x00, 0xff, 0xff, 0x82, 0x30, 0x3e, 0xa1, 0xdf, 0x05, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -730,29 +722,6 @@ func (m *MsgEncodeData) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.BlockNumber != 0 {
-		i = encodeVarintTx(dAtA, i, uint64(m.BlockNumber))
-		i--
-		dAtA[i] = 0x40
-	}
-	if len(m.EncodingProof) > 0 {
-		dAtA3 := make([]byte, len(m.EncodingProof)*10)
-		var j2 int
-		for _, num := range m.EncodingProof {
-			for num >= 1<<7 {
-				dAtA3[j2] = uint8(uint64(num)&0x7f | 0x80)
-				num >>= 7
-				j2++
-			}
-			dAtA3[j2] = uint8(num)
-			j2++
-		}
-		i -= j2
-		copy(dAtA[i:], dAtA3[:j2])
-		i = encodeVarintTx(dAtA, i, uint64(j2))
-		i--
-		dAtA[i] = 0x3a
-	}
 	if m.Version != 0 {
 		i = encodeVarintTx(dAtA, i, uint64(m.Version))
 		i--
@@ -778,20 +747,9 @@ func (m *MsgEncodeData) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 		dAtA[i] = 0x1a
 	}
 	if len(m.Data) > 0 {
-		dAtA5 := make([]byte, len(m.Data)*10)
-		var j4 int
-		for _, num := range m.Data {
-			for num >= 1<<7 {
-				dAtA5[j4] = uint8(uint64(num)&0x7f | 0x80)
-				num >>= 7
-				j4++
-			}
-			dAtA5[j4] = uint8(num)
-			j4++
-		}
-		i -= j4
-		copy(dAtA[i:], dAtA5[:j4])
-		i = encodeVarintTx(dAtA, i, uint64(j4))
+		i -= len(m.Data)
+		copy(dAtA[i:], m.Data)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Data)))
 		i--
 		dAtA[i] = 0x12
 	}
@@ -825,6 +783,24 @@ func (m *MsgEncodeDataResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
+	if len(m.EncodingProof) > 0 {
+		dAtA3 := make([]byte, len(m.EncodingProof)*10)
+		var j2 int
+		for _, num := range m.EncodingProof {
+			for num >= 1<<7 {
+				dAtA3[j2] = uint8(uint64(num)&0x7f | 0x80)
+				num >>= 7
+				j2++
+			}
+			dAtA3[j2] = uint8(num)
+			j2++
+		}
+		i -= j2
+		copy(dAtA[i:], dAtA3[:j2])
+		i = encodeVarintTx(dAtA, i, uint64(j2))
+		i--
+		dAtA[i] = 0x12
+	}
 	if m.EncodedDataId != 0 {
 		i = encodeVarintTx(dAtA, i, uint64(m.EncodedDataId))
 		i--
@@ -883,20 +859,20 @@ func (m *MsgSendIbcEncodedData) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 		dAtA[i] = 0x40
 	}
 	if len(m.EncodingProof) > 0 {
-		dAtA7 := make([]byte, len(m.EncodingProof)*10)
-		var j6 int
+		dAtA5 := make([]byte, len(m.EncodingProof)*10)
+		var j4 int
 		for _, num := range m.EncodingProof {
 			for num >= 1<<7 {
-				dAtA7[j6] = uint8(uint64(num)&0x7f | 0x80)
+				dAtA5[j4] = uint8(uint64(num)&0x7f | 0x80)
 				num >>= 7
-				j6++
+				j4++
 			}
-			dAtA7[j6] = uint8(num)
-			j6++
+			dAtA5[j4] = uint8(num)
+			j4++
 		}
-		i -= j6
-		copy(dAtA[i:], dAtA7[:j6])
-		i = encodeVarintTx(dAtA, i, uint64(j6))
+		i -= j4
+		copy(dAtA[i:], dAtA5[:j4])
+		i = encodeVarintTx(dAtA, i, uint64(j4))
 		i--
 		dAtA[i] = 0x3a
 	}
@@ -906,20 +882,9 @@ func (m *MsgSendIbcEncodedData) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 		dAtA[i] = 0x30
 	}
 	if len(m.Data) > 0 {
-		dAtA9 := make([]byte, len(m.Data)*10)
-		var j8 int
-		for _, num := range m.Data {
-			for num >= 1<<7 {
-				dAtA9[j8] = uint8(uint64(num)&0x7f | 0x80)
-				num >>= 7
-				j8++
-			}
-			dAtA9[j8] = uint8(num)
-			j8++
-		}
-		i -= j8
-		copy(dAtA[i:], dAtA9[:j8])
-		i = encodeVarintTx(dAtA, i, uint64(j8))
+		i -= len(m.Data)
+		copy(dAtA[i:], m.Data)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Data)))
 		i--
 		dAtA[i] = 0x2a
 	}
@@ -1020,12 +985,9 @@ func (m *MsgEncodeData) Size() (n int) {
 	if l > 0 {
 		n += 1 + l + sovTx(uint64(l))
 	}
-	if len(m.Data) > 0 {
-		l = 0
-		for _, e := range m.Data {
-			l += sovTx(uint64(e))
-		}
-		n += 1 + sovTx(uint64(l)) + l
+	l = len(m.Data)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
 	}
 	l = len(m.EncodingAlgorithm)
 	if l > 0 {
@@ -1041,16 +1003,6 @@ func (m *MsgEncodeData) Size() (n int) {
 	if m.Version != 0 {
 		n += 1 + sovTx(uint64(m.Version))
 	}
-	if len(m.EncodingProof) > 0 {
-		l = 0
-		for _, e := range m.EncodingProof {
-			l += sovTx(uint64(e))
-		}
-		n += 1 + sovTx(uint64(l)) + l
-	}
-	if m.BlockNumber != 0 {
-		n += 1 + sovTx(uint64(m.BlockNumber))
-	}
 	return n
 }
 
@@ -1062,6 +1014,13 @@ func (m *MsgEncodeDataResponse) Size() (n int) {
 	_ = l
 	if m.EncodedDataId != 0 {
 		n += 1 + sovTx(uint64(m.EncodedDataId))
+	}
+	if len(m.EncodingProof) > 0 {
+		l = 0
+		for _, e := range m.EncodingProof {
+			l += sovTx(uint64(e))
+		}
+		n += 1 + sovTx(uint64(l)) + l
 	}
 	return n
 }
@@ -1087,12 +1046,9 @@ func (m *MsgSendIbcEncodedData) Size() (n int) {
 	if m.TimeoutTimestamp != 0 {
 		n += 1 + sovTx(uint64(m.TimeoutTimestamp))
 	}
-	if len(m.Data) > 0 {
-		l = 0
-		for _, e := range m.Data {
-			l += sovTx(uint64(e))
-		}
-		n += 1 + sovTx(uint64(l)) + l
+	l = len(m.Data)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
 	}
 	if m.EncodedDataId != 0 {
 		n += 1 + sovTx(uint64(m.EncodedDataId))
@@ -1366,81 +1322,39 @@ func (m *MsgEncodeData) Unmarshal(dAtA []byte) error {
 			m.Creator = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
 		case 2:
-			if wireType == 0 {
-				var v uint64
-				for shift := uint(0); ; shift += 7 {
-					if shift >= 64 {
-						return ErrIntOverflowTx
-					}
-					if iNdEx >= l {
-						return io.ErrUnexpectedEOF
-					}
-					b := dAtA[iNdEx]
-					iNdEx++
-					v |= uint64(b&0x7F) << shift
-					if b < 0x80 {
-						break
-					}
-				}
-				m.Data = append(m.Data, v)
-			} else if wireType == 2 {
-				var packedLen int
-				for shift := uint(0); ; shift += 7 {
-					if shift >= 64 {
-						return ErrIntOverflowTx
-					}
-					if iNdEx >= l {
-						return io.ErrUnexpectedEOF
-					}
-					b := dAtA[iNdEx]
-					iNdEx++
-					packedLen |= int(b&0x7F) << shift
-					if b < 0x80 {
-						break
-					}
-				}
-				if packedLen < 0 {
-					return ErrInvalidLengthTx
-				}
-				postIndex := iNdEx + packedLen
-				if postIndex < 0 {
-					return ErrInvalidLengthTx
-				}
-				if postIndex > l {
-					return io.ErrUnexpectedEOF
-				}
-				var elementCount int
-				var count int
-				for _, integer := range dAtA[iNdEx:postIndex] {
-					if integer < 128 {
-						count++
-					}
-				}
-				elementCount = count
-				if elementCount != 0 && len(m.Data) == 0 {
-					m.Data = make([]uint64, 0, elementCount)
-				}
-				for iNdEx < postIndex {
-					var v uint64
-					for shift := uint(0); ; shift += 7 {
-						if shift >= 64 {
-							return ErrIntOverflowTx
-						}
-						if iNdEx >= l {
-							return io.ErrUnexpectedEOF
-						}
-						b := dAtA[iNdEx]
-						iNdEx++
-						v |= uint64(b&0x7F) << shift
-						if b < 0x80 {
-							break
-						}
-					}
-					m.Data = append(m.Data, v)
-				}
-			} else {
+			if wireType != 2 {
 				return fmt.Errorf("proto: wrong wireType = %d for field Data", wireType)
 			}
+			var byteLen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				byteLen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if byteLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + byteLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Data = append(m.Data[:0], dAtA[iNdEx:postIndex]...)
+			if m.Data == nil {
+				m.Data = []byte{}
+			}
+			iNdEx = postIndex
 		case 3:
 			if wireType != 2 {
 				return fmt.Errorf("proto: wrong wireType = %d for field EncodingAlgorithm", wireType)
@@ -1538,12 +1452,81 @@ func (m *MsgEncodeData) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				m.Version |= uint64(b&0x7F) << shift
+				m.Version |= uint32(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
 			}
-		case 7:
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgEncodeDataResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgEncodeDataResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgEncodeDataResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field EncodedDataId", wireType)
+			}
+			m.EncodedDataId = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.EncodedDataId |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 2:
 			if wireType == 0 {
 				var v uint64
 				for shift := uint(0); ; shift += 7 {
@@ -1618,94 +1601,6 @@ func (m *MsgEncodeData) Unmarshal(dAtA []byte) error {
 				}
 			} else {
 				return fmt.Errorf("proto: wrong wireType = %d for field EncodingProof", wireType)
-			}
-		case 8:
-			if wireType != 0 {
-				return fmt.Errorf("proto: wrong wireType = %d for field BlockNumber", wireType)
-			}
-			m.BlockNumber = 0
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTx
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				m.BlockNumber |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-		default:
-			iNdEx = preIndex
-			skippy, err := skipTx(dAtA[iNdEx:])
-			if err != nil {
-				return err
-			}
-			if (skippy < 0) || (iNdEx+skippy) < 0 {
-				return ErrInvalidLengthTx
-			}
-			if (iNdEx + skippy) > l {
-				return io.ErrUnexpectedEOF
-			}
-			iNdEx += skippy
-		}
-	}
-
-	if iNdEx > l {
-		return io.ErrUnexpectedEOF
-	}
-	return nil
-}
-func (m *MsgEncodeDataResponse) Unmarshal(dAtA []byte) error {
-	l := len(dAtA)
-	iNdEx := 0
-	for iNdEx < l {
-		preIndex := iNdEx
-		var wire uint64
-		for shift := uint(0); ; shift += 7 {
-			if shift >= 64 {
-				return ErrIntOverflowTx
-			}
-			if iNdEx >= l {
-				return io.ErrUnexpectedEOF
-			}
-			b := dAtA[iNdEx]
-			iNdEx++
-			wire |= uint64(b&0x7F) << shift
-			if b < 0x80 {
-				break
-			}
-		}
-		fieldNum := int32(wire >> 3)
-		wireType := int(wire & 0x7)
-		if wireType == 4 {
-			return fmt.Errorf("proto: MsgEncodeDataResponse: wiretype end group for non-group")
-		}
-		if fieldNum <= 0 {
-			return fmt.Errorf("proto: MsgEncodeDataResponse: illegal tag %d (wire type %d)", fieldNum, wire)
-		}
-		switch fieldNum {
-		case 1:
-			if wireType != 0 {
-				return fmt.Errorf("proto: wrong wireType = %d for field EncodedDataId", wireType)
-			}
-			m.EncodedDataId = 0
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTx
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				m.EncodedDataId |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
 			}
 		default:
 			iNdEx = preIndex
@@ -1873,81 +1768,39 @@ func (m *MsgSendIbcEncodedData) Unmarshal(dAtA []byte) error {
 				}
 			}
 		case 5:
-			if wireType == 0 {
-				var v uint64
-				for shift := uint(0); ; shift += 7 {
-					if shift >= 64 {
-						return ErrIntOverflowTx
-					}
-					if iNdEx >= l {
-						return io.ErrUnexpectedEOF
-					}
-					b := dAtA[iNdEx]
-					iNdEx++
-					v |= uint64(b&0x7F) << shift
-					if b < 0x80 {
-						break
-					}
-				}
-				m.Data = append(m.Data, v)
-			} else if wireType == 2 {
-				var packedLen int
-				for shift := uint(0); ; shift += 7 {
-					if shift >= 64 {
-						return ErrIntOverflowTx
-					}
-					if iNdEx >= l {
-						return io.ErrUnexpectedEOF
-					}
-					b := dAtA[iNdEx]
-					iNdEx++
-					packedLen |= int(b&0x7F) << shift
-					if b < 0x80 {
-						break
-					}
-				}
-				if packedLen < 0 {
-					return ErrInvalidLengthTx
-				}
-				postIndex := iNdEx + packedLen
-				if postIndex < 0 {
-					return ErrInvalidLengthTx
-				}
-				if postIndex > l {
-					return io.ErrUnexpectedEOF
-				}
-				var elementCount int
-				var count int
-				for _, integer := range dAtA[iNdEx:postIndex] {
-					if integer < 128 {
-						count++
-					}
-				}
-				elementCount = count
-				if elementCount != 0 && len(m.Data) == 0 {
-					m.Data = make([]uint64, 0, elementCount)
-				}
-				for iNdEx < postIndex {
-					var v uint64
-					for shift := uint(0); ; shift += 7 {
-						if shift >= 64 {
-							return ErrIntOverflowTx
-						}
-						if iNdEx >= l {
-							return io.ErrUnexpectedEOF
-						}
-						b := dAtA[iNdEx]
-						iNdEx++
-						v |= uint64(b&0x7F) << shift
-						if b < 0x80 {
-							break
-						}
-					}
-					m.Data = append(m.Data, v)
-				}
-			} else {
+			if wireType != 2 {
 				return fmt.Errorf("proto: wrong wireType = %d for field Data", wireType)
 			}
+			var byteLen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				byteLen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if byteLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + byteLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Data = append(m.Data[:0], dAtA[iNdEx:postIndex]...)
+			if m.Data == nil {
+				m.Data = []byte{}
+			}
+			iNdEx = postIndex
 		case 6:
 			if wireType != 0 {
 				return fmt.Errorf("proto: wrong wireType = %d for field EncodedDataId", wireType)
@@ -2159,7 +2012,7 @@ func (m *MsgSendIbcEncodedData) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				m.Version |= uint64(b&0x7F) << shift
+				m.Version |= uint32(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}

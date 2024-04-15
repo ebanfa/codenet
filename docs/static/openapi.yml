@@ -56,16 +56,14 @@ paths:
                 type: object
                 properties:
                   dataSegments:
-                    type: string
-                    format: uint64
+                    type: integer
+                    format: int64
                   paritySegments:
-                    type: string
-                    format: uint64
+                    type: integer
+                    format: int64
                   encodingProof:
-                    type: array
-                    items:
-                      type: string
-                      format: uint64
+                    type: string
+                    format: byte
                   timestamp:
                     type: string
                     format: uint64
@@ -82,8 +80,8 @@ paths:
                   checksum:
                     type: string
                   version:
-                    type: string
-                    format: uint64
+                    type: integer
+                    format: int64
               pagination:
                 type: object
                 properties:
@@ -208,16 +206,14 @@ paths:
                 type: object
                 properties:
                   dataSegments:
-                    type: string
-                    format: uint64
+                    type: integer
+                    format: int64
                   paritySegments:
-                    type: string
-                    format: uint64
+                    type: integer
+                    format: int64
                   encodingProof:
-                    type: array
-                    items:
-                      type: string
-                      format: uint64
+                    type: string
+                    format: byte
                   timestamp:
                     type: string
                     format: uint64
@@ -234,8 +230,8 @@ paths:
                   checksum:
                     type: string
                   version:
-                    type: string
-                    format: uint64
+                    type: integer
+                    format: int64
               pagination:
                 type: object
                 properties:
@@ -359,16 +355,14 @@ paths:
                 type: object
                 properties:
                   dataSegments:
-                    type: string
-                    format: uint64
+                    type: integer
+                    format: int64
                   paritySegments:
-                    type: string
-                    format: uint64
+                    type: integer
+                    format: int64
                   encodingProof:
-                    type: array
-                    items:
-                      type: string
-                      format: uint64
+                    type: string
+                    format: byte
                   timestamp:
                     type: string
                     format: uint64
@@ -385,8 +379,8 @@ paths:
                   checksum:
                     type: string
                   version:
-                    type: string
-                    format: uint64
+                    type: integer
+                    format: int64
               pagination:
                 type: object
                 properties:
@@ -510,16 +504,14 @@ paths:
                 type: object
                 properties:
                   dataSegments:
-                    type: string
-                    format: uint64
+                    type: integer
+                    format: int64
                   paritySegments:
-                    type: string
-                    format: uint64
+                    type: integer
+                    format: int64
                   encodingProof:
-                    type: array
-                    items:
-                      type: string
-                      format: uint64
+                    type: string
+                    format: byte
                   timestamp:
                     type: string
                     format: uint64
@@ -536,8 +528,8 @@ paths:
                   checksum:
                     type: string
                   version:
-                    type: string
-                    format: uint64
+                    type: integer
+                    format: int64
         default:
           description: An unexpected error response.
           schema:
@@ -578,16 +570,14 @@ paths:
                 type: object
                 properties:
                   dataSegments:
-                    type: string
-                    format: uint64
+                    type: integer
+                    format: int64
                   paritySegments:
-                    type: string
-                    format: uint64
+                    type: integer
+                    format: int64
                   encodingProof:
-                    type: array
-                    items:
-                      type: string
-                      format: uint64
+                    type: string
+                    format: byte
                   timestamp:
                     type: string
                     format: uint64
@@ -604,8 +594,8 @@ paths:
                   checksum:
                     type: string
                   version:
-                    type: string
-                    format: uint64
+                    type: integer
+                    format: int64
               pagination:
                 type: object
                 properties:
@@ -876,6 +866,11 @@ paths:
               encodedDataId:
                 type: string
                 format: uint64
+              encodingProof:
+                type: array
+                items:
+                  type: string
+                  format: uint64
         default:
           description: An unexpected error response.
           schema:
@@ -914,16 +909,8 @@ paths:
               checksum:
                 type: string
               version:
-                type: string
-                format: uint64
-              encodingProof:
-                type: array
-                items:
-                  type: string
-                  format: uint64
-              blockNumber:
-                type: string
-                format: uint64
+                type: integer
+                format: int64
       tags:
         - Msg
   /codenet.codenet.Msg/SendIbcEncodedData:
@@ -960,10 +947,8 @@ paths:
             type: object
             properties:
               data:
-                type: array
-                items:
-                  type: string
-                  format: uint64
+                type: string
+                format: byte
               encodedDataId:
                 type: string
                 format: uint64
@@ -983,8 +968,8 @@ paths:
               checksum:
                 type: string
               version:
-                type: string
-                format: uint64
+                type: integer
+                format: int64
               creator:
                 type: string
               port:
@@ -17604,16 +17589,14 @@ definitions:
     type: object
     properties:
       dataSegments:
-        type: string
-        format: uint64
+        type: integer
+        format: int64
       paritySegments:
-        type: string
-        format: uint64
+        type: integer
+        format: int64
       encodingProof:
-        type: array
-        items:
-          type: string
-          format: uint64
+        type: string
+        format: byte
       timestamp:
         type: string
         format: uint64
@@ -17630,8 +17613,8 @@ definitions:
       checksum:
         type: string
       version:
-        type: string
-        format: uint64
+        type: integer
+        format: int64
   codenet.codenet.Params:
     type: object
     description: Params defines the parameters for the module.
@@ -17647,16 +17630,14 @@ definitions:
         type: object
         properties:
           dataSegments:
-            type: string
-            format: uint64
+            type: integer
+            format: int64
           paritySegments:
-            type: string
-            format: uint64
+            type: integer
+            format: int64
           encodingProof:
-            type: array
-            items:
-              type: string
-              format: uint64
+            type: string
+            format: byte
           timestamp:
             type: string
             format: uint64
@@ -17673,8 +17654,8 @@ definitions:
           checksum:
             type: string
           version:
-            type: string
-            format: uint64
+            type: integer
+            format: int64
       pagination:
         type: object
         properties:
@@ -17708,16 +17689,14 @@ definitions:
         type: object
         properties:
           dataSegments:
-            type: string
-            format: uint64
+            type: integer
+            format: int64
           paritySegments:
-            type: string
-            format: uint64
+            type: integer
+            format: int64
           encodingProof:
-            type: array
-            items:
-              type: string
-              format: uint64
+            type: string
+            format: byte
           timestamp:
             type: string
             format: uint64
@@ -17734,8 +17713,8 @@ definitions:
           checksum:
             type: string
           version:
-            type: string
-            format: uint64
+            type: integer
+            format: int64
       pagination:
         type: object
         properties:
@@ -17769,16 +17748,14 @@ definitions:
         type: object
         properties:
           dataSegments:
-            type: string
-            format: uint64
+            type: integer
+            format: int64
           paritySegments:
-            type: string
-            format: uint64
+            type: integer
+            format: int64
           encodingProof:
-            type: array
-            items:
-              type: string
-              format: uint64
+            type: string
+            format: byte
           timestamp:
             type: string
             format: uint64
@@ -17795,8 +17772,8 @@ definitions:
           checksum:
             type: string
           version:
-            type: string
-            format: uint64
+            type: integer
+            format: int64
       pagination:
         type: object
         properties:
@@ -17830,16 +17807,14 @@ definitions:
         type: object
         properties:
           dataSegments:
-            type: string
-            format: uint64
+            type: integer
+            format: int64
           paritySegments:
-            type: string
-            format: uint64
+            type: integer
+            format: int64
           encodingProof:
-            type: array
-            items:
-              type: string
-              format: uint64
+            type: string
+            format: byte
           timestamp:
             type: string
             format: uint64
@@ -17856,8 +17831,8 @@ definitions:
           checksum:
             type: string
           version:
-            type: string
-            format: uint64
+            type: integer
+            format: int64
   codenet.codenet.QueryGetEncodedDataByTimestampResponse:
     type: object
     properties:
@@ -17865,16 +17840,14 @@ definitions:
         type: object
         properties:
           dataSegments:
-            type: string
-            format: uint64
+            type: integer
+            format: int64
           paritySegments:
-            type: string
-            format: uint64
+            type: integer
+            format: int64
           encodingProof:
-            type: array
-            items:
-              type: string
-              format: uint64
+            type: string
+            format: byte
           timestamp:
             type: string
             format: uint64
@@ -17891,8 +17864,8 @@ definitions:
           checksum:
             type: string
           version:
-            type: string
-            format: uint64
+            type: integer
+            format: int64
       pagination:
         type: object
         properties:
@@ -18038,6 +18011,12 @@ definitions:
       checksum:
         type: string
       version:
+        type: integer
+        format: int64
+  codenet.codenet.MsgEncodeDataResponse:
+    type: object
+    properties:
+      encodedDataId:
         type: string
         format: uint64
       encodingProof:
@@ -18045,23 +18024,12 @@ definitions:
         items:
           type: string
           format: uint64
-      blockNumber:
-        type: string
-        format: uint64
-  codenet.codenet.MsgEncodeDataResponse:
-    type: object
-    properties:
-      encodedDataId:
-        type: string
-        format: uint64
   codenet.codenet.MsgSendIbcEncodedData:
     type: object
     properties:
       data:
-        type: array
-        items:
-          type: string
-          format: uint64
+        type: string
+        format: byte
       encodedDataId:
         type: string
         format: uint64
@@ -18081,8 +18049,8 @@ definitions:
       checksum:
         type: string
       version:
-        type: string
-        format: uint64
+        type: integer
+        format: int64
       creator:
         type: string
       port:
